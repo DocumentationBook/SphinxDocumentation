@@ -1,0 +1,45 @@
+.. _rest_blocks:
+
+Text Blocks
+###########
+
+Blocks of text are identified by the following markups:
+
+*  Indentation is as important in reST as it is in Python.
+*  Directives specify the block types as explained in the following sections.
+
+
+Paragraph
+=========
+
+Paragraph is a left-aligned text block. Docutils convert them to <p> elements. For example, this paragraph looks as
+follows in HTML::
+
+   <p>
+      "Paragraph is a left-aligned text block. Docutils converts it to HTML <p> elements. For example, this paragraph
+      looks as follows in HTML:"
+   </p>
+
+
+Block quote
+===========
+
+Typically, block quotes contain quotations from other sources. To mark up a paragraph as a block quote move all its
+lines to the right, that is, make it indented, similar to this example::
+
+   Normal paragraph that is left-aligned. The following is a block quote:
+
+      Block quote is indented with 3-4 spaces.
+
+Docutils converts this construction to the following group of HTML elements::
+
+   <blockquote>
+      <div>
+         <p>Block quote is indented with 3-4 spaces.</p>
+      </div>
+   </blockquote>
+
+If you make several block quotes separated by blank lines, you will get the corresponding <div></div> pair for each.
+
+
+

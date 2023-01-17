@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Text Blocks &#8212; Sphinx Documentation 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Inline Markup" href="../inline/" />
+    <link rel="prev" title="Headers" href="../headers/" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="text-blocks">
+<span id="rest-blocks"></span><h1>Text Blocks<a class="headerlink" href="#text-blocks" title="Permalink to this heading">¶</a></h1>
+<p>Blocks of text are identified by the following markups:</p>
+<ul class="simple">
+<li><p>Indentation is as important in reST as it is in Python.</p></li>
+<li><p>Directives specify the block types as explained in the following sections.</p></li>
+</ul>
+<section id="paragraph">
+<h2>Paragraph<a class="headerlink" href="#paragraph" title="Permalink to this heading">¶</a></h2>
+<p>Paragraph is a left-aligned text block. Docutils convert them to &lt;p&gt; elements. For example, this paragraph looks as
+follows in HTML:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+   <span class="s2">&quot;Paragraph is a left-aligned text block. Docutils converts it to HTML &lt;p&gt; elements. For example, this paragraph</span>
+   <span class="n">looks</span> <span class="k">as</span> <span class="n">follows</span> <span class="ow">in</span> <span class="n">HTML</span><span class="p">:</span><span class="s2">&quot;</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="block-quote">
+<h2>Block quote<a class="headerlink" href="#block-quote" title="Permalink to this heading">¶</a></h2>
+<p>Typically, block quotes contain quotations from other sources. To mark up a paragraph as a block quote move all its
+lines to the right, that is, make it indented, similar to this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normal</span> <span class="n">paragraph</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">left</span><span class="o">-</span><span class="n">aligned</span><span class="o">.</span> <span class="n">The</span> <span class="n">following</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">block</span> <span class="n">quote</span><span class="p">:</span>
+
+   <span class="n">Block</span> <span class="n">quote</span> <span class="ow">is</span> <span class="n">indented</span> <span class="k">with</span> <span class="mi">3</span><span class="o">-</span><span class="mi">4</span> <span class="n">spaces</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Normal text:</p>
+<blockquote>
+<div><p>Block quote</p>
+</div></blockquote>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../">Sphinx Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../setup/">Sphinx setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">reST Syntax</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../headers/">Headers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Text Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inline/">Inline Markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../links/">Hyperlinks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tables/">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../images/">Images</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../">Documentation overview</a><ul>
+  <li><a href="../">reST Syntax</a><ul>
+      <li>Previous: <a href="../headers/" title="previous chapter">Headers</a></li>
+      <li>Next: <a href="../inline/" title="next chapter">Inline Markup</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Albert Bagdasarian.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/rest/blocks.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
