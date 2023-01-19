@@ -5,8 +5,9 @@ Sphinx setup
 
 Sphinx is a Python package, so that you can install it like any other Packages packages.
 
-Sphinx package installation
-===========================
+
+Installation
+============
 
 Depending on your development environment Sphinx can be preinstalled or you can install it within the environment.
 Let us consider some widely used environments:
@@ -28,8 +29,8 @@ Let us consider some widely used environments:
       $ pip install -y sphinx
 
 
-Initial configuration
-=====================
+Quick configuration
+===================
 
 The Sphinx package contains a special utility called ``sphinx-build`` that walks you through several Sphinx configuration
 steps as follows:
@@ -42,8 +43,7 @@ steps as follows:
    provides you with a choice of an option for the two:
 
    *  Make the current folder the root of the source reST documentation tree and build the final documents
-      (usually HTML documentation tree) in the ``./_build/``
-      subfolder.
+      (usually HTML documentation tree) in the ``./_build/`` subfolder.
    *  Make two subfolders, one ``./source/`` for the source reST documentation tree and the other ``build`` for the
       final documentation tree.
 
@@ -102,8 +102,9 @@ steps as follows:
       projects. You can use this utility to make Sphinx build your documentation project.
    *  ``make.bat`` is used in Windows OS instead of the ``make`` utility.
    *  ``_build/`` is a subfolder where Sphinx will created the built project files.
-   *  ``_static/`` is a subfolder for creating static files for HTML, CSS, and JavaScript. Sphinx will copy all those
-      files to the ``_static`` subfolder in the built project.
+   *  ``_static/`` is a subfolder with custom files for HTML, CSS, and JavaScript. Sphinx will copy all those
+      files to the ``_static/`` subfolder in the built project, thus overriding files with the same name created
+      by default.
    *  ``_templates/`` contains custom templates. You can place your own templates here that will override
       Jinja2 templates shipped with Sphinx or with Sphinx extensions that you can install. Jinja2 templates are used
       to build HTML files.
@@ -115,3 +116,29 @@ steps as follows:
          make builder
       where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
 
+
+Verification
+============
+
+After the minimal required components are created, verify if you can build the HTML documents by using one of the
+following commands using ``html`` or ``dirhtml`` Sphinx builders
+(run them from your project root folder where the ``Makefile`` exists)::
+
+   $ make html
+
+or preferably::
+
+   $ make dirhtml
+
+There is the following difference between these two builders:
+
+*  When you use the ``html`` builder, Sphinx compiles an HTML file called, for example, ``name.html`` from a reST file
+   called ``name.rst``. So, in a browser, your users will open this file by its name, that is  ``name.html``.
+*  The ``dirhtml`` builder creates a folder for each reST file named after the file name and creates the file copy
+   called ``index.html`` in that folder. For example, if the source file name is ``name.rst``, you will get
+   ``name/index.html`` folder and file. Your users can open this HTML file in their browser by the folder name, that is
+   ``name/``.
+
+For more Sphinx builders, see `Builders <https://www.sphinx-doc.org/en/master/usage/builders/index.html>`_
+
+If the verification is successful, you are ready to continue studying the course.

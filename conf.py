@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Sphinx Documentation'
+project = 'Using Sphinx-doc'
 copyright = '2023, Albert Bagdasarian'
 author = 'Albert Bagdasarian'
 

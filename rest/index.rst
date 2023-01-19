@@ -6,6 +6,7 @@ reST Syntax
 .. toctree::
    :hidden:
 
+   general
    headers
    blocks
    inline
@@ -13,7 +14,7 @@ reST Syntax
    tables
    images
 
-Here you will find shot description of various reST markup elements. They are divided in the following groups:
+Here you will find short description of various reST markup elements. They are divided in the following groups:
 
 *  Headers
 *  Text blocks
@@ -22,4 +23,5 @@ Here you will find shot description of various reST markup elements. They are di
 *  Tables
 *  Images
 
+Before getting into details, get familiar with the general rules.
 

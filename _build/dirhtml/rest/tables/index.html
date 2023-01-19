@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Tables &#8212; Sphinx Documentation 0.1 documentation</title>
+    <title>Tables &#8212; Using Sphinx-doc 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
     <link rel="next" title="Images" href="../images/" />
-    <link rel="prev" title="Inline Markup" href="../inline/" />
+    <link rel="prev" title="Hyperlinks" href="../links/" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -36,6 +36,78 @@
             
   <section id="tables">
 <span id="rest-tables"></span><h1>Tables<a class="headerlink" href="#tables" title="Permalink to this heading">¶</a></h1>
+<section id="different-approaches">
+<h2>Different approaches<a class="headerlink" href="#different-approaches" title="Permalink to this heading">¶</a></h2>
+<p>You can use different ways of creating tables:</p>
+<ul class="simple">
+<li><p>Using grid tables. With this way you use various primitive markup elements
+(<code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>) to draw any simple or complex table.</p></li>
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">list-table</span></code> directive. It enables you to create simple tables without spanning
+rows or columns.</p></li>
+<li><p>Using a third party extension that provides a directive similar to <code class="docutils literal notranslate"><span class="pre">list-table</span></code> and enables you to make rows and
+columns spanned.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<p>Simple grid table:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--------------+----------+-----------+-----------+</span>
+<span class="o">|</span> <span class="n">row</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">column</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">column</span> <span class="mi">3</span>  <span class="o">|</span> <span class="n">column</span> <span class="mi">4</span>  <span class="o">|</span>
+<span class="o">+--------------+----------+-----------+-----------+</span>
+<span class="o">|</span> <span class="n">row</span> <span class="mi">2</span>        <span class="o">|</span>                                  <span class="o">|</span>
+<span class="o">+--------------+----------+-----------+-----------+</span>
+<span class="o">|</span> <span class="n">row</span> <span class="mi">3</span>        <span class="o">|</span>          <span class="o">|</span>           <span class="o">|</span>           <span class="o">|</span>
+<span class="o">+--------------+----------+-----------+-----------+</span>
+</pre></div>
+</div>
+<p>Even a simpler example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=====</span>  <span class="o">=====</span>  <span class="o">=======</span>
+<span class="n">A</span>      <span class="n">B</span>      <span class="n">A</span> <span class="ow">and</span> <span class="n">B</span>
+<span class="o">=====</span>  <span class="o">=====</span>  <span class="o">=======</span>
+<span class="kc">False</span>  <span class="kc">False</span>  <span class="kc">False</span>
+<span class="kc">True</span>   <span class="kc">False</span>  <span class="kc">False</span>
+<span class="kc">False</span>  <span class="kc">True</span>   <span class="kc">False</span>
+<span class="kc">True</span>   <span class="kc">True</span>   <span class="kc">True</span>
+<span class="o">=====</span>  <span class="o">=====</span>  <span class="o">=======</span>
+</pre></div>
+</div>
+<p>Complex grid table:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+------------------------+------------+----------+----------+</span>
+<span class="o">|</span> <span class="n">Properties</span>             <span class="o">|</span> <span class="n">Attrib</span> <span class="mi">1</span>   <span class="o">|</span> <span class="n">Attrib</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Attrib</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span> <span class="p">(</span><span class="n">header</span> <span class="n">rows</span><span class="p">)</span>          <span class="o">|</span>            <span class="o">|</span>          <span class="o">|</span>          <span class="o">|</span>
+<span class="o">+========================+============+==========+==========+</span>
+<span class="o">|</span> <span class="n">Property</span> <span class="mi">1</span>             <span class="o">|</span> <span class="n">Value</span> <span class="mi">11</span>   <span class="o">|</span> <span class="n">Value</span> <span class="mi">13</span> <span class="o">|</span> <span class="n">Value</span> <span class="mi">14</span> <span class="o">|</span>
+<span class="o">+------------------------+------------+----------+----------+</span>
+<span class="o">|</span> <span class="n">Property</span> <span class="mi">2</span>             <span class="o">|</span> <span class="n">Description</span> <span class="p">(</span><span class="n">spanned</span> <span class="n">columns</span><span class="p">)</span>    <span class="o">|</span>
+<span class="o">+------------------------+------------+---------------------+</span>
+<span class="o">|</span> <span class="n">Property</span> <span class="mi">3</span>             <span class="o">|</span> <span class="n">Value</span> <span class="mi">341</span>  <span class="o">|</span> <span class="o">-</span> <span class="n">Item</span> <span class="mi">1</span>            <span class="o">|</span>
+<span class="o">+------------------------+</span> <span class="p">(</span><span class="n">span</span> <span class="n">rows</span><span class="p">)</span><span class="o">|</span> <span class="o">-</span> <span class="n">Item</span> <span class="mi">1</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="n">Property</span> <span class="mi">4</span>             <span class="o">|</span>            <span class="o">|</span> <span class="o">-</span> <span class="n">Item</span> <span class="mi">1</span>            <span class="o">|</span>
+<span class="o">+------------------------+------------+---------------------+</span>
+</pre></div>
+</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">list-table</span></code> directive, you can define the simple table presented earlier as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nb">list</span><span class="o">-</span><span class="n">table</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">widths</span><span class="p">:</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span>
+   <span class="p">:</span><span class="n">header</span><span class="o">-</span><span class="n">rows</span><span class="p">:</span> <span class="mi">1</span>
+
+   <span class="o">*</span>  <span class="o">-</span>  <span class="n">row</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span> <span class="mi">1</span>
+      <span class="o">-</span>  <span class="n">column</span> <span class="mi">2</span>
+      <span class="o">-</span>  <span class="n">column</span> <span class="mi">3</span>
+      <span class="o">-</span>  <span class="n">column</span> <span class="mi">4</span>
+   <span class="o">*</span>  <span class="o">-</span>  <span class="n">row</span> <span class="mi">2</span>
+      <span class="o">-</span>
+      <span class="o">-</span>
+      <span class="o">-</span>
+   <span class="o">*</span>  <span class="o">-</span>  <span class="n">row</span> <span class="mi">3</span>
+      <span class="o">-</span>
+      <span class="o">-</span>
+      <span class="o">-</span>
+</pre></div>
+</div>
+<p>For more information about the <code class="docutils literal notranslate"><span class="pre">list-table</span></code> directive, see
+<a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table">Docutils documentation</a>.</p>
+</section>
 </section>
 
 
@@ -45,7 +117,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../">Sphinx Documentation</a></h1>
+<h1 class="logo"><a href="../../">Using Sphinx-doc</a></h1>
 
 
 
@@ -59,13 +131,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../setup/">Sphinx setup</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">reST Syntax</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../general/">General Rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../headers/">Headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blocks/">Text Blocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inline/">Inline Markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../links/">Hyperlinks</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Tables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../images/">Images</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a></li>
 </ul>
 
 <div class="relations">
@@ -73,7 +148,7 @@
 <ul>
   <li><a href="../../">Documentation overview</a><ul>
   <li><a href="../">reST Syntax</a><ul>
-      <li>Previous: <a href="../inline/" title="previous chapter">Inline Markup</a></li>
+      <li>Previous: <a href="../links/" title="previous chapter">Hyperlinks</a></li>
       <li>Next: <a href="../images/" title="next chapter">Images</a></li>
   </ul></li>
   </ul></li>

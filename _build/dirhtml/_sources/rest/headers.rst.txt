@@ -33,7 +33,8 @@ the headers in this documentation are marked up as follows (although you won't f
    Sixth-Level Title
    '''''''''''''''''
 
-You can extend the numbers even more by using a pair of overline and underline elements, for example, as proposed in
+You can extend the numbers even more by using a pair of overline and underline elements (also known in Docutils
+as document titles versus section titles marked with only underline elements), for example, as proposed in
 `PEP 12 <https://peps.python.org/pep-0012/#section-headings>`_::
 
    ============================
