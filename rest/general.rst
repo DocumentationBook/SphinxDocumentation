@@ -31,12 +31,12 @@ Directives
 A `directive` is a reST element that marks up a block of text. Generally,
 a marked up block looks as follows::
 
-   .. <directive type>:: <directive (optional)>
+   .. <directive type>:: <argument (optional)>
       <option 1>
       <option 2>
       <...>
 
-      <Directive block>
+      <Content>
 
 The construction ".. <directive type>:: " including two spaces in it is called a `directive marker`.
 

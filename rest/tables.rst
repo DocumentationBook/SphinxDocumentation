@@ -56,7 +56,7 @@ Complex grid table::
 
 Using the ``list-table`` directive, you can define the simple table presented earlier as follows::
 
-   .. list-table::
+   .. list-table:: A list table
       :widths: 3 2 2 2
       :header-rows: 1
 
@@ -73,5 +73,27 @@ Using the ``list-table`` directive, you can define the simple table presented ea
          -
          -
 
-For more information about the ``list-table`` directive, see
-`Docutils documentation <https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table>`_.
+Using the ``csv-table`` directive, the table contents is a list of comma-separated lists as in this example::
+
+   .. csv-table:: A CSV-table
+      :header: "Properties", "Attribute 1", "Attribute 2", "Description"
+      :widths: 3, 3, 3, 5
+
+      "Property 1", 1.11, 1.22, "Property 1 description"
+      "Property 2", 2.11, 2.22, "Property 2 description"
+      "Property 3", 3,11, 3,22, "Property 3 description"
+
+For more information about the table directives, see:
+
+*  `List-table <https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table>`_
+*  `CSV-table <https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`_
+
+.. commented:
+
+   .. csv-table:: A CSV-table
+   :header: "Properties", "Attribute 1", "Attribute 2", "Description"
+   :widths: 3, 3, 3, 5
+
+   "Property 1", 1.11, 1.22, "Property 1 description"
+   "Property 2", 2.11, 2.22, "Property 2 description"
+   "Property 3", 3.11, 3.22, "Property 3 description"

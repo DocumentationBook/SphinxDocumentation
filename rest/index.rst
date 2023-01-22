@@ -1,12 +1,13 @@
 .. _rest:
 
-reST Syntax
+reST Basics
 ###########
 
 .. toctree::
    :hidden:
 
    general
+   doctree
    headers
    blocks
    inline
