@@ -1,9 +1,4 @@
-.. Sphinx Documentation documentation master file, created by
-   sphinx-quickstart on Tue Jan 17 10:23:07 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Using Sphinx-doc
+Using Sphinx doc
 ################
 
 .. toctree::
@@ -20,7 +15,7 @@ Using Sphinx-doc
    :caption: Contents:
 
 
-There are two software products branded as Sphinx. This book is about the well-known documentation tool,
+There are two software products branded as Sphinx. This book is about the well-known documentation tool
 also called Sphinx-doc to distinguish it.
 
 
@@ -41,10 +36,16 @@ environment, please make the proper changes.
 Additional resources
 ====================
 
-This book doesn't contain all aspects about reST and Sphinx. That is why you are welcome to get more information on
-the subject from the following resources:
+This book doesn't cover all aspects about reST, Docutils, and Sphinx. That is why you are welcome to get more information on
+the subject from various internet resources, for example:
 
-*  `Генератор документации Sphinx <https://sphinx-ru.readthedocs.io/ru/latest/>`_ (Russian)
+*  `reStructuredText Markup Specification <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_
+*  `Sphinx <https://www.sphinx-doc.org/en/master/index.html>`_
+*  `Using the technical documentation generator <https://chiplicity.readthedocs.io/en/latest/Using_Sphinx/index.html>`_
+
+.. commented:
+
+   *  `Генератор документации Sphinx <https://sphinx-ru.readthedocs.io/ru/latest/>`_ (Russian)
 
 Indices and tables
 ==================

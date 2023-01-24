@@ -1,0 +1,95 @@
+@startuml
+docutils.nodes.Node <|-- docutils.nodes.Element
+docutils.nodes.Node <|-- docutils.nodes.Text
+docutils.nodes.Element <|-- docutils.nodes.TextElement
+abstract docutils.nodes.Node {
+   parent = None
+   """Back-reference to the Node immediately containing this Node."""
+   source = None
+   """Path or description of the input source which generated this Node."""
+   line = None
+   """The line number (1-based) of the beginning of this Node in `source`."""
+   _document = None
+   ==
+   Node @property document()
+   @document.setter document(value)
+
+   xml.dom.minidom.Node asdom(dom=None)
+   """Return a DOM **fragment** representation of this Node."""
+
+   Node astext()
+   """Return a string representation of this Node."""
+
+   void setup_child(child)
+   """Initialize a child."""
+
+   boolean walk(visitor)
+   """Traverse a tree of `Node` objects, calling the
+   `dispatch_visit()` method of `visitor` when entering each node."""
+
+   boolean walkabout(visitor):
+   """
+   Perform a tree traversal similarly to `Node.walk()` (which
+   see), except also call the `dispatch_departure()` method
+   before exiting each node.
+   Parameter `visitor`: A `NodeVisitor` object, containing a
+   ``visit`` and ``depart`` implementation for each `Node`
+   subclass encountered.
+   Return true if we should stop the traversal.
+   """
+
+   list[Node] traverse(condition=None, include_self=True, descend=True,
+                 siblings=False, ascend=False)
+   """Return the list of nodes following `self`."""
+
+   iterator findall(condition=None, include_self=True, descend=True,
+                siblings=False, ascend=False):
+   """Return an iterator yielding nodes following `self`."""
+
+   Node next_node(condition=None, include_self=False, descend=True,
+                  siblings=False, ascend=False):
+   """Return the first node in the iterator returned by findall()."""
+
+   previous_sibling():
+   """Return the preceding sibling node."""
+}
+
+abstract docutils.nodes.Element {
+   Elements contain attributes and child nodes.
+   They can be described as a cross between a list and a dictionary.
+   --
+   basic_attributes = ('ids', 'classes', 'names', 'dupnames')
+   """Tuple of attributes which are defined for every Element-derived class
+   instance and can be safely transferred to a different node."""
+
+   local_attributes = ('backrefs',)
+   """Tuple of class-specific attributes that should not be copied with the
+   standard attributes when replacing a node.
+
+   list_attributes = basic_attributes + local_attributes
+   """Tuple of attributes that are automatically initialized to empty lists
+   for all nodes."""
+
+   known_attributes = list_attributes + ('source',)
+   """Tuple of attributes that are known to the Element base class."""
+
+   tagname = None
+   """The element generic identifier. If None, it is set as an instance
+   attribute to the name of the class."""
+
+   child_text_separator = '\n\n'
+   """Separator for child nodes, used by `astext()` method."""
+
+
+}
+
+class docutils.nodes.Text {
+   Instances are terminal nodes (leaves) containing text only
+   --
+   str astext()
+}
+
+class docutils.nodes.Element {
+
+}
+@enduml

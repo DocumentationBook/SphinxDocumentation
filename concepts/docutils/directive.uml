@@ -1,0 +1,50 @@
+@startuml
+docutils.parsers.rst.Directive <|-- docutils.parsers.rst.directives.admonitions.BaseAdmonition
+docutils.parsers.rst.Directive <|-- docutils.parsers.rst.directives.parts.Contents
+abstract docutils.parsers.rst.Directive {
+   required_arguments = 0
+   optional_arguments = 0
+   final_argument_whitespace = False
+   option_spec = None
+   """Mapping of option names to validator functions."""
+
+   has_content = False
+   ==
+   __init__(name, arguments, options, content, lineno,
+              content_offset, block_text, state, state_machine)
+   --
+   "Not implemented" run()
+   DirectiveError directive_error(level, message)
+   DirectiveError debug(message)
+   DirectiveError info(message)
+   DirectiveError warning(message)
+   DirectiveError error(message)
+   DirectiveError severe(message)
+   DirectiveError assert_has_content()
+   void add_name(node)
+}
+abstract docutils.parsers.rst.directives.admonitions.BaseAdmonition {
+   final_argument_whitespace = True
+   option_spec = {'class': directives.class_option,
+                'name': directives.unchanged}
+   has_content = True
+   node_class = None
+   """Subclasses must set this to the appropriate admonition node class."""
+   ==
+   [docutils.nodes.Node] run()
+}
+
+class docutils.parsers.rst.directives.parts.Contents {
+   Table of contents.
+   --
+   backlinks_values = ('top', 'entry', 'none')
+   optional_arguments = 1
+   final_argument_whitespace = True
+   option_spec = {'depth': directives.nonnegative_int,
+                   'local': directives.flag,
+                   'backlinks': backlinks,
+                   'class': directives.class_option}
+   ==
+   list[str] run()
+}
+@enduml

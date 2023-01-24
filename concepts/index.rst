@@ -4,5 +4,6 @@ Concepts
 ########
 
 .. toctree::
-   :hidden:
+   :maxdepth: 3
 
+   docutils/index

@@ -1,0 +1,27 @@
+@startuml
+
+class Publisher {
+   ==
+   void __init__(reader=None, parser=None, writer=None,
+                 source=None, source_class=io.FileInput,
+                 destination=None, destination_class=io.FileOutput,
+                 settings=None)
+   --
+   void set_reader(reader_name, parser, parser_name)
+   void set_writer(writer_name)
+   void set_components(reader_name, parser_name, writer_name)
+   OptionParser setup_option_parser(usage=None, description=None,
+   Values settings_spec=None, config_section=None, **defaults)
+   void process_programmatic_settings(settings_spec, settings_overrides, config_section)
+   void process_command_line(argv=None, usage=None, description=None,
+                             settings_spec=None, config_section=None, **defaults)
+   void set_io(source_path=None, destination_path=None)
+   void set_source(source=None, source_path=None)
+   void set_destination(destination=None, destination_path=None)
+   void apply_transforms()
+   str publish(self, argv=None, usage=None, description=None,
+                settings_spec=None, settings_overrides=None,
+                config_section=None, enable_exit_status=False)
+}
+
+@enduml

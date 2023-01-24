@@ -3,8 +3,9 @@
 PlantUML
 ########
 
-`PlantUML <https://plantuml.com/>`_ is tool widely used by software analytics, engineers, developers, and others
-to create various types of graphic diagrams.
+`PlantUML <https://plantuml.com/>`_ is a tool widely used by software analysts, engineers, developers, and others
+to create various types of graphic diagrams: :term:`UML` (Sequence, Usecase, Class, Object, Activity, and other)
+and non-UML.
 
 
 Setup
@@ -29,10 +30,14 @@ Use the following steps to set it up:
 #. Add this extension to the ``conf.py`` file::
 
       extensions = [
-          'sphinxcontrib.plantuml',
+         'sphinx.ext.graphviz',
+         'sphinxcontrib.plantuml',
       ]
 
-#. Try this updated by add the following simplest test directory to a reST file::
+   .. note:: If you don't use Graphviz directly in your files, you can remove the corresponding line from the list
+      of extensions.
+
+#. Try the updated environment by adding the following simplest test directive to a reST file::
 
       .. uml::
 
@@ -55,8 +60,14 @@ Use the following steps to set it up:
          Hello!
       end note
 
+   PlantUML generates a new PNG file that Sphinx stores in the ``build/dirhtml/_images/`` folder
+   with a randomly generated name similar to ``plantuml-a0f5e2ce818b07c47f92d6d1c1e2c04993fe35b9.png``.
+
 
 Diagrams
 ========
 
+There are the following types of diagrams that were used in this documentation:
+
+*  `Classes <https://plantuml.com/class-diagram>`_
 

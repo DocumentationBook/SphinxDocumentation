@@ -1,0 +1,56 @@
+
+@startuml
+SettingsSpec <|-- Component: extends
+TransformSpec <|-- Component: extends
+Component <|-- docutils.parsers.Parser: extends
+docutils.parsers.Parser <|-- docutils.parsers.rst.Parser: extends
+abstract SettingsSpec {
+   settings_spec: tuple()
+   settings_defaults: None
+   settings_default_overrides: None
+   relative_path_settings: tuple()
+   config_section: None
+   config_section_dependencies: None
+}
+
+abstract TransformSpec {
+   default_transforms: tuple()
+   unknown_reference_resolvers: tuple()
+
+
+
+   ==
+   list get_transforms()
+}
+
+class Component {
+   component_type: None
+   supported: tuple()
+   ==
+   boolean supports(format)
+}
+
+abstract docutils.parsers.Parser {
+   settings_spec = tuple(<predefined values>)
+   component_type = 'parser'
+   config_section = 'parsers'
+   ==
+   abstract parse(inputstring, document)
+   void setup_parse(inputstring, document)
+   void finish_parse()
+}
+
+class docutils.parsers.rst.Parser {
+   supported = ('restructuredtext', 'rst', 'rest', 'restx', 'rtxt', 'rstx')
+   settings_spec = docutils.parsers.Parser.settings_spec + (<reST Parser options>)
+   config_section = 'restructuredtext parser'
+   config_section_dependencies = ('parsers',)
+   ==
+   __init__(rfc2822=False, inliner=None)
+   --
+   docutils.transforms.universal.SmartQuotes get_transforms()
+   void parse(inputstring, document)
+
+}
+
+@enduml
