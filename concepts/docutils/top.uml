@@ -16,14 +16,11 @@ abstract SettingsSpec {
 abstract TransformSpec {
    default_transforms: tuple()
    unknown_reference_resolvers: tuple()
-
-
-
    ==
    list get_transforms()
 }
 
-class Component {
+abstract Component {
    component_type: None
    supported: tuple()
    ==
@@ -50,7 +47,6 @@ class docutils.parsers.rst.Parser {
    --
    docutils.transforms.universal.SmartQuotes get_transforms()
    void parse(inputstring, document)
-
 }
 
 @enduml

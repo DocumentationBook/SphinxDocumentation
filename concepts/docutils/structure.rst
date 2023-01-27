@@ -3,4 +3,3 @@
 Structure
 #########
 
-.. uml:: struct.uml

@@ -1,0 +1,135 @@
+@startuml
+'sphinx.application.Sphinx
+sphinx.builders.Builder <|-- sphinx.builders.html.StandaloneHTMLBuilder
+sphinx.builders.html.StandaloneHTMLBuilder <|-- sphinx.builders.dirhtml.DirectoryHTMLBuilder
+
+abstract sphinx.builders.Builder {
+   str name = ''
+   str format = ''
+   str epilog = ''
+   default_translator_class: Type[nodes.NodeVisitor] = None
+   versioning_method = 'none'
+   versioning_compare = False
+   allow_parallel = False
+   use_message_catalog = True
+   ==
+   __init__(app: "Sphinx")
+   None set_environment(self, env: BuildEnvironment)
+   Type[nodes.NodeVisitor] get_translator_class(*args: Any)
+   nodes.NodeVisitor create_translator(*args: Any)
+   None create_template_bridge()
+   str get_relative_uri(from_: str, to: str, typ: str = None)
+   None post_process_images(doctree: Node)
+   None compile_catalogs(catalogs: Set[CatalogInfo], message: str)
+   None compile_all_catalogs()
+   None compile_specific_catalogs()
+   None compile_update_catalogs()
+   None build_all()
+   None build_specific(filenames: List[str])
+   None build_update()
+   None build(docnames: Iterable[str], summary: str = None, method: str = 'update')
+   List[str] read()
+   None read_doc(docname: str)
+   None write_doctree(docname: str, doctree: nodes.document)
+   Any get_builder_config(option: str, default: str)
+}
+
+note right of sphinx.builders.Builder::read_doc
+   Parse a file and add/update inventory entries for the doctree.
+end note
+
+note right of sphinx.builders.Builder::write_doctree
+   Write the doctree to a file.
+end note
+
+class sphinx.builders.html.StandaloneHTMLBuilder {
+   str name = 'html'
+   str format = 'html'
+   str searchindex_filename = 'searchindex.js'
+
+   ==
+   None __init__(app: Sphinx)
+   None init()
+   None prepare_writing(docnames: Set[str])
+   sphinx.builders.html.BuildInfo create_build_info()
+   Tuple[str, Dict] get_theme_config()
+   None init_templates()
+   None init_highlighter()
+   None init_css_files()
+   None add_css_file(filename: str, **kwargs: Any)
+   None init_js_files()
+   None add_js_file(self, filename: str, **kwargs: Any)
+   @property sphinx.writers.html5.HTML5Translator default_translator_class()
+   @property str math_renderer_name()
+   Iterator[str] get_outdated_docs()
+   List[str] get_asset_paths()
+   Dict[str, Any] get_doc_context( docname: str, body: str, metatags: str)
+   None write_doc(docname: str, doctree: nodes.document)
+   None write_doc_serialized(self, docname: str, doctree: nodes.document)
+   None finish()
+   @progress_message(__('generating indices')) None gen_indices()
+   None gen_pages_from_extensions()
+   @progress_message(__('writing additional pages')) None gen_additional_pages()
+   None write_genindex()
+   None write_domain_indices()
+   None copy_image_files()
+   None copy_download_files()
+   None create_pygments_style_file()
+   None copy_translation_js()
+   None copy_stemmer_js()
+   None copy_theme_static_files()
+   None copy_html_static_files()
+   None copy_html_logo()
+   None copy_html_favicon()
+   None copy_static_files()
+   None copy_extra_files()
+   None write_buildinfo()
+   None cleanup()
+   None post_process_images(doctree: Node)
+   None load_indexer(docnames: Iterable[str])
+   None index_page(pagename: str, doctree: nodes.document, title: str)
+   str get_outfilename(pagename: str)
+   None add_sidebars(pagename: str, ctx: Dict)
+   str get_target_uri(docname: str, typ: str = None)
+   None handle_page(pagename: str, addctx: Dict, templatename: str = 'page.html',
+                    outfilename: str = None, event_arg: Any = None)
+   None update_page_context(pagename: str, templatename: str,
+                            ctx: Dict, event_arg: Any): pass
+   None handle_finish()
+   @progress_message(__('dumping object inventory')) None dump_inventory()
+   None dump_search_index()
+}
+note right of sphinx.builders.html.StandaloneHTMLBuilder::prepare_writing
+   A place where you can add logic before write_doc is run.
+end note
+
+note right of sphinx.builders.html.StandaloneHTMLBuilder::__init__
+   self.pub = Publisher(
+      reader=docutils.readers.doctree.Reader(parser_name='restructuredtext'),
+      parser=reader.parser,
+      writer=HTMLWriter(self),
+      source_class=DocTreeInput,
+      destination=StringOutput(encoding='unicode'),
+      settings = op.get_default_values(),)
+end note
+
+'note right of sphinx.builders.html.StandaloneHTMLBuilder::init
+'   Load necessary templates and perform initialization.
+'end note
+
+note right of sphinx.builders.html.StandaloneHTMLBuilder::get_doc_context
+   Collect items for the template context of a page.
+end note
+
+note right of sphinx.builders.html.StandaloneHTMLBuilder::get_asset_paths
+   Paths to templates, CSS, and other.
+end note
+
+class sphinx.builders.dirhtml.DirectoryHTMLBuilder {
+   str name = 'dirhtml'
+   ==
+   str get_target_uri(docname: str, typ: str = None)
+   str get_outfilename(pagename: str)
+}
+
+@enduml

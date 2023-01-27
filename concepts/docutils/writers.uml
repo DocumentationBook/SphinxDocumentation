@@ -1,0 +1,58 @@
+@startuml
+docutils.Component <|-- docutils.writers.Writer
+docutils.writers.Writer <|-- docutils.writers._html_base.Writer
+abstract docutils.writers.Writer {
+   component_type = 'writer'
+   config_section = 'writers'
+   document = None
+   output = None
+   language = None
+   destination = None
+   parts = {}
+   ==
+   [Messages, FilterMessages,StripClassesAndElements] get_transforms()
+   self.output write(self, document, destination)
+   abstract translate()
+   self.parts assemble_parts()
+}
+note left of docutils.writers.Writer::document
+   Docutils doctree.
+end note
+note left of docutils.writers.Writer::output
+   Final translated form of `document`.
+   Unicode string for text, binary string otherwise.
+   Set by `translate`.
+end note
+note left of docutils.writers.Writer::language
+   Language module for the document.
+   Set by `write`.
+end note
+note left of docutils.writers.Writer::destination
+   `docutils.io`.
+   Where to write the document.
+   Set by `write`.
+end note
+note left of docutils.writers.Writer::parts
+   Mapping of document part names to fragments of `self.output`.
+   The 'whole' key should contain the entire document output.
+end note
+note left of docutils.writers.Writer::translate
+   Do final translation of `self.document` into `self.output`.
+end note
+
+abstract docutils.writers._html_base.Writer {
+   tuple[str] supported = ('html', 'xhtml')
+   tuple settings_spec = (<long list of settings>)
+   dict settings_defaults = {'output_encoding_error_handler': 'xmlcharrefreplace'}
+   str config_section = 'html writers'
+   tuple[str] config_section_dependencies = ('writers', )
+   tuple[str] visitor_attributes = (<list of attributes>)
+   ==
+   list get_transforms()
+   void translate()
+   str apply_template()
+   str interpolation_dict()
+   dict interpolation_dict()
+   void assemble_parts()
+}
+@enduml

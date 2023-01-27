@@ -1,0 +1,42 @@
+@startuml
+docutils.SettingsSpec <|-- docutils.Component
+docutils.TransformSpec <|-- docutils.Component
+docutils.TransformSpec <|-- docutils.transforms.Transformer
+abstract docutils.TransformSpec {
+   list get_transforms()
+   void unknown_reference_resolvers()
+}
+abstract docutils.Component {
+   str component_type
+   supported = ()
+   boolean supports(format):
+}
+note left of docutils.Component::component_type
+   ('reader', 'parser', 'writer')
+   Override in subclasses.
+end note
+
+class docutils.transforms.Transformer {
+   void __init__(document)
+   void add_transform(transform_class, priority=None, **kwargs)
+   void add_transforms(transform_list)
+
+   void add_pending(self, pending, priority=None):
+
+   str get_priority_string(priority)
+
+   void populate_from_components(components)
+}
+note right of docutils.transforms.Transformer::add_pending
+   Store a transform with an associated `pending` node.
+end note
+note right of docutils.transforms.Transformer::get_priority_string
+   Return `priority` combined with `self.serialno`.
+   Ensures FIFO for identical priorities.
+end note
+note right of docutils.transforms.Transformer::populate_from_components
+   Store each component's default transforms with default priorities.
+   Store components by type name in a mapping for later lookup.
+end note
+
+@enduml

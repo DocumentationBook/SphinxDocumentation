@@ -1,0 +1,139 @@
+@startuml
+
+class sphinx.project.Project {
+}
+class sphinx.environment.BuildEnvironment {
+}
+sphinx.project.Project <-[hidden]- sphinx.builders.Builder
+sphinx.project.Project <-[hidden]- sphinx.environment.BuildEnvironment
+
+class Sphinx {
+   + phase
+   + verbosity = verbosity
+   + extensions
+   + registry
+   + srcdir
+   + outdir
+   + doctreedir
+   + project
+   + builder
+   + env
+   ==
+   None preload_builder()
+   None create_builder()
+   None build(force_all: bool = False, filenames: List[str] = None)
+   None setup_extension(extname: str)
+   None require_sphinx(self, version: str)
+   int connect(self, event: str, callback: Callable, priority: int = 500)
+   None disconnect(self, listener_id: int)
+   list emit(self, event: str, *args: Any,
+             allowed_exceptions: Tuple[Type[Exception], ...] = ())
+   Any emit_firstresult(self, event: str, *args: Any,
+             allowed_exceptions: Tuple[Type[Exception], ...] = ())
+   None add_builder(self, builder: Type["Builder"], override: bool = False)
+   None add_config_value(self, name: str, default: Any, rebuild: Union[bool, str],
+                         types: Any = ())
+   None add_event(self, name: str)
+   None set_translator(self, name: str, translator_class: Type[nodes.NodeVisitor],
+                       override: bool = False)
+   None add_node(self, node: Type[Element], override: bool = False,
+                 **kwargs: Tuple[Callable, Optional[Callable]])
+   None add_enumerable_node(self, node: Type[Element], figtype: str,
+                            title_getter: TitleGetter = None, override: bool = False,
+                            **kwargs: Tuple[Callable, Callable])
+   None add_directive(self, name: str, cls: Type[Directive], override: bool = False)
+   None add_role(self, name: str, role: Any, override: bool = False)
+   None add_generic_role(self, name: str, nodeclass: Any, override: bool = False)
+   None add_domain(self, domain: Type[Domain], override: bool = False)
+   None add_directive_to_domain(self, domain: str, name: str,
+                                cls: Type[Directive], override: bool = False)
+   None add_role_to_domain(self, domain: str, name: str, role: Union[RoleFunction, XRefRole],
+                           override: bool = False)
+   None add_index_to_domain(self, domain: str, index: Type[Index], override: bool = False
+                            )
+   None add_object_type(self, directivename: str, rolename: str, indextemplate: str = '',
+                        parse_node: Callable = None, ref_nodeclass: Type[TextElement] = None,
+                        objname: str = '', doc_field_types: List = [], override: bool = False
+                        )
+   None add_crossref_type(self, directivename: str, rolename: str, indextemplate: str = '',
+                          ref_nodeclass: Type[TextElement] = None, objname: str = '',
+                          override: bool = False)
+   None add_transform(self, transform: Type[Transform])
+   None add_post_transform(self, transform: Type[Transform])
+   None add_js_file(self, filename: str, priority: int = 500,
+                    loading_method: Optional[str] = None, **kwargs: Any)
+   None add_css_file(self, filename: str, priority: int = 500, **kwargs: Any)
+   None add_latex_package(self, packagename: str, options: str = None,
+                          after_hyperref: bool = False)
+   None add_lexer(self, alias: str, lexer: Type[Lexer])
+   None add_autodocumenter(self, cls: Any, override: bool = False)
+   None add_autodoc_attrgetter(self, typ: Type, getter: Callable[[Any, str, Any], Any])
+   None add_search_language(self, cls: Any)
+   None add_source_suffix(self, suffix: str, filetype: str, override: bool = False)
+   None add_source_parser(self, parser: Type[Parser], override: bool = False)
+   None add_env_collector(self, collector: Type[EnvironmentCollector])
+   None add_html_theme(self, name: str, theme_path: str)
+   None add_html_math_renderer(self, name: str,
+                               inline_renderers: Tuple[Callable, Callable] = None,
+                               block_renderers: Tuple[Callable, Callable] = None)
+   None add_message_catalog(self, catalog: str, locale_dir: str)
+   None set_html_assets_policy(self, policy)
+}
+
+Sphinx::project -> sphinx.project.Project
+Sphinx::env -> sphinx.environment.BuildEnvironment
+Sphinx::builder -> sphinx.builders.Builder
+note left of Sphinx::connect
+   Connect a *callback* for the *event*
+end note
+
+note left of Sphinx::emit
+   Emit *event* and pass *arguments*
+   to the callback functions.
+end note
+
+note left of Sphinx::add_event
+   Register an event to emit.
+end note
+
+note left of Sphinx::add_node
+   Register a Docutils node class.
+end note
+
+note left of Sphinx::add_directive
+   Register a Docutils directive.
+end note
+
+note left of Sphinx::add_role
+   Register a Docutils role.
+end note
+
+note left of Sphinx::add_transform
+   Register a Docutils transform
+   to be applied after parsing.
+end note
+
+note left of Sphinx::add_post_transform
+   Register a Docutils transform
+   to be applied before writing.
+end note
+
+note left of Sphinx::add_js_file
+   Register a JavaScript file
+   to include in the HTML output.
+end note
+
+note left of Sphinx::add_css_file
+   Register a CSS file
+   to include in the HTML output.
+end note
+
+note left of Sphinx::add_autodocumenter
+   Register a new documenter
+   for the autodoc extension.
+   sphinx.ext.autodoc.Documenter
+end note
+
+
+@enduml
+

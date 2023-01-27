@@ -7,3 +7,4 @@ Concepts
    :maxdepth: 3
 
    docutils/index
+   sphinx/index
