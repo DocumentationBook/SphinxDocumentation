@@ -7,6 +7,7 @@ Sphinx Concepts
    :hidden:
 
    config
+   templates/index
    research
 
 

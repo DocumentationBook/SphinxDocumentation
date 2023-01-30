@@ -11,7 +11,8 @@ For the research purposes, let us build documentation using the following enviro
 #. Create a separate folder ``__test/``. You can add it to the ``.gitignore`` file to exclude this folder from the Git
    track.
 #. In this folder, create a reST file called ``index.rst`` containing two sections with headers and plain text.
-#. In the ``__test/`` folder, create two subfolders ``folder1/`` and ``folder2/``, each with ``index.rst`` files.
+#. In the ``__test/`` folder, create two subfolders ``folder1/`` and ``folder2/``,
+   each containing an ``index.rst`` file.
 #. In the root file (``__test/index.rst``), add the ``toctree`` directive and add references to the the other two
    index files.
 #. Copy the ``Makefile`` file to the ``__test/`` folder and edit the line that runs the ``sphinx-build`` script
