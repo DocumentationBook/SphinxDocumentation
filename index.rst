@@ -1,11 +1,10 @@
-Using Sphinx doc
-################
+Using Sphinx Doc Generator
+##########################
 
 .. toctree::
    :hidden:
 
-   setup/index
-   rest/index
+   tutorial/index
    concepts/index
    resources/index
    glossary
@@ -15,14 +14,14 @@ Using Sphinx doc
    :caption: Contents:
 
 
-There are two software products branded as Sphinx. This book is about the well-known documentation tool
-also called Sphinx-doc to distinguish it.
+There are two software products branded as Sphinx. This book is about the well-known documentation toolset
+also called Sphinx-doc to distinguish it. Such toolsets are also known as static site generators (SSG).
 
 
 Introduction
 ============
 
-`Sphinx <https://www.sphinx-doc.org/en/master/>`_ is a powerful documentation tool (framework) used to create
+`Sphinx <https://www.sphinx-doc.org/en/master/>`_ is a powerful documentation toolset (framework) used to create
 a set of bound documents (documentation tree) in different formats (HTML, PDF, ePub, and many more) taking source
 documents marked with reStructuredText (reST) or Markdown.
 Sphinx is shipped as a Python package along with many other packages. Among the latter,

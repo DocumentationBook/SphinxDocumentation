@@ -13,7 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import sphinxcontrib.spelling
 
 # -- Project information -----------------------------------------------------
 
@@ -33,8 +33,11 @@ release = '0.1'
 extensions = [
     'sphinx.ext.graphviz',
     'sphinxcontrib.plantuml',
+    'sphinx.ext.doctest',
+    'sphinxcontrib.spelling',
 ]
 
+# spelling_word_list_file_name = 'custom_words.txt'
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

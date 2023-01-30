@@ -1,4 +1,4 @@
-.. _setup:
+.. _tutorial_setup:
 
 Sphinx Setup
 ############

@@ -10,3 +10,4 @@ and concepts.
    :hidden:
 
    graphics/index
+   doc_pipeline

@@ -8,3 +8,6 @@ Concepts
 
    docutils/index
    sphinx/index
+   extension/index
+   ui/index
+   auto/index

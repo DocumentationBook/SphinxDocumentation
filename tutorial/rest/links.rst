@@ -25,7 +25,7 @@ rules from the Docutils specification or a Sphinx extension. The former rule pro
 
 This construction contains the following elements:
 
-*  A pair of backquotes.
+*  A pair of back quotes.
 *  Underscore at the end.
 *  A label that the user will see in the text.
 *  A full URL to the external document or its part.

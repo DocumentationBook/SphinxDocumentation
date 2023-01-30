@@ -18,9 +18,9 @@ In a text block, reST provides the following typical inline markups:
    *  -  Cited
       -  \`citation\`
       -  <cite>citation</cite>
-   *  -  Bolded
-      -  \*\*bolded\*\*
-      -  <strong>bolded</strong>
+   *  -  Bold
+      -  \*\*bold text\*\*
+      -  <strong>bold text</strong>
    *  -  Inline literal
       -  \`\`inline literal\`\`
       -  | <code class="docutils literal notranslate">

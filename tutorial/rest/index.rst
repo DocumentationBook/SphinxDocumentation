@@ -1,4 +1,4 @@
-.. _rest:
+.. _tutorial_rest:
 
 reST Basics
 ###########

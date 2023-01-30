@@ -11,8 +11,10 @@ Syntax
 ======
 
 You can use various underline elements to markup headers. Docutils is smart enough to recognize what header level is
-specified. It implies that you first mark up the first level header, then second level and so on. However in a styleguide
-to you documentation, you should specify what elements you use to mark up the headers of different levels. For example,
+specified. It implies that you first mark up the first level header, then second level and so on.
+However in a style guide
+to you documentation, you should specify what elements you use to mark up the headers of different levels.
+For example,
 the headers in this documentation are marked up as follows (although you won't find more than four levels in it)::
 
    First-Level Title

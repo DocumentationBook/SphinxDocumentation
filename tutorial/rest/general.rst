@@ -12,7 +12,7 @@ To start with reST, you need to know the following fundamental things:
 *  reST uses `directives` and indentation to mark up text blocks, thus making them of different types (literal
    blocks, tables, and many others).
 *  reST enables you to use `roles` to mark up inline elements (for example, hyperlinks) in text blocks.
-*  reST provides several markup primitives for inline markup (emphasised elements, bold elements, hyperlinks,
+*  reST provides several markup primitives for inline markup (emphasized elements, bold elements, hyperlinks,
    and others). This enables you to make text parts emphasized, bold,
    mono-spaced, and so on.
 
