@@ -17,7 +17,6 @@ Glossary
 
    Docutils
       A Python package installed along with Sphinx and being the main reST interpreter.
-      (`Source <https://docutils.sourceforge.io/>`_)
 
    DTD
       Docutils `DTD <https://docutils.sourceforge.io/docs/ref/docutils.dtd>`_ (document type definition) created in

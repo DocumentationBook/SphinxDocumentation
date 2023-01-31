@@ -7,7 +7,7 @@ Quality Assurance
 Tools
 =====
 
-*  ``sphinx.ext.doctest`` is an embedded extension to testing examples in documents.
+*  ``sphinx.ext.doctest`` is an embedded extension for testing Sphinx syntax and examples in documents.
 *  The ``linkcheck`` builder checks validity of external links.
 *  The `coverage <https://www.sphinx-doc.org/en/master/usage/extensions/coverage.html>`_ builder checks if during
    the build process some documentation parts of source documents were missed. This is important for the autodoc
