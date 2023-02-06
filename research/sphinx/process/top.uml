@@ -1,0 +1,40 @@
+@startuml
+[sphinx-build]
+package "sphinx" {
+   package "cmd.build" {
+      [build_main:\napp=Sphinx(args); app.build(..)] as [build_main]
+      [sphinx-build] --> [main]
+      [main] -> [build_main]
+
+      note left of main
+         Setting
+         locale
+      end note
+
+      note right of build_main
+         Collecting args and
+         initiating the processes
+      end note
+   }
+
+   package "application" {
+      [Sphinx init(args)] as [Sphinx]
+      [Sphinx.build(..)] as [build]
+      [Sphinx] -[hidden] [build]
+      [build_main] --> [Sphinx]
+      [build_main] --> [build]
+
+      note left of Sphinx
+         Creating and
+         initiating
+         the main app
+      end note
+
+      note right of build
+         Orchestrating
+         the build
+         processes
+      end note
+   }
+}
+@enduml

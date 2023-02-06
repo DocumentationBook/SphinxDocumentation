@@ -26,6 +26,7 @@ Running from command line
 
 The easiest way to trace is to insert ``viztracer`` before the command you use to run your python application.
 This is especially useful when you cannot change the application.
+
 For example, you can trace the whole documentation build process as follows::
 
    $ viztracer [-o <output_file>] sphinx-build -b dirhtml
@@ -47,8 +48,20 @@ As recommended in the output, run the ``vizviewer`` utility to parse and view th
 
    $ vizviewer [--port <number>] result.json
 
-The default port number is 9001. You will find later a separate section :ref:`research_tools_analysis` in this document
+The default port number is 9001.
+
+.. note:: You can stop the server after your browser renders the result, because the latter stores the loaded data
+   and you can with it offline without the web server.
+
+You will find later a separate section :ref:`research_tools_analysis` in this document
 describing the use of the interactive viewer.
+
+This tracer utility provides some options that you can use to customize you search, for example:
+
+*  To see only some top level program calls, limit the depth of the stack. For example, to get Sphinx calls not deeper
+   than 5 levels, use this command::
+
+      $ viztracer -o top.json --max_stack_depth 10 --ignore_c_function sphinx-build -b dirhtml "." "_build"
 
 
 Running from code

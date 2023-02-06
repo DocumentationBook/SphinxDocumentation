@@ -3,6 +3,11 @@
 Sphinx Research
 ###############
 
+.. toctree::
+   :hidden:
+
+   process/index
+
 Research environment
 ====================
 
