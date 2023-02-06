@@ -9,6 +9,7 @@ Tutorial
    setup/index
    rest/index
    qa
+   extensions/index
    api
 
 

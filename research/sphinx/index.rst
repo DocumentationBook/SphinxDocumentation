@@ -23,7 +23,9 @@ For the research purposes, let us build documentation using the following enviro
 
    The project uses the following command line arguments:
 
-   *  ``-a``: run the build process for all files, that is, don't use pickled files (the project cache).
+   *  ``-a``: run the build process for all files, that is,
+      update the HTML files whether the source files were updated or not.
+      Sphinx will use pickled files processed by Docutils.
    *  ``-C``: don't require the config file.
    *  ``-v``: provide more details than usually. You can use ``-vv`` or even ``-vvv``, but this would clutter your
       screen with excessive data.
@@ -174,8 +176,8 @@ At this point, it makes sense to split the process in two branches, one without 
 and the other with at least one updated file.
 
 
-No updates in source files
---------------------------
+Using pickled files
+-------------------
 
 Let us consider a process that requires building documents even though they are not updated.
 
@@ -252,4 +254,29 @@ Let us consider a process that requires building documents even though they are 
 
       The ``write_doc`` method is overwritten in the child class, so it actually is
       ``sphinx.builders.html.StandaloneHTMLBuilder.write_doc(docname, doctree)``.
+
+
+Building updated files
+----------------------
+
+The most often used case is when at least one file is updated, the Sphinx initiated the full process with the updated
+files. For this process do the following minimal changes:
+
+#. In ``Makefile``, remove the ``-a`` and ``-v`` arguments in the ``sphinx-build`` command.
+#. Update a file using the ``touch`` command that changes only the file access time.
+
+Accordingly you can start the process as follows::
+
+   $ touch folder1/index.rst; make dirhtml
+
+To trace the process in a viewer, run the process at least one time with the tracer, as in this example::
+
+   $ touch folder1/index.rst; viztracer --ignore_c_function sphinx-build -b dirhtml "." "_build" -C
+
+.. note:: You cannot use ``viztracer make dirhtml``, because ``viztracer`` requires a python module called first,
+   whereas ``make`` is a binary executable file.
+
+Using the ``result.json`` file, you can track the calls of Sphinx and Docutils functions and methods::
+
+   $ vizviewer result.json
 

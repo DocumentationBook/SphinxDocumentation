@@ -8,7 +8,6 @@ Sphinx Concepts
 
    config
    templates/index
-   research
 
 
 

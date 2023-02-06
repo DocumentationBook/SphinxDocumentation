@@ -6,6 +6,7 @@ Using Sphinx Doc Generator
 
    tutorial/index
    concepts/index
+   research/index
    resources/index
    glossary
 

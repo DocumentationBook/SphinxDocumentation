@@ -1,0 +1,820 @@
+
+sphinx-build:1 --> sphinx.cmd.build.main:283 --> sphinx.cmd.build.build_main:196(1)
+
+(1) --> sphinx.application.__init__:130(1.1)
+1.1) --> sphinx.application.setup_extension:372 --> sphinx.registry.load_extension:416(1.1.1)
+(1.1.1) --> sphinx.addnodes.setup:529 --> sphinx.application.add_node:543(1.1.1.1)
+(1.1.1.1) --> sphinx.util.docutils.is_node_registered:97
+(1.1.1.1) --> sphinx.util.docutils.register_node:102 --> docutils.nodes._add_node_class_names:2118
+(1.1.1.1) -> sphinx.registry.add_translation_handlers:317 --> ...
+
+
+(1.1.1) --> sphinx.builders.changes.setup:152 -->
+(1.1.1) --> sphinx.builders.dirhtml.setup:40: --> sphinx.application.setup_extension:372
+(1.1.1) --> sphinx.extension.__init__:19 -->
+(1.1.1) --> etc., all sphinx extensions... -->
+(1.1.1) --> sphinx.domains.... -->
+(1.1.1) --> sphinx.environment.collectors.asset.setup:131 -->
+(1.1.1) --> sphinx.environment.collectors.title.setup:50 -->
+(1.1.1) --> sphinx.environment.collectors.toctree.setup:284 -->
+(1.1.1) --> sphinx.transforms.__init__.setup:420 --> sphinx.application.add_transform:880 --> sphinx.registry.add_transform:353 --> debug --> log -->...
+
+
+(1.1) --> sphinx.events.emit:80 -->
+(1.1) --> sphinx.application.create_builder:304 --> sphinx.registry.create_builder:156 --> sphinx.builders.html.__init__.init__:202(1.1.2)
+(1.1.2) --> sphinx.builders.__init__.__init__:78 --> sphinx.util.osutil.ensuredir:60
+(1.1.2) --> docutils.readers.__init__.__init__:39 --> docutils.readers.__init__.set_parsers:61 --> docutils.parsers.__init__.get_parser_class:76 -->
+(1.1.2) --> sphinx.writers.html.__init__:51
+(1.1.2) --> docutils.io.__init__:166 --> docutils.utils.error_reporting.__init__:161
+(1.1.2) --> docutils.core.__init__:33
+(1.1.2) --> docutils.core.setup_option_parser:102 --> docutils.frontend.__init__:591(1.1.2.1)
+(1.1.2.1) --> docutils.frontend.populate_from_components:623
+(1.1.2.1) --> docutils.frontend.get_standard_config_settings:674(1.1.2.1.1)
+(1.1.2.1.1) --> docutils.frontend.__init__:313 --> docutils.utils.__init__.init__:702 --> docutils.utils.__init__.set_output:712
+(1.1.2.1.1) --> docutils.frontend.get_standard_config_files:654 --> docutils.frontend.listcomp:672
+(1.1.2.1.1) --> docutils.frontend.get_config_file_settings:680(1.1.2.1.1.1)
+(1.1.2.1.1.1) --> docutils.frontend.__init__:772
+(1.1.2.1.1.1) --> docutils.frontend.read:781
+(1.1.2.1.1.1) --> docutils.frontend.__init__:313
+(1.1.2.1.1.1) --> docutils.frontend.get_section:857
+(1.1.2.1.1.1) --> docutils.frontend.update:320
+
+(1.1.2.1.1) --> docutils.frontend.update:320
+
+(1.1.2) --> docutils.frontend.get_default_values:728 --> docutils.frontend.__init:313
+
+(1.1) --> sphinx.application._init_env:286(1.1.3)
+(1.1.3) --> sphinx.locale.__init__.gettext:219 --> sphinx.locale.__init__.is_translator_registered:182
+(1.1.3) --> sphinx.util.__init__.__enter__:497
+(1.1.3) --> docutils.nodes.__new__:399
+(1.1.3) --> sphinx.util.__init__.setstate__:132
+(1.1.3) --> sphinx.environment.__init__.setup:197(1.1.3.1)
+(1.1.3.1) --> sphinx.registry.get_envversion:462 -->
+(1.1.3.1) --> sphinx.registry.create_domains:171(1.1.3.1.1)
+(1.1.3.1.1) --> sphinx.domains.__init__.init__:198
+(1.1.3.1.1) --> sphinx.domains.std.__init__:590 --> sphinx.domains.__init__.init__:198
+
+(1.1.3.1) --> sphinx.domains.__init__.setup:227(1.1.3.1.2)
+(1.1.3.1.2) --> sphinx.environment.__init__.get_domain:499
+(1.1.3.1.2) --> sphinx.domains.std.note_hyperlink_target:598 --> sphinx.domains.std.anonlabels:660
+
+(1.1.3.1) --> sphinx.environment.__init__._update_config:229(1.1.3.1.3)
+(1.1.3.1.3) --> sphinx.config.<genexpr>:303 --> sphinx.config.__iter__:290 --> sphinx.config.__getattr__:268 --> ...many calls with lambda
+(1.1.3.1.3) --> sphinx.config.__getitem__:278
+
+(1.1.3.1) --> sphinx.environment.__init__._update_settings:255 --> sphinx.config.__getattr__:268
+
+(1.1.3) --> sphinx.util.__init__.__exit__:500
+
+(1.1) --> sphinx.application._init_builder:311 --> sphinx.builders.html.__init__.init:224(1.1.4)
+(1.1.4) --> sphinx.builders.html.__init__.create_build_info:250 --> sphinx.builders.html.__init__.__init__:147(1.1.4.1)
+(1.1.4.1) --> sphinx.builders.html.__init__.<dictcomp>:152 --> sphinx.config.<genexpr>:303 --> sphinx.config.__iter__:290 -->  --> sphinx.config.__getattr__:268 --> ...go through many Shinx builders
+(1.1.4.1) --> sphinx.builders.html.__init__.get_stable_hash:55 --> sphinx.builders.html.__init__.get_stable_hash:55(1.1.4.1.1)
+(1.1.4.1.1) --> (1.1.4.1.1) --> sphinx.builders.html.__init.<genexpr>:64 --> (1.1.4.1.1) --> ...repeated iteratively
+(1.1.4.1.1) --> sphinx.builders.html.__init__.<genexpr>:64 --> (1.1.4.1.1) --> sphinx.util.__init__.md5:136
+
+(1.1.4) --> sphinx.builders.html.__init__.init_templates:278(1.1.4.2)
+(1.1.4.2) --> sphinx.theming.__init__:151 --> sphinx.theming.load_builtin_themes:158 --> sphinx.theming.find_themes:208
+(1.1.4.2) --> sphinx.theming.create:229 --> sphinx.theming.__init__:51 --> sphinx.theming.create:229 --> sphinx.theming.__init__:51 --> ..iteration
+(1.1.4.2) --> sphinx.jinja2glue.init:145(1.1.4.2.1)
+(1.1.4.2.1) --> sphinx.theming.get_theme_dirs:78
+(1.1.4.2.1) --> sphinx.jinja2glue.<listcomp>:151
+(1.1.4.2.1) --> sphinx.config.__getattr__:268
+(1.1.4.2.1) --> sphinx.jinja2glue.<listcomp>:171 --> sphinx.jinja2.loaders.__init__:179
+(1.1.4.2.1) --> jinjia2.sandbox.__init__:252 --> ... many Jinja2 calls
+(1.1.4.2.1) --> jinjia2.utils.pass_context:29
+
+(1.1.4) --> sphinx.builders.html.__init__.init_highlighter:286(1.1.4.3)
+(1.1.4.3) --> sphinx.theming.get_config:92
+(1.1.4.3) --> sphinx.highlighting.__init__:69 --> sphinx.highlighting.get_style:82 -->
+
+(1.1.4) --> sphinx.builders.html.__init__.init_css_files:309(1.1.4.4)
+(1.1.4.4) --> sphinx.builders.html.__init__.add_css_files:321 --> sphinx.builders.html.__init__.__new__:90
+(1.1.4.4) -->sphinx.builders.html.__init__._get_style_filename:267(1.1.4.4.1)
+(1.1.4.4.1) --> sphinx.config.__getattr__:268
+(1.1.4.4.1) --> sphinx.theming.get_config:92
+
+(1.1.4.4) --> sphinx.builders.__init__.get_builder_config:623
+
+(1.1.4) --> sphinx.builders.html.__init__.init_js_files:327(1.1.4.5)
+(1.1.4.5) --> sphinx.builders.html.__init__.add_js_files:348 --> sphinx.builders.html.__init__.__new:116
+(1.1.4.5) --> sphinx.builders.__init__.get_builder_config:623 --> sphinx.config.__getattr__:268 --> sphinx.locale.__init__.gettext:219 --> sphinx.locale.__init__.is_translator_registered:182
+(1.1.4.5) --> sphinx.builders.html.__init__.get_translations_js:253(1.1.4.5.1)
+(1.1.4.5.1) --> sphinx.config.__getattr__:268 --> sphinx.locale.__init__.gettext:219 --> sphinx.locale.__init__.is_translator_registered:182
+(1.1.4.5.1) --> sphinx.builders.html.__init__.<listcom>:254 --> sphinx.config.__getattr:268
+
+(1.1.4) --> sphinx.builders.__init__.get_builder_config:623 --> sphinx.config.__getattr__:268 --> sphinx.locale.__init__.gettext:219(1.1.4.6)
+(1.1.4.6) --> sphinx.locale.__init__.is_translator_registered:182
+(1.1.4.6) --> sphinx.locale.__init__.get_translator:178
+
+(1) --> sphinx.application.build:318 --> sphinx.builders.__init__.build_update:281(1.2)
+(1.2) --> sphinx.builders.html.__init__.get_outdated_docs:381(1.2.1)
+(1.2.1) --> sphinx.builders.html.__init__.load:132 --> sphinx.builders.html.__init__.__init__:147
+(1.2.1) --> sphinx.jinja2glue.newest_template_mtime:194 --> sphinx.util.osutil.mtimes_of_files:65
+(1.2.1) --> sphinx.builders.dirhtml.get_outfilename:29 --> sphinx.environment.__init__.doc2path:322 --> sphinx.project.doc2path:70
+
+(1.2) --> sphinx.builders.__init__.build:292(1.2.2)
+
+########################################################
+#                                                      #
+#                    R E A D                           #
+#                                                      #
+########################################################
+
+(1.2.2) --> sphinx.builders.__init__.read:360(1.2.2.1)
+(1.2.2.1) --> sphinx.environment.__init__.find_files:354(1.2.2.1.1)
+(1.2.2.1.1) --> sphinx.config.__getattr:268
+(1.2.2.1.1) --> sphinx.builders.html.__init__.get_asset_paths:427 --> sphinx.config.__getattr:268
+(1.2.2.1.1) --> sphinx.project.discover:33(1.2.2.1.1.1)
+(1.2.2.1.1.1) --> sphinx.util.matching.compile_matchers:55 --> sphinx.util.matching.<listcomp>:56 --> sphinx.util.matching._translate_pattern:9
+(1.2.2.1.1.1) --> sphinx.util.__init__.get_matching_files:57 --> 2 * sphinx.util.__init__.<listcomp>:76,77 --> sphinx.util.__init__.<genexpr>:71,73
+(1.2.2.1.1.1) --> sphinx.project.doc2path:55 --> sphinx.util.i18n.pofiles:94 --> sphinx.util.i18n.locale_dirs:81 --> sphinx.locale.__init__.gettext:219
+
+(1.2.2.1.1) -->sphinx.environment.__init__.<dictcomp>:374
+
+(1.2.2.1) --> sphinx.environment.__init__.get_outdated_files:383(1.2.2.1.2)
+(1.2.2.1.2) --> sphinx.environment.__init__.found_docs:349
+(1.2.2.1.2) --> sphinx.environment.__init__.doc2path:322 --> sphinx.project.doc2path:70
+
+(1.2.2.1) --> sphinx.events.emit:80
+(1.2.2.1) --> sphinx.builders.__init__._read_serial:424(1.2.2.1.3)
+(1.2.2.1.3) --> sphinx.util.__init__.status_iterator:467(1.2.2.1.3.1)
+(1.2.2.1.3.1) --> sphinx.util.console.inner:102 --> sphinx.util.console.colorize:81 --> sphinx.util.console.escseq:82
+(1.2.2.1.3.1) --> sphinx.util.__init__.display_chunk:440
+(1.2.2.1.3.1) --> sphinx.util.console.colorize:81
+(1.2.2.1.3.1) --> sphinx.util.console.term_width_line:42
+
+(1.2.2.1.3) --> sphinx.events.emit:80
+(1.2.2.1.3) --> sphinx.builders.__init__.read_doc:466(1.2.2.1.3.2)
+(1.2.2.1.3.2) --> sphinx.registry.get_publisher:469 --> sphinx.io.create_publisher:190(1.2.2.1.3.2.1)
+(1.2.2.1.3.2.1) --> sphinx.io._init__:45
+(1.2.2.1.3.2.1) --> sphinx.io.setup:93
+(1.2.2.1.3.2.1) --> sphinx.registry.create_source_parser:290(1.2.2.1.3.2.1.1)
+(1.2.2.1.3.2.1.1) --> sphinx.registry.get_source_parser:281
+(1.2.2.1.3.2.1.1) --> docutils.parsers.rst.__init__.init__:151
+(1.2.2.1.3.2.1.1) --> sphinx.parsers.set_application:36
+
+(1.2.2.1.3.2.1) --> docutils.io.__init__:166
+(1.2.2.1.3.2.1) --> docutils.core.__init__:33
+(1.2.2.1.3.2.1) --> docutils.core.setup_option_parser:102 --> docutils.frontend.__init__:591(1.2.2.1.3.2.1.2)
+
+(1.2.2.1.3.2.1.2) --> docutils.frontend.populate_from_components:623
+(1.2.2.1.3.2.1.2) --> docutils.frontend.get_standard_config_settings:674(1.2.2.1.3.2.1.2.1)
+(1.2.2.1.3.2.1.2.1) --> docutils.frontend.__init__:313 --> docutils.utils.__init__.init:702 --> docutils.utils.__init__.set_output:712
+(1.2.2.1.3.2.1.2.1) --> docutils.frontend.get_standard_config_files:654 --> docutils.frontend<listcomp>:672
+(1.2.2.1.3.2.1.2.1) -->docutils.frontend.get_config_file_settings:680(1.2.2.1.3.2.1.2.1.1)
+(1.2.2.1.3.2.1.2.1.1) --> docutils.frontend.__init__:772
+(1.2.2.1.3.2.1.2.1.1) --> docutils.frontend.read:781
+(1.2.2.1.3.2.1.2.1.1) --> docutils.frontend.__init__:313 --> docutils.utils.__init__.init__:702 --> docutils.utils.__init__.set_output:712
+(1.2.2.1.3.2.1.2.1.1) --> docutils.frontend.get_section:857
+(1.2.2.1.3.2.1.2.1.1) --> docutils.frontend.update:320
+(1.2.2.1.3.2.1.2.1.1) --> docutils.frontend.make_paths_absolute:253
+
+(1.2.2.1.3.2.1.2.1) --> docutils.frontend.update:320
+
+(1.2.2.1.3.2.1) --> docutils.frontend.get_default_values:728 -> docutils.frontend.__init__:313
+
+(1.2.2.1.3.2) --> docutils.core.set_source:170 --> sphinx.core.__init__:153 --> docutils.io.__init__:209
+(1.2.2.1.3.2) --> docutils.core.publish:202(1.2.2.1.3.2.2)
+(1.2.2.1.3.2.2) --> sphinx.io.read:97(1.2.2.1.3.2.2.1)
+(1.2.2.1.3.2.2.1) --> sphinx.io.read_source:106(1.2.2.1.3.2.2.1.1)
+(1.2.2.1.3.2.2.1.1) --> docutils.io.read:256
+(1.2.2.1.3.2.2.1.1) --> sphinx.events.emit:80
+(1.2.2.1.3.2.2.1.1) --> sphinx.io.new_document:69(1.2.2.1.3.2.2.1.1.1)
+(1.2.2.1.3.2.2.1.1.1) --> docutils.readers.__init__.new_document:81
+(1.2.2.1.3.2.2.1.1.1) --> docutils.utils.__init__.new_document:426(1.2.2.1.3.2.2.1.1.1.1)
+(1.2.2.1.3.2.2.1.1.1.1) --> docutils.utils.__init__.decode_path:341
+(1.2.2.1.3.2.2.1.1.1.1) --> docutils.utils.__init__.new_reporter:409 --> docutils.utils.__init__.__init__:80
+(1.2.2.1.3.2.2.1.1.1.1) --> docutils.nodes.__init__:1278(1.2.2.1.3.2.2.1.1.1.1.1)
+(1.2.2.1.3.2.2.1.1.1.1.1) --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752
+(1.2.2.1.3.2.2.1.1.1.1.1) --> docutils.transforms.__init__.__init__:71
+
+(1.2.2.1.3.2.2.1.1.1.1) --> docutils.nodes.note_source:1600
+
+(1.2.2.1.3.2.2.1.1.1) --> docutils.transforms.__init__.__init__:71
+(1.2.2.1.3.2.2.1.1.1) --> docutils.transforms.__init__.set_environment:7297
+(1.2.2.1.3.2.2.1.1.1) --> sphinx.util.docutils.from_reporter:300 --> sphinx.util.docutils.__init__:306 --> docutils.utils.__init__.init__:80
+
+(1.2.2.1.3.2.2.1) --> docutils.readers.__init__.parse:75 --> sphinx.parsers.parse:59(1.2.2.1.3.2.2.1.2)
+(1.2.2.1.3.2.2.1.2) --> docutils.statemachine.__init__:135 --> docutils.statemachine.add_states:471 --> docutils.statemachine.add_state:459 --> docutils.parsers.rst.states.__init__:213 --> docutils.statemachine.__init__:948 --> docutils.statemachine.__init__:589 --> docutils.statemachine.add_initial_transition:964 --> docutils.statemachine.add_initial_transition:636 --> docutils.statemachine.make_transitions:720 --> docutils.statemachine.make_transitions:687 -->
+(1.2.2.1.3.2.2.1.2) --> docutils.parsers.rst.states.run:145(1.2.2.1.3.2.2.1.2.1)
+(1.2.2.1.3.2.2.1.2.1) --> sphinx.util.docutils.patched_get_language:158 --> docutils.language.__init__.__call__:62(1.2.2.1.3.2.2.1.2.1.1)
+(1.2.2.1.3.2.2.1.2.1.1) --> docutils.utils.__init__.normalize_language_tag:666
+(1.2.2.1.3.2.2.1.2.1.1) --> docutils.languages.__init__.import_from_packages:38
+
+(1.2.2.1.3.2.2.1.2.1) --> docutils.parsers.rst.states.init_customizations:473 --> docutils.parsers.rst.states.build_regexp:439
+(1.2.2.1.3.2.2.1.2.1) --> docutils.statemachine.run:188(1.2.2.1.3.2.2.1.2.1.2)
+(1.2.2.1.3.2.2.1.2.1.2) --> docutils.statemachine.runtime_init:478 --> docutils.parsers.rst.states.runtime_init:218
+(1.2.2.1.3.2.2.1.2.1.2) --> docutils.statemachine.get_state:280
+(1.2.2.1.3.2.2.1.2.1.2) --> docutils.statemachine.next_line:300(1.2.2.1.3.2.2.1.2.1.2.1)
+(1.2.2.1.3.2.2.1.2.1.2.1) --> docutils.statemachine.__getitem__:1141
+(1.2.2.1.3.2.2.1.2.1.2.1) --> docutils.statemachine.notify_observers:503 --> docutils.nodes.note_source:1600
+(1.2.2.1.3.2.2.1.2.1.2) --> docutils.statemachine.check_line:418(1.2.2.1.3.2.2.1.2.1.2.2)
+(1.2.2.1.3.2.2.1.2.1.2.2) --> docutils.parsers.rst.states.text:2428
+(1.2.2.1.3.2.2.1.2.1.2.2) --> docutils.parsers.rst.states.underline:2742(1.2.2.1.3.2.2.1.2.1.2.2.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1) --> docutils.utils.__init__.column_width:646(1.2.2.1.3.2.2.1.2.1.2.2.1.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.1 --> docutils.utils.__init__.<listcomp>:653
+(1.2.2.1.3.2.2.1.2.1.2.2.1.1 -->docutils.utils.__init__.find_combining_chars:609
+(1.2.2.1.3.2.2.1.2.1.2.2.1.1 -->docutils.utils.__init__.<listcomp>:619
+
+(1.2.2.1.3.2.2.1.2.1.2.2.1) --> docutils.parsers.rst.states.section:324(1.2.2.1.3.2.2.1.2.1.2.2.1.2)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2) --> docutils.parsers.rst.states.check_subsection:329
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2) --> docutils.parsers.rst.states.new_subsection:376(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.nodes.__init__:544
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.nodes.__iadd__:695 --> docutils.nodes.append:748 --> docutils.nodes.seetup_child:117 --> docutils.nodes.document:57 -->
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.parsers.rst.states.inline_text:423 --> docutils.parsers.rst.states.parse:614(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.1) --> docutils.utils.__init__.escape2null:579
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.1) --> docutils.parsers.rst.states.implicit_inline:1029 --> docutils.nodes.__new__:399
+
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.nodes.__init__:1156 --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752 --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.nodes.astext:703 --> docutils.nodes.<listcomp>:705 --> docutils.nodes.astext:427 --> docutils.nodes.unescape:371
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.nodes.fully_normalize_name:2333
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.parsers.rst.states.nested_parse:257(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2) --> docutils.statemachine.__init__:135 --> docutils.statemachine.add_states:471 --> docutils.statemachine.add_state:459 --> docutils.parsers.rst.states.__init__:213 --> docutils.statemachine.__init__:948 --> docutils.statemachine.__init__:589 --> docutils.statemachine.add_initial_transitions:964(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.1) --> docutils.statemachine.add_initial_transitions:636(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.1.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.1.1) --> docutils.statemachine.make_transitions:720 --> docutils.statemachine.make_transition:687
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.1.1) --> docutils.statemachine.add_transitions:643
+
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.1) --> docutils.statemachine.make_transitions:720 --> docutils.statemachine.make_transition:687
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.1) --> docutils.statemachine.add_transitions:643
+
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2) --> docutils.parsers.rst.states.run:183 --> docutils.statemachine.run:188(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2) --> docutils.statemachine.runtime_init:478 --> docutils.parsers.rst.states.runtime_init:218 --> docutils.statemachine.runtime_init:625
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2) --> docutils.statemachine.get_state:280
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2) --> docutils.statemachine.next.line:300(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.1) --> docutils.statemachine.__getitem:1141
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.1) --> docutils.statemachine.notify_observers:503(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.1.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.1.1) --> docutils.statemachine.info:1297
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.1.1) --> docutils.notes.note_source:1600
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2) --> docutils.parsers.rst.states.eof:2720 --> docutils.parsers.rst.states.blank:2710(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2) --> docutils.parsers.rst.states.paragraph:402(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2.1) --> docutils.parsers.rst.states.inline_text:423 --> docutils.parsers.rst.states.parse:614(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2.1.1)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2.1.1) --> docutils.utils.__init__.escape2null:579
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2.1.1) --> docutils.parsers.rst.states.implicit_inline:1029 --> docutils.nodes.__new__:399
+
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2.1) --> docutils.nodes.__init__:1156 --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752 --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.2.2.2) --> docutils.nodes.__iadd__:695
+
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1) --> docutils.parsers.rst.states.goto_line:231 --> docutils.statemachine.goto_line:338(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.3)
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.3) --> docutils.statemachine.__getitem__:1141
+(1.2.2.1.3.2.2.1.2.1.2.2.1.2.1.3) --> docutils.statemachine.notify_observers:231 --> docutils.statemachine.info:
+
+(1.2.2.1.3.2.2.1.2.1.2) -->
+
+(1.2.2.1.3.2.2) --> docutils.core.apply_transforms:196(1.2.2.1.3.2.2.2)
+(1.2.2.1.3.2.2.2) --> docutils.transforms.__init__.populate_from_components:139(1.2.2.1.3.2.2.2.1)
+(1.2.2.1.3.2.2.2.1) --> docutils.__init__.get_transforms:216
+(1.2.2.1.3.2.2.2.1) --> docutils.transforms.__init__.add_transforms:111 --> docutils.transforms.__init__.get_priority_string:130
+(1.2.2.1.3.2.2.2.1) --> sphinx.io.get_transforms:58 --> docutils.readers.standalone.get_transforms:52 --> docutils.readers.get_transforms:33 --> docutils.__init__.get_transforms:216
+(1.2.2.1.3.2.2.2.1) --> sphinx.parsers.get_transforms:49 --> docutils.parsers.rst.__init__.get_transforms:159 --> docutils.__init__.get_transforms:216
+(1.2.2.1.3.2.2.2.1) --> docutils.writers.__init__.get_transforms:114 --> docutils.__init__.get_transforms:216
+(1.2.2.1.3.2.2.2.1) --> docutils.transforms.__init__.<genexpr>:156
+
+(1.2.2.1.3.2.2.2) --> sphinx.transforms.__init__.apply_transforms:75 --> docutils.transforms.__init__.apply_transforms:159(1.2.2.1.3.2.2.2.2)
+(1.2.2.1.3.2.2.2.2) --> docutils.transforms.__init__.__init__:42 --> sphinx.util.docutils.patched_get_language:134 --> docutils.languages.__init__.__call__:62(1.2.2.1.3.2.2.2.2.1)
+(1.2.2.1.3.2.2.2.2.1) --> docutils.utils.__init__.normalize_language_tag:666
+(1.2.2.1.3.2.2.2.2.1) --> docutils.languages.__init__.import_from_packages:38 --> docutils.languages.__init__.check_content:55
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:203(1.2.2.1.3.2.2.2.2.2)
+(1.2.2.1.3.2.2.2.2.2) --> docutils.nodes.findall:245 --> docutils.nodes._superfast_findall:223 ...calls itself iteratively
+(1.2.2.1.3.2.2.2.2.2) --> sphinx.util.nodes.apply_source_workaround:114
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:232(1.2.2.1.3.2.2.2.2.3)
+(1.2.2.1.3.2.2.2.2.3) --> sphinx.transforms.__init__.config:58 --> sphinx.transforms.__init__.env:53
+(1.2.2.1.3.2.2.2.2.3) --> sphinx.config.__getattr:268
+(1.2.2.1.3.2.2.2.2.3) --> sphinx.transforms.__init__.<listcomp>:234
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.i18n.apply:92 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.i18n.apply:103 ...continues to translation
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.compact_buller_list.appy:55(1.2.2.1.3.2.2.2.2.4)
+(1.2.2.1.3.2.2.2.2.4) --> sphinx.transforms.__init__.config:58 --> sphinx.transforms.__init__.env:53
+(1.2.2.1.3.2.2.2.2.4) --> sphinx.config.__getattr:268
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:101 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:124 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:142 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:166 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:215 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.references.apply:124 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.references.apply:43 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> docutils.transforms.frontmatter.apply:243(1.2.2.1.3.2.2.2.2.5)
+(1.2.2.1.3.2.2.2.2.5) --> docutils.frontend.setdefault:336
+(1.2.2.1.3.2.2.2.2.5) --> docutils.transforms.frontmatter.set_metadata:228(1.2.2.1.3.2.2.2.2.5.1)
+(1.2.2.1.3.2.2.2.2.5.1) --> docutils.nodes.hasattr:721
+(1.2.2.1.3.2.2.2.2.5.1) --> docutils.nodes.__len__:641
+(1.2.2.1.3.2.2.2.2.5.1) --> docutils.nodes.__getitem__:650
+
+(1.2.2.1.3.2.2.2.2) --> docutils.transforms.frontmatter.apply:385 --> docutils.nodes.first_child_not_matching:1057 --> docutils.nodes.__len__:641
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.references.apply:118--> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:272 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:408 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.domains.citation.apply:105(1.2.2.1.3.2.2.2.2.6)
+(1.2.2.1.3.2.2.2.2.6) --> sphinx.environment.__init__.get_domain:499
+(1.2.2.1.3.2.2.2.2.6) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.domains.citation.apply:124(1.2.2.1.3.2.2.2.2.7)
+(1.2.2.1.3.2.2.2.2.7) --> sphinx.transforms.__init__.env:53
+(1.2.2.1.3.2.2.2.2.7) --> sphinx.environment.__init__.get_domain:499
+(1.2.2.1.3.2.2.2.2.7) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+
+(1.2.2.1.3.2.2.2.2) --> docutils.transforms.references.apply:495(1.2.2.1.3.2.2.2.2.8)
+(1.2.2.1.3.2.2.2.2.8) --> docutils.transforms.references.number_footnotes:503
+(1.2.2.1.3.2.2.2.2.8) --> docutils.transforms.references.number_footnote_references:532
+(1.2.2.1.3.2.2.2.2.8) --> docutils.transforms.references.symbolize_footnotes:565
+(1.2.2.1.3.2.2.2.2.8) --> docutils.transforms.references.resolve_footnotes_and_citations:602
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.references.apply:356--> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.references.apply:376--> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2) --> sphinx.builders.latex.transforms.apply:26 --> Latex-related calls
+(1.2.2.1.3.2.2.2.2) --> docutils.transforms.universal.apply:182
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:325(1.2.2.1.3.2.2.2.2.9)
+(1.2.2.1.3.2.2.2.2.9) --> sphinx.transforms.__init__.is_available:334(1.2.2.1.3.2.2.2.2.9.1)
+(1.2.2.1.3.2.2.2.2.9.1) --> sphinx.transforms.__init__.config:58 --> sphinx.transforms.__init__.env:53
+(1.2.2.1.3.2.2.2.2.9.1) --> sphinx.config.__getattr__:268
+(1.2.2.1.3.2.2.2.2.9.1) --> sphinx.transforms.__init__.app:48
+(1.2.2.1.3.2.2.2.2.9.1) --> sphinx.transforms.__init__.env:53
+(1.2.2.1.3.2.2.2.2.9.1) --> docutils.utils.__init__.normalize_language_tag:666
+
+(1.2.2.1.3.2.2.2.2.9) --> sphinx.transforms.__init__.config:58 --> sphinx.transforms.__init__.env:53
+(1.2.2.1.3.2.2.2.2.9) --> docutils.transforms.universal.apply:268(1.2.2.1.3.2.2.2.2.9.2)
+(1.2.2.1.3.2.2.2.2.9.2) --> docutils.frontend.setdefault:336
+(1.2.2.1.3.2.2.2.2.9.2) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2.9.2) --> docutils.transforms.universal.<listcomp>:294 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself
+(1.2.2.1.3.2.2.2.2.9.2) --> docutils.nodes.get_language_code:733 --> docutils.nodes.get:718
+(1.2.2.1.3.2.2.2.2.9.2) --> docutils.utils.__init__.normalize_language_tag:666
+(1.2.2.1.3.2.2.2.2.9.2) --> docutils.utils.smartquotes.educate_tokens:512(1.2.2.1.3.2.2.2.2.9.2.1)
+(1.2.2.1.3.2.2.2.2.9.2.1) --> sphinx.transforms.__init__.get_tokens:359 --> sphinx.util.nodes.is_smartquotable:595(1.2.2.1.3.2.2.2.2.9.2.1.1)
+(1.2.2.1.3.2.2.2.2.9.2.1.1) --> sphinx.util.nodes.traverse_parent:301
+(1.2.2.1.3.2.2.2.2.9.2.1.1) --> docutils.nodes.get:71
+
+(1.2.2.1.3.2.2.2.2.9.2.1) --> docutils.utils.smartquotes.processEscapes:839
+(1.2.2.1.3.2.2.2.2.9.2.1) --> docutils.utils.smartquotes.educateDashesOldSchool:766
+(1.2.2.1.3.2.2.2.2.9.2.1) --> docutils.utils.smartquotes.educateEllipses:799
+(1.2.2.1.3.2.2.2.2.9.2.1) --> docutils.utils.smartquotes.educateQuotes:628
+
+(1.2.2.1.3.2.2.2.2.9.2) --> docutils.nodes.replace:1007(1.2.2.1.3.2.2.2.2.9.2.2)
+(1.2.2.1.3.2.2.2.2.9.2.2) --> docutils.nodes.index:769
+(1.2.2.1.3.2.2.2.2.9.2.2) --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+(1.2.2.1.3.2.2.2.2.9.2.2) --> docutils.nodes.__setitem__:662 --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.universal.appy:44(1.2.2.1.3.2.2.2.2.10)
+(1.2.2.1.3.2.2.2.2.10) --> sphinx.transforms.universal.generate_header:56
+(1.2.2.1.3.2.2.2.2.10) --> sphinx.transforms.universal.generate_footer:59
+
+(1.2.2.1.3.2.2.2.2) --> docutils.transforms.misc.apply:96 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.references.apply:16 --> docutils.transforms.references.apply:852(1.2.2.1.3.2.2.2.2.11)
+(1.2.2.1.3.2.2.2.2.11) --> docutils.transforms.references.__init__:882
+(1.2.2.1.3.2.2.2.2.11) --> docutils.nodes.walk:126(1.2.2.1.3.2.2.2.2.11.1)
+(1.2.2.1.3.2.2.2.2.11.1) --> docutils.utils.__init__.debug:203
+(1.2.2.1.3.2.2.2.2.11.1) --> docutils.nodes.dispatch_visit:2022 --> docutils.utils.__init__.debug:203
+(1.2.2.1.3.2.2.2.2.11.1) --> docutils.nodes.walk:126(1.2.2.1.3.2.2.2.2.11.1) -> dispatch & walk iterative calls
+
+(1.2.2.1.3.2.2.2.2.11) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.references.apply:32(1.2.2.1.3.2.2.2.2.12)
+(1.2.2.1.3.2.2.2.2.12) --> sphinx.transforms.__init__.env:53
+(1.2.2.1.3.2.2.2.2.12) --> sphinx.environment.__init__.docname:460
+(1.2.2.1.3.2.2.2.2.12) --> sphinx.domains.c.process_doc:3815
+(1.2.2.1.3.2.2.2.2.12) --> sphinx.domains.__init__.process_doc:299
+(1.2.2.1.3.2.2.2.2.12) --> sphinx.domains.cpp.process_doc:7805
+(1.2.2.1.3.2.2.2.2.12) --> sphinx.domains.index.process_doc:40(1.2.2.1.3.2.2.2.2.12.1)
+(1.2.2.1.3.2.2.2.2.12.1) --> sphinx.domains.index.entries:29
+(1.2.2.1.3.2.2.2.2.12.1) --> sphinx.environment.__init__.docname:460
+(1.2.2.1.3.2.2.2.2.12.1) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+
+(1.2.2.1.3.2.2.2.2.12) --> sphinx.domains.math.process_doc:68 --> docutils.nodes.findall:245(1.2.2.1.3.2.2.2.2.12.2)
+(1.2.2.1.3.2.2.2.2.12.2) --> sphinx.domain.math.math_node:70
+(1.2.2.1.3.2.2.2.2.12.2) --> docutils.nodes.__getitem__:650
+(1.2.2.1.3.2.2.2.2.12.2) --> docutils.nodes.findall:245 --> ...calls interactively math_node, __getitem__, findall
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:380 --> sphinx.application.emit:425 --> sphinx.events.emit:80(1.2.2.1.3.2.2.2.2.13)
+(1.2.2.1.3.2.2.2.2.13) --> docutils.nodes.__repr__:584 --> docutils.nodes.shortrepr:597(1.2.2.1.3.2.2.2.2.13.1)
+(1.2.2.1.3.2.2.2.2.13.1) --> docutils.node.__getitem__:650
+(1.2.2.1.3.2.2.2.2.13.1) --> docutils.nodes.<listecomp>:600 --> docutils.nodes.ensure_str:362
+
+(1.2.2.1.3.2.2.2.2.13) --> sphinx.environment.collectors.dependencies.process_doc:28
+(1.2.2.1.3.2.2.2.2.13) --> sphinx.environment.collectors.asset.process_doc:34 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.1.3.2.2.2.2.13) --> sphinx.environment.collectors.asset.process_doc:115 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.1.3.2.2.2.2.13) --> sphinx.environment.collectors.metadata.process_doc:23 --> docutils.nodes.first_child_not_matching_class:1057
+(1.2.2.1.3.2.2.2.2.13) --> sphinx.environment.collectors.title.process_doc:26(1.2.2.1.3.2.2.2.2.13.2)
+(1.2.2.1.3.2.2.2.2.13.2) --> docutils.nodes.__init__:1156 --> docutils.nodes.__init__:544
+(1.2.2.1.3.2.2.2.2.13.2) --> docutils.nodes.__contains__:644
+(1.2.2.1.3.2.2.2.2.13.2) --> docutils.nodes.__init__:2135 --> docutils.nodes.__init__:2019
+(1.2.2.1.3.2.2.2.2.13.2) --> docutils.nodes.walkabout:172(1.2.2.1.3.2.2.2.2.13.2.1)
+(1.2.2.1.3.2.2.2.2.13.2.1) --> docutils.nodes.dispatch_visit:2022 --> docutils.nodes._call_default_visit:2109 --> docutils.nodes.default_visit:2143 --> docutils.nodes._new_copy:629 --> docutils.nodes.__init__:1156 --> docutils.nodes.__init__:544
+(1.2.2.1.3.2.2.2.2.13.2.1) --> docutils.nodes.walkabout:172 --> docutils.nodes.dispatch_visit:2022 --> docutils.nodes._call_default_visit:2109 --> docutils.nodes.default_visit:2143(1.2.2.1.3.2.2.2.2.13.2.1.1)
+(1.2.2.1.3.2.2.2.2.13.2.1.1) --> docutils.nodes.copy:439 --> docutils.nodes.__new__:399
+(1.2.2.1.3.2.2.2.2.13.2.1.1) --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+(1.2.2.1.3.2.2.2.2.13.2.1) --> docutils.nodes.dispatch_departure:2035 --> docutils.nodes._call_default_departure:2112 --> docutils.nodes.default_departure:2150
+(1.2.2.1.3.2.2.2.2.13.2) --> docutils.transforms.parts.get_entry_text:159
+(1.2.2.1.3.2.2.2.2.13.2) --> docutils.nodes.__iadd__:695 --> docutils.nodes.extend:752 --> docutils.nodes.append:748 -->  docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+
+(1.2.2.1.3.2.2.2.2.13) --> sphinx.environment.collectors.toctree.process_doc:52 --> sphinx.environment.collectors.toctree.build_doc:69(1.2.2.1.3.2.2.2.2.13.3)
+(1.2.2.1.3.2.2.2.2.13.3) --> docutils.nodes.__getitem__:650
+(1.2.2.1.3.2.2.2.2.13.3) --> docutils.nodes.__init__:2135 --> docutils.nodes.__init__:2019
+(1.2.2.1.3.2.2.2.2.13.3) --> docutils.nodes.walkabout:172, same as docutils.nodes.walkabout:172(1.2.2.1.3.2.2.2.2.13.2.1)
+(1.2.2.1.3.2.2.2.2.13.3) --> docutils.transforms.parts.get_entry_text:159 --> docutils.nodes.get_tree_copy:2140
+(1.2.2.1.3.2.2.2.2.13.3) --> docutils.nodes.__init__:1156 --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752 --> docutils.nodes.append:748 -->  docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+(1.2.2.1.3.2.2.2.2.13.3) --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752 --> docutils.nodes.append:748 -->  docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+(1.2.2.1.3.2.2.2.2.13.3) --> sphinx.environment.collectors.toctree.build_toc:69(1.2.2.1.3.2.2.2.2.13.3.1)
+(1.2.2.1.3.2.2.2.2.13.3.1) --> docutils.nodes.__getitem__:650
+(1.2.2.1.3.2.2.2.2.13.3.1) --> sphinx.environment.collectors.toctree.traverse_in_section:57
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.transforms.__init__.apply:298(1.2.2.1.3.2.2.2.2.14)
+(1.2.2.1.3.2.2.2.2.14) --> sphinx.transforms.__init__.config:58
+(1.2.2.1.3.2.2.2.2.14) --> sphinx.config.__getattr__:268
+(1.2.2.1.3.2.2.2.2.14) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+
+(1.2.2.1.3.2.2.2.2) --> sphinx.trasforms.i18n.apply:504(1.2.2.1.3.2.2.2.2.15)
+(1.2.2.1.3.2.2.2.2.15) --> sphinx.transforms.__init__.app:48
+(1.2.2.1.3.2.2.2.2.15) --> sphinx.util.nodes.__init__:54
+(1.2.2.1.3.2.2.2.2.15) --> docutils.nodes.findall:245(1.2.2.1.3.2.2.2.2.15.1)
+(1.2.2.1.3.2.2.2.2.15.1) --> sphinx.util.nodes.__call__:80 --> sphinx.util.nodes.match:58
+(1.2.2.1.3.2.2.2.2.15.1) --> docutils.nodes.__getitem__:650
+(1.2.2.1.3.2.2.2.2.15.1) --> docutils.nodes.findall:245 --> repeated docutils.nodes.findall:245(1.2.2.1.3.2.2.2.2.15.1) iteratively
+
+(1.2.2.1.3.2) --> sphinx.builders.__init__.write_doctree:499
+
+########################################################
+#                    / R E A D                         #
+#                                                      #
+#                 CHECK DEPENDENTS                     #
+########################################################
+
+(1.2.2) --> sphinx.environment.__init__.check_dependents:440 --> sphinx.event.emit:80 --> sphinx.environment.collectors.toctree.get_updated_docs:123 --> sphinx.config.__getattr__:268
+(1.2.2) --> sphinx.util.__init__.__enter:497
+(1.2.2) --> sphinx.config.__get_state__:305 --> sphinx.config.is_serializable:36 --> and other
+(1.2.2) --> sphinx.util.__init__.__exit__:500 --> sphinx.locale.__init__.gettext:219 -->>
+
+########################################################
+#                                                      #
+#                    W R I T E                         #
+#                                                      #
+########################################################
+
+(1.2.2) --> sphinx.builders.__init__.write:517(1.2.2.2)
+(1.2.2.2) --> sphinx.builders.html.__init__.prepare_writing:441(1.2.2.2.1)
+(1.2.2.2.1) --> sphinx.config.__getattr__:268 split into several <lambda> sphinx.config.<lambda>:88,101,1341,1343
+(1.2.2.2.1) --> sphinx.search.__init__.init__:233 --> sphinx.search.__init__.__init__:67 --> sphinx.search.en.__init__:213 --> sphinx.util.stemmer.__init__.get_stemmer:33 --> sphinx.util.stemmer.porter.__init__:29
+(1.2.2.2.1) --> sphinx.builders.html.__init__.load_indexer:909(1.2.2.2.1.1)
+(1.2.2.2.1.1) --> sphinx.search.__init__.load:268(1.2.2.2.1.1.1)
+(1.2.2.2.1.1.1) --> sphinx.search.__init__.load:171 --> sphinx.search.__init__.loads:161
+(1.2.2.2.1.1.1) --> sphinx.search.__init__.load_terms:285 --> sphinx.search.__init__.<setcomp>:291
+
+(1.2.2.2.1.1) --> sphinx.search.__init__.prune:374
+
+(1.2.2.2.1) --> sphinx.writers.html.__init__:51 --> sphinx.writers.html4css1.__init__.__init__:100
+(1.2.2.2.1) --> docutils.frontend.__init__:591(1.2.2.2.1.2)
+(1.2.2.2.1.2) --> docutils.frontend.populate_from_components:623
+(1.2.2.2.1.2) --> docutils.frontend.set_defaults_from_dict:725
+(1.2.2.2.1.2) --> docutils.frontend.get_standard_config_settings:674 ...see docutils.frontend.get_standard_config_settings:674(1.2.2.1.3.2.1.2.1)
+
+(1.2.2.2.1) --> docutils.frontend.get_default_values:728 --> docutils.frontend.__init__:313
+(1.2.2.2.1) --> sphinx.domains.python.generate:1087 --> sphinx.config.__getitem__:278 --> sphinx.config.__getattr__:268
+(1.2.2.2.1) --> sphinx.environment.__init__.collect_relations:583(1.2.2.2.1.3)
+(1.2.2.2.1.3) --> sphinx.config.__getattr__:268
+(1.2.2.2.1.3) --> sphinx.environment.__init__.traverse_toctree:586 ... calls itself iteratively
+(1.2.2.2.1.3) --> sphinx.locale.__init__.gettext:219
+
+(1.2.2.2.1) --> sphinx.builders.html.__init__._get_style_filename:267
+(1.2.2.2.1) --> sphinx.theming.get_options:108
+(1.2.2.2.1) --> sphinx.builders.html.__init__.<genexpr>:549
+
+(1.2.2.2) --> sphinx.util.__init__.__exit__:500
+(1.2.2.2) --> sphinx.builders.__init__._write_serial:547(1.2.2.2.2)
+(1.2.2.2.2) --> sphinx.util.__init__.status_iterator:467(1.2.2.2.2.1)
+(1.2.2.2.2.1) --> sphinx.util.console.inner:102 --> sphinx.util.console.colorize:81 --> sphinx.util.console.escseq:82
+(1.2.2.2.2.1) --> sphinx.util.__init__.display_chunk:440
+(1.2.2.2.2.1) --> sphinx.util.console.colorize:81 --> sphinx.util.console.escseq:82
+(1.2.2.2.2.1) --> sphinx.util.console.term_width_line:42
+
+(1.2.2.2.2) --> sphinx.environment.__init__.get_and_resolve_doctree:520(1.2.2.2.2.2)
+(1.2.2.2.2.2) --> sphinx.environment.__init__.get_doctree:511(1.2.2.2.2.2.1)
+(1.2.2.2.2.2.1) --> docutils.nodes.__new__:399
+(1.2.2.2.2.2.1) --> sphinx.environment.__init__.doc2path:322 --> sphinx.project.doc2path:70
+(1.2.2.2.2.2.1) --> sphinx.util.docutils.__init__:306 --> docutils.utils.__init__.__init__:80
+
+(1.2.2.2.2.2) --> sphinx.environment.__init__.apply_post_transforms:566(1.2.2.2.2.2.2)
+(1.2.2.2.2.2.2) --> docutils.transforms.__init__.__init__:71
+(1.2.2.2.2.2.2) --> sphinx.transforms.__init__.set_environment:72
+(1.2.2.2.2.2.2) --> sphinx.registry.get_post_transforms:364
+(1.2.2.2.2.2.2) --> docutils.transforms.__init__.add_transforms:111 --> docutils.transforms.__init__.get_priority_string:130
+(1.2.2.2.2.2.2) --> sphinx.transforms.__init__.apply_transforms:75 --> docutils.transforms.__init__.apply_transforms:159(1.2.2.2.2.2.2.1)
+(1.2.2.2.2.2.2.1) --> docutils.transforms.__init__.__init__:42 --> sphinx.util.docutils.patched_get_language:134 --> docutils.languages.__init__.__call__:62
+(1.2.2.2.2.2.2.1) --> sphinx.transforms.post_transforms.__init__.apply:33(1.2.2.2.2.2.2.1.1)
+(1.2.2.2.2.2.2.1.1) --> sphinx.transforms.post_transforms.__init__.is_supported:37 --> sphinx.transforms.__init__.app:88 --> sphinx.transforms.__init__.env:53
+(1.2.2.2.2.2.2.1.1) --> sphinx.transforms.post_transforms.__init__.run:61 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1.1) --> sphinx.transforms.post_transforms.__init__.run:217 --> sphinx.util.nodes.process_only_nodes:609 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1.1) --> sphinx.transforms.post_transforms.__init__.run:229(1.2.2.2.2.2.2.1.1.1)
+(1.2.2.2.2.2.2.1.1.1) --> sphinx.transforms.__init__.app:48 --> sphinx.transforms.__init__.env:53
+(1.2.2.2.2.2.2.1.1.1) --> sphinx.builders.__init__.get_translator_class:112 --> sphinx.registry.get_translator_class:331 --> sphinx.builders.html.__init__.default_translator_class:354 --> sphinx.config.__getattr__:268
+(1.2.2.2.2.2.2.1.1.1) --> sphinx.transforms.post_transforms.__init__.<genexpr>:239 --> sphinx.transforms.post_transforms.__init__.has_visitor:230
+(1.2.2.2.2.2.2.1.1.1) --> sphinx.transforms.post_transforms.__init__.fallback:245 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1.1.1) --> sphinx.transforms.post_transforms.__init__.has_visitor:230
+
+(1.2.2.2.2.2.2.1.1) --> sphinx.transforms.post_transforms.__init__.run:257 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1.1) --> sphinx.builders.html.transforms.run:41(1.2.2.2.2.2.2.1.1.2)
+(1.2.2.2.2.2.2.1.1.2) --> sphinx.util.nodes.__init__:54
+(1.2.2.2.2.2.2.1.1.2) --> docutils.nodes.findall:245 --> repeated sphinx.util.nodes.__call__:80,__getitem__,docutils.nodes.findall:245(1.2.2.1.3.2.2.2.2.15.1) iteratively
+
+(1.2.2.2.2.2.2.1) --> sphinx.domains.c.apply:3553 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1) --> sphinx.domains.cpp.apply:7520 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1) --> sphinx.transforms.post_transforms.images.apply:24 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1) --> sphinx.transforms.post_transforms.code.apply:32(1.2.2.2.2.2.2.1.2)
+(1.2.2.2.2.2.2.1.2) --> sphinx.transforms.__init__.config:58
+(1.2.2.2.2.2.2.1.2) --> sphinx.config.__getattr__:268
+(1.2.2.2.2.2.2.1.2) --> sphinx.transforms.post_transforms.code.__init__:42 --> docutils.nodes.__init__:2019
+(1.2.2.2.2.2.2.1.2) --> docutils.nodes.walkabout:172, same as docutils.nodes.walkabout:172(1.2.2.1.3.2.2.2.2.13.2.1)
+(1.2.2.2.2.2.2.1.2) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2.2.1) --> sphinx.transforms.post_transforms.code.apply:88 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+
+(1.2.2.2.2.2.2) --> sphinx.events.emit:80
+
+(1.2.2.2.2.2) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.2) --> docutils.nodes.replace_self:1016 --> docutils.nodes.replace:1007 --> docutils.nodes.index:769
+
+(1.2.2.2.2) --> sphinx.builders.html.__init__.write_doc_serialized:651(1.2.2.2.2.3)
+(1.2.2.2.2.3) --> sphinx.builders.dirhtml.get_target_uri:22
+(1.2.2.2.2.3) --> sphinx.builders.html.__init__.post_process_images:880(1.2.2.2.2.3.1)
+(1.2.2.2.2.3.1) --> sphinx.builders.__init__.get_builder_config.post_process_images:170 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.3.1) --> sphinx.config.__getattr__:268
+(1.2.2.2.2.3.1) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+
+(1.2.2.2.2.3) --> sphinx.builders.html.__init__.render_partial:430(1.2.2.2.2.3.2)
+(1.2.2.2.2.3.2) --> sphinx.util.docutils.new_document:567(1.2.2.2.2.3.2.1)
+(1.2.2.2.2.3.2.1) --> docutils.utils.__init__.new_document:426(1.2.2.2.2.3.2.1.1)
+(1.2.2.2.2.3.2.1.1) --> docutils.frontend.__init__:591 --> docutils.frontend.populate_from_components:623
+(1.2.2.2.2.3.2.1.1) --> docutils.frontend.get_default_values:728 --> docutils.frontend.__init__:313 --> docutils.utils.__init__.__init__:702
+(1.2.2.2.2.3.2.1.1) --> docutils.utils.__init__.new_reporter:409 --> docutils.utils.__init__.__init__:80
+(1.2.2.2.2.3.2.1.1) --> docutils.nodes.__init__:1278(1.2.2.2.2.3.2.1.1.1)
+(1.2.2.2.2.3.2.1.1.1) --> docutils.nodes.__init__:544
+(1.2.2.2.2.3.2.1.1.1) --> docutils.transforms.__init__.__init__:71
+
+(1.2.2.2.2.3.2.1) --> docutils.nodes.__init__:1278, same as docutils.nodes.__init__:1278(1.2.2.2.2.3.2.1.1.1)
+
+(1.2.2.2.2.3.2) --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117(1.2.2.2.2.3.2.2)
+(1.2.2.2.2.3.2.2) --> docutils.nodes.document:57
+(1.2.2.2.2.3.2.2) --> docutils.nodes.document:67
+
+(1.2.2.2.2.3.2) --> docutils.core.set_source:170
+(1.2.2.2.2.3.2) --> docutils.core.publish:202(1.2.2.2.2.3.2.3)
+(1.2.2.2.2.3.2.3) --> docutils.readers.__init__.read:66(1.2.2.2.2.3.2.3.1)
+(1.2.2.2.2.3.2.3.1) --> docutils.io.read:484
+(1.2.2.2.2.3.2.3.1) --> docutils.readers.doctree.parse:32(1.2.2.2.2.3.2.3.1.1)
+(1.2.2.2.2.3.2.3.1.1) --> docutils.transforms.__init__.__init__:71
+(1.2.2.2.2.3.2.3.1.1) --> docutils.nodes.get:718
+(1.2.2.2.2.3.2.3.1.1) --> docutils.utils.__init__.new_reporter:409
+
+(1.2.2.2.2.3.2.3) --> docutils.core.apply_transforms:196(1.2.2.2.2.3.2.3.2)
+(1.2.2.2.2.3.2.3.2) --> docutils.transforms.__init__.populate_from_components:139(1.2.2.2.2.3.2.3.2.1)
+(1.2.2.2.2.3.2.3.2.1) --> docutils.__init__.get_transforms:216
+(1.2.2.2.2.3.2.3.2.1) --> docutils.transforms.__init__.add_transforms:111 --> docutils.transforms.__init__.get_priority_string:130
+(1.2.2.2.2.3.2.3.2.1) --> docutils.readers.__init__.get_transforms:96 --> docutils.__init__.get_transforms:216
+(1.2.2.2.2.3.2.3.2.1) --> docutils.parsers.rst.__init__.get_transforms:159 --> docutils.__init__.get_transforms:216
+(1.2.2.2.2.3.2.3.2.1) --> docutils.writers._html_base.get_transforms:152 --> docutils.writers.__init__.get_transforms:34 --> docutils.__init__.get_transforms:216
+(1.2.2.2.2.3.2.3.2.1) --> docutils.transforms.__init__.<genexpr>:156
+(1.2.2.2.2.3.2.3.2.1) --> docutils.transforms.__init__.<genexpr>:157
+
+(1.2.2.2.2.3.2.3.2) --> docutils.transforms.__init__.apply_transforms:159(1.2.2.2.2.3.2.3.2.2)
+(1.2.2.2.2.3.2.3.2.2) --> docutils.transforms.__init__.__init__:42 --> sphinx.util.docutils.patched_get_language:134 --> docutils.languages.__init__.__call:62
+(1.2.2.2.2.3.2.3.2.2) --> docutils.transforms.universal.apply:198
+(1.2.2.2.2.3.2.3.2.2) --> docutils.transforms.universal.__init__:251 --> docutils.transforms.__init__.__init__:42 --> sphinx.util.docutils.patched_get_language:134
+(1.2.2.2.2.3.2.3.2.2) --> docutils.transforms.universal.apply:268 --> docutils.frontend.setdefault:336
+(1.2.2.2.2.3.2.3.2.2) --> docutils.transforms.universal.apply:127
+(1.2.2.2.2.3.2.3.2.2) --> docutils.transforms.universal.apply:151 --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+(1.2.2.2.2.3.2.3.2.2) --> docutils.transforms.writer_aux.apply:75(1.2.2.2.2.3.2.3.2.2.1)
+(1.2.2.2.2.3.2.3.2.2.1) --> sphinx.util.docutils.patched_get_language:134 --> docutils.languages.__init__.__call__:62
+(1.2.2.2.2.3.2.3.2.2.1) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 ...calls itself iteratively
+
+(1.2.2.2.2.3.2.3) --> docutils.writers.__init__.write:63(1.2.2.2.2.3.2.3.3)
+(1.2.2.2.2.3.2.3.3) --> sphinx.util.docutils.patched_get_language:134
+(1.2.2.2.2.3.2.3.3) --> sphinx.writers.html.translate:55(1.2.2.2.2.3.2.3.3.1)
+(1.2.2.2.2.3.2.3.3.1) --> sphinx.builders.__init__.create_translator:116 --> sphinx.registry.create_translator:335(1.2.2.2.2.3.2.3.3.1.1)
+(1.2.2.2.2.3.2.3.3.1.1) --> sphinx.registry.get_translator_class:331 --> sphinx.builders.html.__init__.default_translator_class:254 --> sphinx.config.__getattr__:268
+(1.2.2.2.2.3.2.3.3.1.1) --> sphinx.writers.html5.__init__:56 --> sphinx.util.docutils.__init__:508 --> docutils.writers._html_base.__init__:286(1.2.2.2.2.3.2.3.3.1.1.1)
+(1.2.2.2.2.3.2.3.3.1.1.1) --> docutils.nodes.__init__:2019
+(1.2.2.2.2.3.2.3.3.1.1.1) --> sphinx.util.docutils.patched_get_language:134
+(1.2.2.2.2.3.2.3.3.1.1.1) --> docutils.utils.__init__.get_stylesheet_list:518 --> docutils.utils.__init__.<listcom>:530 --> docutils.utils.__init__.find_file_in_dirs:536
+(1.2.2.2.2.3.2.3.3.1.1.1) --> docutils.writers._html_base.<listcomp>:301 --> docutils.writers._html_base.stylesheet_call:396(1.2.2.2.2.3.2.3.3.1.1.1.1)
+(1.2.2.2.2.3.2.3.3.1.1.1.1) --> docutils.utils.__init__.relative_path:462 --> docutils.utils.__init__.abspath:376
+(1.2.2.2.2.3.2.3.3.1.1.1.1) --> docutils.writers._html_base.encode:363
+
+(1.2.2.2.2.3.2.3.3.1) --> docutils.nodes.walkabout:172, similar to docutils.nodes.walkabout:172(1.2.2.1.3.2.2.2.2.13.2.1)
+
+(1.2.2.2.2.3.2.3.3) --> docutils.io.write:442 --> docutils.io.encode:191
+
+(1.2.2.2.2.3.2.3) --> docutils.writers._html_base.assemble_parts:178 --> docutils.writers.__init__.assemble_parts:97
+
+(1.2.2.2.2.3) --> sphinx.builders.html.__init__.index_page:927(1.2.2.2.2.3.3)
+(1.2.2.2.2.3.3) --> sphinx.environment.__init__.doc2path:322 --> sphinx.project.doc2path
+(1.2.2.2.2.3.3) --> sphinx.search.__init__.stem.feed:389(1.2.2.2.2.3.3.1)
+(1.2.2.2.2.3.3.1) --> docutils.nodes.walk:126 -> dispatch & walk iterative calls
+(1.2.2.2.2.3.3.1) --> sphinx.search.__init__.stem:398 --> sphinx.search..en.stem:216 --> sphinx.util.stemmer.__init__.stem:29 --> sphinx.util.stemmer.porter.stem:379(1.2.2.2.2.3.3.1.1)
+(1.2.2.2.2.3.3.1.1) --> sphinx.util.stemmer.porter.step1ab:150(1.2.2.2.2.3.3.1.1.1)
+(1.2.2.2.2.3.3.1.1.1) --> sphinx.util.stemmer.porter.ends:126
+(1.2.2.2.2.3.3.1.1.1) --> sphinx.util.stemmer.porter.vowelinstem:94 --> sphinx.util.stemmer.porter.cons:45
+(1.2.2.2.2.3.3.1.1.1) --> sphinx.util.stemmer.porter.doublec:101 --> sphinx.util.stemmer.porter.cons:45
+(1.2.2.2.2.3.3.1.1.1) --> sphinx.util.stemmer.porter.m:57 --> sphinx.util.stemmer.porter.cons:45
+(1.2.2.2.2.3.3.1.1.1) --> sphinx.util.stemmer.porter.cvc:109 --> sphinx.util.stemmer.porter.cons:45
+(1.2.2.2.2.3.3.1.1.1) --> sphinx.util.stemmer.porter.setto:138
+
+(1.2.2.2.2.3.3.1.1) --> sphinx.util.stemmer.porter.step1c:197(1.2.2.2.2.3.3.1.1.2)
+(1.2.2.2.2.3.3.1.1.2) --> sphinx.util.stemmer.porter.ends:126
+(1.2.2.2.2.3.3.1.1.2) --> sphinx.util.stemmer.porter.vowelinstem:94 --> sphinx.util.stemmer.porter.cons:45
+
+(1.2.2.2.2.3.3.1.1) --> sphinx.util.stemmer.porter.step2:203(1.2.2.2.2.3.3.1.1.3)
+(1.2.2.2.2.3.3.1.1.3) --> sphinx.util.stemmer.porter.ends:126
+(1.2.2.2.2.3.3.1.1.3) --> sphinx.util.stemmer.porter.r:145(1.2.2.2.2.3.3.1.1.3.1)
+(1.2.2.2.2.3.3.1.1.3.1) --> sphinx.util.stemmer.porter.m:57 --> sphinx.util.stemmer.porter.cons:45
+(1.2.2.2.2.3.3.1.1.3.1) --> sphinx.util.stemmer.porter.setto:138
+
+(1.2.2.2.2.3.3.1.1) --> sphinx.util.stemmer.porter.step3:262(1.2.2.2.2.3.3.1.1.4)
+(1.2.2.2.2.3.3.1.1.4) --> sphinx.util.stemmer.porter.ends:126
+(1.2.2.2.2.3.3.1.1.4) --> sphinx.util.stemmer.porter.r:145, same as sphinx.util.stemmer.porter.r:145(1.2.2.2.2.3.3.1.1.3.1)
+
+(1.2.2.2.2.3.3.1.1) --> sphinx.util.stemmer.porter.step4:284(1.2.2.2.2.3.3.1.1.5)
+(1.2.2.2.2.3.3.1.1.5) --> sphinx.util.stemmer.porter.ends:126
+(1.2.2.2.2.3.3.1.1.5) --> sphinx.util.stemmer.porter.m:57 --> sphinx.util.stemmer.porter.cons:45
+
+(1.2.2.2.2.3.3.1.1) --> sphinx.util.stemmer.porter.step5:367(1.2.2.2.2.3.3.1.1.6)
+(1.2.2.2.2.3.3.1.1.6) --> sphinx.util.stemmer.porter.m:57 --> sphinx.util.stemmer.porter.cons:45
+(1.2.2.2.2.3.3.1.1.6) --> sphinx.util.stemmer.porter.cvc:109 --> sphinx.util.stemmer.porter.cons:45
+(1.2.2.2.2.3.3.1.1.6) --> sphinx.util.stemmer.porter.doublec:101 --> sphinx.util.stemmer.porter.cons:45
+
+(1.2.2.2.2.3.3.1) --> sphinx.search.__init__.word_filter:97
+
+(1.2.2.2.2) --> sphinx.builders.html.__init__.write_doc:634(1.2.2.2.2.4)
+(1.2.2.2.2.4) --> docutils.io.__init__:166
+(1.2.2.2.2.4) --> docutils.writers.__init__.write:63, similar to docutils.writers.__init__.write:63(1.2.2.2.2.3.2.3.3)
+(1.2.2.2.2.4) --> sphinx.builders.html.__init__.get_doc_content:554(1.2.2.2.2.4.1)
+(1.2.2.2.2.4.1) --> sphinx.builders.__init__.get_relative_uri:148(1.2.2.2.2.4.1.1)
+(1.2.2.2.2.4.1.1) --> sphinx.builders.dirhtml.get_target_uri:22
+(1.2.2.2.2.4.1.1) --> sphinx.util.osutil.relative_uri:37
+
+(1.2.2.2.2.4.1) --> sphinx.builders.html.__init__.render_partial:430(1.2.2.2.2.4.1.2)
+(1.2.2.2.2.4.1.2) --> sphinx.util.docutils.new_document:567(1.2.2.2.2.4.1.2.1)
+(1.2.2.2.2.4.1.2.1) --> docutils.nodes.__init__:1278(1.2.2.2.2.4.1.2.1.1)
+(1.2.2.2.2.4.1.2.1.1) --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752
+(1.2.2.2.2.4.1.2.1.1) --> docutils.transforms.__init__.__init__:71
+
+(1.2.2.2.2.4.1.2.1) --> docutils.nodes.note_source:1600
+
+(1.2.2.2.2.4.1.2) --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117(1.2.2.2.2.4.1.2.2)
+(1.2.2.2.2.4.1.2.2) --> docutils.nodes.document:57
+(1.2.2.2.2.4.1.2.2) --> docutils.nodes.document:67
+
+(1.2.2.2.2.4.1.2) --> docutils.core.set_source:170 --> docutils.io.__init__:54
+
+(1.2.2.2.2.4.1.2) --> docutils.core.publish:202, similar to docutils.core.publish:202(1.2.2.2.2.3.2.3)
+
+(1.2.2.2.2.4.1) --> sphinx.locale.__init__.gettext:219
+(1.2.2.2.2.4.1) --> sphinx.environment.__init__.doc2path:322 --> sphinx.project.doc2path:70
+(1.2.2.2.2.4.1) --> sphinx.environment.adapters.toctree.get_toc_for:292(1.2.2.2.2.4.1.3)
+(1.2.2.2.2.4.1.3) --> docutils.nodes.deepcopy:1091(1.2.2.2.2.4.1.3.1)
+(1.2.2.2.2.4.1.3.1) --> sphinx.util.nodes._new_copy:629 --> doc.utils.nodes.__init__:544
+(1.2.2.2.2.4.1.3.1) --> docutils.nodes.<listcomp>:1093 --> docutils.nodes.deepcopy:1091 --> ... calls like sphinx.environment.adapters.toctree.get_toc_for:292(1.2.2.2.2.4.1.3) iteratively
+(1.2.2.2.2.4.1.3.1) --> docutils.nodes.extend:752 --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+(1.2.2.2.2.4.1.3) --> sphinx.environment.adapters.toctree._toctree_prune:270 --> ... calls itself iteratively
+(1.2.2.2.2.4.1.3) --> sphinx.util.nodes.process_only_nodes:609 --> docutils.nodes:findall:245 --> ... calls itself iteratively
+(1.2.2.2.2.4.1.3) --> docutils.nodes.findall:245 --> ... calls itself iteratively
+(1.2.2.2.2.4.1.3) --> docutils.nodes.__getitem__:650 -->  docutils.nodes.__setitem__:662
+
+(1.2.2.2.2.4) --> sphinx.builders.html.__init__.handle_page:1003(1.2.2.2.2.4.2)
+(1.2.2.2.2.4.2) --> sphinx.config.__getattr__:268
+(1.2.2.2.2.4.2) --> sphinx.application.emit_firstresult:442 --> sphinx.events.emit_firstresult:106 --> sphinx.events.emit:80(1.2.2.2.2.4.2.1)
+(1.2.2.2.2.4.2.1) --> docutils.nodes.__repr__:584 --> docutils.nodes.shortrepr:597(1.2.2.2.2.4.2.1.1)
+(1.2.2.2.2.4.2.1.1) --> docutils.nodes.__getitem__:650
+(1.2.2.2.2.4.2.1.1) --> docutils.nodes.<listcomp>600 --> docutils.nodes.ensure_str:362
+(1.2.2.2.2.4.2.1) --> sphinx.builders.html.__init__.setup_css_tag_helper:1162
+(1.2.2.2.2.4.2.1) --> sphinx.builders.html.__init__.setup_js_tag_helper:1182
+(1.2.2.2.2.4.2.1) --> sphinx.builders.html.__init__.setup_resource_path:1217
+(1.2.2.2.2.4.2.1) --> sphinx.ext.mathjax.install_mathjax:68 --> ... other Math specific calls
+(1.2.2.2.2.4.2.1) --> alabaster.__init__.update_context:14
+
+(1.2.2.2.2.4.2) --> sphinx.jinja2glue.render:188(1.2.2.2.2.4.2.2)
+(1.2.2.2.2.4.2.2) --> jinjia2.environment.get_template:975 --> many other Jinja2 internal calls
+(1.2.2.2.2.4.2.2) --> sphinx.jinja2glue.render:188 --> many other Jinja2 internal calls
+
+(1.2.2.2.2.4.2) --> sphinx.builders.dirhtml.get_outfilename:29 --> sphinx.util.osutil.os_path:28
+(1.2.2.2.2.4.2) --> sphinx.util.osutil.ensuredir:60
+(1.2.2.2.2.4.2) --> sphinx.util.osutil.copyfile:83
+
+########################################################
+#                                                      #
+#                  F I N I S H                         #
+#                                                      #
+########################################################
+
+
+(1.2.2) --> sphinx.builders.html.__init__.finish:658(1.2.2.3)
+(1.2.2.3) --> sphinx.util.parallel.add_task:30(1.2.2.3.1)
+(1.2.2.3.1) --> sphinx.util.__init__.wrapper:514(1.2.2.3.1.1)
+(1.2.2.3.1.1) --> sphinx.util.__init__.__enter__:497 --> sphinx.util.console.inner:102 --> sphinx.util.console.colorize:81 --> sphinx.util.console.escseq:82
+(1.2.2.3.1.1) --> sphinx.builders.html.__init__.gen_indices:671 --> sphinx.builders.html.__init__.write_genindex:704(1.2.2.3.1.1.1)
+(1.2.2.3.1.1.1) --> sphinx.environment.adapters.indexentries.__init__:19
+(1.2.2.3.1.1.1) --> sphinx.environment.adapters.indexentries.create_index:22(1.2.2.3.1.1.1.1)
+(1.2.2.3.1.1.1.1) --> sphinx.environment.__init__.get_domain:499
+(1.2.2.3.1.1.1.1) --> sphinx.domains.index.entries:29
+(1.2.2.3.1.1.1) --> sphinx.config.__getattr__:268
+(1.2.2.3.1.1.1.1) --> sphinx.builders.html.__init__.handle_page:1003, similar to sphinx.builders.html.__init__.handle_page:1003(1.2.2.2.2.4.2)
+
+(1.2.2.3.1.1) --> sphinx.util.__init__.__exit__:500
+(1.2.2.3.1.1) --> sphinx.builders.html.__init__.gen_additional_pages:686 --> sphinx.builders.html.__init__.handle_page:1003, similar to sphinx.builders.html.__init__.handle_page:1003(1.2.2.2.2.4.2)
+
+(1.2.2.3.1) --> sphinx.builders.html.__init__.copy_static_files:837(1.2.2.3.1.2)
+(1.2.2.3.1.2) --> sphinx.locale.__init__.gettext:219
+(1.2.2.3.1.2) --> sphinx.util.__init__.__enter:497
+(1.2.2.3.1.2) --> sphinx.util.osutil.ensuredir:60
+(1.2.2.3.1.2) --> sphinx.search.__init__.context_for_searchtool:422 --> sphinx.search.__init__.get_js_stemmer_code:448
+(1.2.2.3.1.2) --> sphinx.builders.html.__init__.create_pygments_style_file:776 --> sphinx.highlighting.get_stylesheet:166(1.2.2.3.1.2.1)
+(1.2.2.3.1.2.1) --> sphinx.highlighting.get_formatter:93 --> pygments.formatters.html.__init__:412
+(1.2.2.3.1.2.1) --> pygments.formatters.html.get_style_defs:509
+
+(1.2.2.3.1.2) --> sphinx.builders.html.__init__.copy_translation_js:787 --> sphinx.builders.html.__init__._get_translations_js:253
+(1.2.2.3.1.2) --> sphinx.builders.html.__init__.copy_stemmer_js:793 --> sphinx.search.__init__.get_js_stemmer_rawcodes:435
+(1.2.2.3.1.2) --> sphinx.builders.html.__init__.copy_theme_static_files:804 --> sphinx.util.fileutil.copy_asset:49(1.2.2.3.1.2.2)
+(1.2.2.3.1.2.2) --> sphinx.util.osutil.ensuredir:60
+(1.2.2.3.1.2.2) --> docutils.utils.__init__.relative_path:462 --> docutils.utils.__init__.abspath:376
+(1.2.2.3.1.2.2) --> sphinx.util.matching.__call__:70 --> sphinx.util.matching.match:73(1.2.2.3.1.2.2.1)
+(1.2.2.3.1.2.2.1) --> sphinx.util.osutil.canon_path:32
+(1.2.2.3.1.2.2.1) --> sphinx.util.matching.<genexpr>:75
+
+(1.2.2.3.1.2.2) --> sphinx.util.fileutil.copy_asset_file:16(1.2.2.3.1.2.2.2)
+(1.2.2.3.1.2.2.2) --> sphinx.util.osutil.copyfile:83
+(1.2.2.3.1.2.2.2) --> sphinx.jinja2glue.render_string:191 --> ... calling Jinja2
+
+(1.2.2.3.1.2) --> sphinx.util.__init__.__exit:500
+
+(1.2.2.3) --> sphinx.builders.html.__init__.handle_finish:1104 --> sphinx.util.parallel.add_task:30(1.2.2.3.2)
+(1.2.2.3.2) --> sphinx.util.parallel.dump_search_index:1113(1.2.2.3.2.1)
+(1.2.2.3.2.1) --> sphinx.locale.__init__.gettext:219
+(1.2.2.3.2.1) --> sphinx.search.__init__.label:371
+(1.2.2.3.2.1) --> sphinx.util.__init__.__init__:494
+(1.2.2.3.2.1) --> sphinx.util.__init__.__enter:497
+(1.2.2.3.2.1) --> sphinx.search.__init__.prune:374
+(1.2.2.3.2.1) --> sphinx.search.__init__.dump:298(1.2.2.3.2.1.1)
+(1.2.2.3.2.1.1) --> sphinx.search.__init__.freeze:357(1.2.2.3.2.1.1.1)
+(1.2.2.3.2.1.1.1) --> sphinx.search.__init__.<listcomp>:360
+(1.2.2.3.2.1.1.1) --> sphinx.search.__init__.<dictcomp>:361
+(1.2.2.3.2.1.1.1) --> sphinx.search.__init__.get_terms:345 --> sphinx.search.__init__.<listcomp>:360
+(1.2.2.3.2.1.1.1) --> sphinx.search.__init__.get_objects:308(1.2.2.3.2.1.1.1.1)
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.c.get_objects:3898
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.__init__.get_objects:350
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.cpp.get_objects:8007
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.javascript.get_objects:428
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.math.get_objects:148
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.python.get_objects:1401(1.2.2.3.2.1.1.1.1.1)
+(1.2.2.3.2.1.1.1.1.1) --> sphinx.domains.python.modules:1226
+(1.2.2.3.2.1.1.1.1.1) --> sphinx.domains.python.objects:1201
+
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.rst.get_objects:249
+(1.2.2.3.2.1.1.1.1) --> sphinx.domains.std.get_objects:972(1.2.2.3.2.1.1.1.1.2)
+(1.2.2.3.2.1.1.1.1.2) --> sphinx.util.nodes.clean_astext:346(1.2.2.3.2.1.1.1.1.2.1)
+(1.2.2.3.2.1.1.1.1.2.1) --> docutils.nodes.deepcopy:1091(1.2.2.3.2.1.1.1.1.2.1.1)
+(1.2.2.3.2.1.1.1.1.2.1.1) --> sphinx.util.nodes._new_copy:629 --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752
+(1.2.2.3.2.1.1.1.1.2.1.1) --> docutils.nodes.<listcomp>:1093 --> docutils.nodes.deepcopy:442 --> docutils.nodes.copy:439 --> docutils.nodes.__new__:399
+(1.2.2.3.2.1.1.1.1.2.1.1) --> docutils.nodes.extend:752 --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+
+(1.2.2.3.2.1.1.1.1.2.1) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 --> ... calls itself iteratively
+(1.2.2.3.2.1.1.1.1.2.1) --> docutils.nodes.astext:703 --> docutils.nodes.<listcomp>:705 --> docutils.nodes.astext:427 --> docutils.nodes.unescape:371
+
+(1.2.2.3.2.1.1.1.1.2) --> sphinx.domains.std.progoptions:652
+(1.2.2.3.2.1.1.1.1.2) --> sphinx.domains.std.anonlabels:660
+
+(1.2.2.3.2.1.1) -->  sphinx.search.__init__.dump:168 --> sphinx.search.__init__.dumps:158
+
+(1.2.2.3.2.1) --> sphinx.util.__init__.__exit__:500 --> sphinx.locale.__init__.gettext:219 --> sphinx.locale.__init__.is_translator_registered:182
+
+(1.2.2.3.2) --> sphinx.util.__init__.wrapper:514(1.2.2.3.2.2)
+(1.2.2.3.2.2) --> sphinx.util.__init__.__enter__:497 --> sphinx.util.console.inner:102 --> sphinx.util.console.colorize:81 --> sphinx.util.console.escseq:82
+(1.2.2.3.2.2) --> sphinx.builders.html.__init__.dump_inventory:1109 --> sphinx.util.inventory.dump:138(1.2.2.3.2.2.1)
+(1.2.2.3.2.2.1) --> sphinx.config.__getattr__:268
+(1.2.2.3.2.2.1) --> sphinx.util.inventory.escape:140
+(1.2.2.3.2.2.1) --> sphinx.domains.c.get_objects:3898
+(1.2.2.3.2.2.1) --> sphinx.domains.cpp.get_objects:8007
+(1.2.2.3.2.2.1) --> sphinx.domains.javascript.get_objects:428
+(1.2.2.3.2.2.1) --> sphinx.domains.python.get_objects:1401
+(1.2.2.3.2.2.1) --> sphinx.domains.rst.get_objects:249
+(1.2.2.3.2.2.1) --> sphinx.domains.std.get_objects:972(1.2.2.3.2.2.1.2)
+(1.2.2.3.2.2.1.2) --> sphinx.util.nodes.clean_astext:346(1.2.2.3.2.2.1.2.1)
+(1.2.2.3.2.2.1.2.1) --> docutils.nodes.deepcopy:1091(1.2.2.3.2.2.1.2.1.1)
+(1.2.2.3.2.2.1.2.1.1) --> sphinx.util.nodes._new_copy:629 --> docutils.nodes.__init__:544 --> docutils.nodes.extend:752
+(1.2.2.3.2.2.1.2.1.1) --> docutils.nodes.<listcomp>:1093 --> docutils.nodes.deepcopy:442 --> docutils.nodes.copy:439 --> docutils.nodes.__new__:399
+(1.2.2.3.2.2.1.2.1.1) --> docutils.nodes.extend:752 --> docutils.nodes.append:748 --> docutils.nodes.setup_child:117 --> docutils.nodes.document:57
+
+(1.2.2.3.2.2.1.2.1) --> docutils.nodes.findall:245 --> docutils.nodes._fast_findall:215 --> ... calls itself iteratively
+(1.2.2.3.2.2.1.2.1) --> docutils.nodes.astext:703 --> docutils.nodes.<listcomp>:705 --> docutils.nodes.astext:427 --> docutils.nodes.unescape:371
+
+(1.2.2.3.2.2.1.2) --> sphinx.domains.std.progoptions:652
+(1.2.2.3.2.2.1.2) --> sphinx.domains.std.objects:622
+(1.2.2.3.2.2.1.2) --> sphinx.domains.std.labels:656
+
+(1.2.2.3.2.2.1) --> sphinx.builders.dirhtml.get_target_uri:22
+(1.2.2.3.2.2.1) --> sphinx.locale.__init__.str:56
+
+(1.2.2.3.2.2) --> sphinx.util.__init__.__exit__:500 --> sphinx.locale.__init__.gettext:219 --> sphinx.locale.__init__.is_translator_registered:182
+
+(1.2.2.3.2)
+
+
