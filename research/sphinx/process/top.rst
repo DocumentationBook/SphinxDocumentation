@@ -3,8 +3,13 @@
 Top Level Operations
 ####################
 
-The top level operations prepare the environment and start the documentation build process as presented in the
-following diagram.
+The top level operations prepare the environment and start the documentation build process.
+
+
+The process
+===========
+
+he first steps are presented in the following diagram:
 
 .. uml:: top.uml
 
@@ -23,7 +28,8 @@ The process includes the following operations:
       return build_main(argv)
 
 #. The ``sphinx.cmd.builds.build_main`` function validates and collects arguments passed
-   to the ``sphinx-build`` command, requests creation of the main application and starts the build processes:
+   to the ``sphinx-build`` command (``argv``),
+   requests creation of the main application and starts the build processes:
 
    #. Use the Python standard class ``argparse.ArgumentParser`` to validate and collect all command line arguments.
       If it detects an error, it completes the operations with an error message. Otherwise, it stores the arguments
@@ -49,3 +55,29 @@ The process includes the following operations:
 
          app.build(args.force_all, filenames)
          return app.statuscode
+
+Build phases
+============
+
+The whole process consists of several phases declared in the ``sphinx.util.build_phase.BuildPhase`` enum class::
+
+   class BuildPhase(IntEnum):
+       """Build phase of Sphinx application."""
+       INITIALIZATION = 1
+       READING = 2
+       CONSISTENCY_CHECK = 3
+       RESOLVING = 3
+       WRITING = 4
+
+The first phase, INITIALIZATION, is implemented during creation and initialization of the ``app`` object,
+the other are implemented by the ``app.build`` method.
+
+
+More details
+============
+
+At the moment, the process consists of the following two sets of operations presented in more detail
+in the following documents:
+
+*  :ref:`research_sphinx_process_app`
+*  :ref:`research_sphinx_process_phases`

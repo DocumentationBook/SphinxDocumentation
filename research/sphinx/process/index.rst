@@ -4,11 +4,15 @@ Operations
 ##########
 
 Let us walk through the documentation build process in the hierarchical order from top to bottom.
+Since the total process can contain hundreds of thousands calls, this journey presents
+only the most important ones for a better understanding of this process.
 
 .. toctree::
    :hidden:
 
    top
+   app
+   phases
 
 As the process highly depends on the set of documents, we will take a simple structure::
 

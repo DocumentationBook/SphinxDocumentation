@@ -155,6 +155,6 @@ Additional resources
 
 For more details on using ``viztracer``, see the following resources:
 
-*  `VizTracer <https://github.com/gaogaotiantian/viztracer>`_ in GitHub.
-*  `VizTracer <https://viztracer.readthedocs.io/en/stable/>`_ in ReadTheDocs.
+*  `VizTracer in GitHub <https://github.com/gaogaotiantian/viztracer>`_
+*  `VizTracer in ReadTheDocs <https://viztracer.readthedocs.io/en/stable/>`_
 

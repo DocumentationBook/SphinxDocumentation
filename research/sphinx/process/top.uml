@@ -18,22 +18,21 @@ package "sphinx" {
    }
 
    package "application" {
-      [Sphinx init(args)] as [Sphinx]
+      [Sphinx.~__init(args)__] as [Sphinx]
       [Sphinx.build(..)] as [build]
       [Sphinx] -[hidden] [build]
       [build_main] --> [Sphinx]
       [build_main] --> [build]
 
       note left of Sphinx
-         Creating and
-         initiating
-         the main app
+         INITIALIZATION
       end note
 
       note right of build
-         Orchestrating
-         the build
-         processes
+         READING
+         CONSISTENCY_CHECK
+         RESOLVING
+         WRITING
       end note
    }
 }

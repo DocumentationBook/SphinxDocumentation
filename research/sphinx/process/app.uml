@@ -1,0 +1,61 @@
+@startuml
+package "sphinx" {
+   package "config" {
+      folder "Config" {
+         [~__init__ or read\npre_init_values\n       1] as cinit
+         [setup\ninit_values\n      4] as csetup
+      }
+   }
+   package "application" {
+      folder "Sphinx" {
+         [~__init__] as init
+      [setup_extension(ext)\nfor ext in\nbuiltin_extensions,\nuser-given_extensions\n                   2] as setup_extension
+'      [setup_extension(ext)\nfor ext in\nuser-given_extensions\n     2] as setup_extension2
+      [preload_builder\n             3] as preload_builder
+      [create_builder\n            7] as create_builder
+      [_init_env\n       8] as init_env
+      init --> setup_extension
+'      init --> setup_extension2
+      init --> preload_builder
+      init --> create_builder
+      init --> init_env
+      }
+   }
+   package "registry" {
+      folder "SphinxComponentRegistry" {
+         [load_extension()] as r1
+         [preload_builder()] as pb
+         [create_builder()] as cb
+      }
+   }
+   package "events"{
+      folder "Event" {
+         [emit\n    5] as emit
+      }
+   }
+   package "project" {
+      folder "Project" {
+         [~__init__\n      6] as pinit
+      }
+   }
+   package "environment" {
+      folder "BuildEnvironment" {
+         [~__init__] as einit
+      }
+   }
+   cinit -[hidden]> csetup
+   csetup -[hidden]>  setup_extension
+   setup_extension -[hidden]> preload_builder
+   preload_builder -[hidden]> create_builder
+   create_builder -[hidden]> init_env
+
+   init --> cinit
+   init --> csetup
+   init --> emit
+   init --> pinit
+   setup_extension --> r1
+   preload_builder --> pb
+   create_builder --> cb
+   init_env --> einit
+}
+@enduml
