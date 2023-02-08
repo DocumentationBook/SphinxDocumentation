@@ -15,9 +15,7 @@ Every extension is a Python package that adds a specific functionality to Sphinx
 *  Source parsers
 *
 
-
-. To use an extension, you need
-to add its name to the ``extensions`` list in the ``conf.py`` file.
+To use an extension, you need to add its name to the ``extensions`` list in the ``conf.py`` file.
 
 Sphinx can work with the following groups of extensions:
 

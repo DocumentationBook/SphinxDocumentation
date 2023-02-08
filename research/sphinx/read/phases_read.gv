@@ -1,0 +1,9 @@
+digraph {
+//	graph [rankdir=LR]
+	node [color=none fillcolor=lightgrey shape=cds style=filled]
+	"init" [label=INITIALIZATION href="../app_init/" target=_top]
+	"read" [label=<<b>READING</b>> fillcolor=cadetblue4 fontcolor=white href="../read/" target=_top]
+	"consistency" [label="CONSISTENCY_CHECK" href="../consistency/" target=_top]
+	"resolve" [label="RESOLVING" href="../resolve/" target=_top]
+	"write" [label="WRITING" href="../sphinx/write/" target=_top]
+}

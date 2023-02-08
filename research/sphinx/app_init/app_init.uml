@@ -9,17 +9,18 @@ package "sphinx" {
    package "application" {
       folder "Sphinx" {
          [~__init__] as init
-      [setup_extension(ext)\nfor ext in\nbuiltin_extensions,\nuser-given_extensions\n                   2] as setup_extension
-'      [setup_extension(ext)\nfor ext in\nuser-given_extensions\n     2] as setup_extension2
-      [preload_builder\n             3] as preload_builder
-      [create_builder\n            7] as create_builder
-      [_init_env\n       8] as init_env
-      init --> setup_extension
-'      init --> setup_extension2
-      init --> preload_builder
-      init --> create_builder
-      init --> init_env
-      }
+         [setup_extension(ext)\nfor ext in\nbuiltin_extensions,\nuser-given_extensions\n                   2] as setup_extension
+   '      [setup_extension(ext)\nfor ext in\nuser-given_extensions\n     2] as setup_extension2
+         [preload_builder\n             3] as preload_builder
+         [create_builder\n            7] as create_builder
+         [_init_env\n        8] as init_env
+         [_init_builder\n           9] as init_builder
+         init --> setup_extension
+         init --> preload_builder
+         init --> create_builder
+         init --> init_env
+         init --> init_builder
+         }
    }
    package "registry" {
       folder "SphinxComponentRegistry" {
@@ -30,7 +31,7 @@ package "sphinx" {
    }
    package "events"{
       folder "Event" {
-         [emit\n    5] as emit
+         [emit\n   5] as emit
       }
    }
    package "project" {
@@ -41,6 +42,12 @@ package "sphinx" {
    package "environment" {
       folder "BuildEnvironment" {
          [~__init__] as einit
+      }
+   }
+   package "builders.html" {
+      folder "StandaloneHTMLBuilder" {
+         [~__init__] as b_init
+         [init] as binit
       }
    }
    cinit -[hidden]> csetup
@@ -56,6 +63,8 @@ package "sphinx" {
    setup_extension --> r1
    preload_builder --> pb
    create_builder --> cb
+   cb --> b_init
    init_env --> einit
+   init_builder --> binit
 }
 @enduml

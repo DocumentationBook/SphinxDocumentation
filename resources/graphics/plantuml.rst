@@ -63,6 +63,28 @@ Use the following steps to set it up:
    PlantUML generates a new PNG file that Sphinx stores in the ``build/dirhtml/_images/`` folder
    with a randomly generated name similar to ``plantuml-a0f5e2ce818b07c47f92d6d1c1e2c04993fe35b9.png``.
 
+Using hyperlinks
+================
+
+To make hyperlinks in you diagrams, you need to do the following:
+
+#. Make PlantULM save images in the SVG format. By default it is PNG. For this effect, add the following line
+   to ``conf.py``::
+
+      plantuml_output_format = 'svg_obj'
+
+#. In a UML file, use the syntax similar to this::
+
+      agent "[[../research/sphinx/app/ LABEL]]" as label
+
+   There are the following rules:
+
+   *  The hyperlink is enclosed in double square brackets.
+   *  You can use either absolute path, for example, ``https://example.com`` or a relative path as in the example.
+      By default all images are in the ``_images/`` that is under the site root. That is why you need to figure out
+      the relative path to your final HTML page from the ``_images/`` folder.
+   *  The example contains an optional text (``LABEL``) that readers will see on the screen.
+
 
 Diagrams
 ========

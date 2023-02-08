@@ -1,0 +1,15 @@
+img {
+   border: 1px solid #e1e4e5;
+}
+
+img.graphviz {
+    border: 1px solid #e1e4e5;
+}
+
+ul {
+   margin-left: 24px;
+}
+
+ul li {
+   list-style: disc;
+}

@@ -69,6 +69,9 @@ The whole process consists of several phases declared in the ``sphinx.util.build
        RESOLVING = 3
        WRITING = 4
 
+.. graphviz:: phases.gv
+
+
 The first phase, INITIALIZATION, is implemented during creation and initialization of the ``app`` object,
 the other are implemented by the ``app.build`` method.
 

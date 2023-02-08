@@ -10,6 +10,7 @@ Tutorial
    rest/index
    qa
    extensions/index
+   ui/index
    api
 
 
