@@ -19,8 +19,8 @@ the documentation:
    Sphinx builtin and those that are read in the ``conf.py`` file.
 
 
-The process
-===========
+Process
+=======
 
 The app initialization process figures out the absolute paths of the following input and output folders:
 
@@ -93,4 +93,15 @@ The initialization goes in the following order (see the numbers in the diagram):
 
    .. note:: This is where you can handle the event emitted after the builder object is
       created and available as ``app.builder``.
+
+Project state
+=============
+
+The initialization phase completes with creation of the ``app`` object (class ``Sphinx``) with the other main objects:
+
+.. uml:: structure_init.uml
+
+The diagram displays incomplete lists of components.
+Some objects have a back-reference to ``app``, such as ``env.app``, as well as links to each other,
+such as ``env.project`` and ``builder.env``.
 

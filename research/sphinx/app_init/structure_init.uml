@@ -1,0 +1,88 @@
+@startuml
+package "sphinx.application" {
+   class Sphinx {
+      + extensions
+      + registry
+      + srcdir
+      + outdir
+      + doctreedir
+      + project
+      + events
+      + builder
+      + env
+   }
+   note right of Sphinx: app
+}
+
+package "sphinx.project"{
+   class Project {
+      + srcdir
+      + source_suffix
+      + docnames
+   }
+}
+note bottom of Project: app.project
+
+package "sphinx.environment" {
+   class BuildEnvironment {
+      + app
+      + project = app.project
+      + srcdir = app.srcdir
+      + config
+      + outdir
+      + doctreedir = app.doctreedir
+      + events = app.events
+      + domains
+      + all_docs
+      + titles
+      + tocs
+      + images
+   }
+}
+note bottom of BuildEnvironment: app.env
+
+package "sphinx.registry" {
+   class SphinxComponentRegistry {
+      + builders
+      + documenters
+      + css_files
+      + js_files
+      + domains
+      + domain_directives
+      + domain_roles
+      + html_themes
+      + post_transforms
+      + source_parsers
+      + sourcs_inputs
+      + translators
+      + publishers
+   }
+}
+note bottom of SphinxComponentRegistry: app.registry
+
+package "sphinx.builders.dirhtml" {
+   class DirectoryHTMLBuilder {
+      + app
+      + env
+      + srcdir = app.srcdir
+      + confdir = app.confdir
+      + outdir = app.outdir
+      + doctreedir = app.doctreedir
+      + events = app.events
+      + images
+      + image_dir
+   }
+}
+note bottom of DirectoryHTMLBuilder: app.builder
+
+Sphinx::project --> Project
+Sphinx::env --> BuildEnvironment
+Sphinx::builder --> DirectoryHTMLBuilder
+Sphinx::registry --> SphinxComponentRegistry
+'Sphinx <-[#darkblue,dashed]- BuildEnvironment::app
+'Sphinx <-[#darkblue,dashed]- DirectoryHTMLBuilder::app
+
+SphinxComponentRegistry -[hidden]> sphinx.project.Project
+Project -[hidden]> BuildEnvironment
+BuildEnvironment -[hidden]> DirectoryHTMLBuilder
+@enduml
