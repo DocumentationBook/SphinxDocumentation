@@ -22,18 +22,16 @@ the documentation:
 The process
 ===========
 
-The app initialization process figures out the absolute paths of the following source and output working folders:
+The app initialization process figures out the absolute paths of the following input and output folders:
 
-*  ``srcdir`` containing source
-*  ``confdir`` containing ``conf.py``
+*  ``srcdir`` containing input data
+*  ``confdir`` containing the ``conf.py`` file
 *  ``doctreedir`` for storing pickled documentation tree (``doctree``)
 *  ``outdir`` for storing build documents
 
 The ``app.__init__`` method performs various validations and calls as presented in this diagram:
 
-.. container:: plantuml max100
-
-   .. uml:: app_init.uml
+.. uml:: app_init.uml
 
 The initialization goes in the following order (see the numbers in the diagram):
 

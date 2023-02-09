@@ -6,10 +6,24 @@ img.graphviz {
     border: 1px solid #e1e4e5;
 }
 
-ul {
+section ul {
    margin-left: 24px;
 }
 
-ul li {
+section ul li {
    list-style: disc;
+}
+
+section ul li p,
+section p,
+.rst-content div[class^='highlight'],
+.rst-content ol.arabic li p:last-child
+{
+   margin-bottom: 10px;
+}
+
+.rst-content code.literal {
+   color: #264C72;
+   font-size: 90%;
+   border: none;
 }
