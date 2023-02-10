@@ -56,8 +56,8 @@ The process includes the following operations:
          app.build(args.force_all, filenames)
          return app.statuscode
 
-Build phases
-============
+Project phases
+==============
 
 The whole process consists of several phases declared in the ``sphinx.util.build_phase.BuildPhase`` enum class::
 

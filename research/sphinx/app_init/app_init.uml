@@ -44,10 +44,12 @@ package "sphinx" {
          [~__init__] as einit
       }
    }
-   package "builders.html" {
-      folder "StandaloneHTMLBuilder" {
-         [~__init__] as b_init
-         [init] as binit
+   package "builders" {
+      package "dirhtml" {
+         folder "StandaloneHTMLBuilder" {
+            [~__init__] as b_init
+            [init] as binit
+         }
       }
    }
    cinit -[hidden]> csetup

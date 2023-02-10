@@ -1,0 +1,47 @@
+@startuml
+package "sphinx" {
+   package "application" {
+      folder "Sphinx" {
+         [build] as app_build
+         note right of app_build: READING
+      }
+   }
+   note left of Sphinx: app
+
+
+   package "builders" {
+      package "dirhtml" {
+         folder "StandaloneHTMLBuilder" {
+            [build_update:\n  to_build = self.get_outdated_docs();\n  self.build(to_build)] as update
+            [get_outdated_docs:\n  for docname in self.env.found_docs:] as get_outdated
+            [build] as builder_build
+         }
+      }
+   }
+   note left of StandaloneHTMLBuilder: app.builder
+
+   package "environment" {
+      folder "BuildEnvironment" {
+         [found_docs] as found_docs
+         [check_consistency] as consistency
+      }
+   }
+   note left of BuildEnvironment: app.env
+   note bottom of consistency: CONSISTENCY_CHECK
+
+   package "project" {
+      folder "Project" {
+         [docnames] as project_docnames
+      }
+   }
+   note left of Project: env.project\napp.env.project\napp.project
+
+}
+app_build --> update
+update --> get_outdated
+get_outdated --> found_docs
+found_docs --> project_docnames
+update --> builder_build
+builder_build --> consistency
+
+@enduml

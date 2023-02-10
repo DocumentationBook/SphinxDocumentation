@@ -1,6 +1,6 @@
 .. _research:
 
-Toolset Investigation
+Deep Investigation
 #####################
 
 .. toctree::

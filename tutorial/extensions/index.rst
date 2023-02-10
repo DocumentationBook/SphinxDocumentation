@@ -19,7 +19,7 @@ This is an external theme, therefore you need to install the respective Python p
 
        html_theme = `sphinx_rtd_theme`
 
-#. Build your documentation using the builder brought by this extension::
+#. Build your documentation using the theme brought by this extension::
 
       $ make dirhtml
 
