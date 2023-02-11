@@ -81,7 +81,20 @@ The initialization goes in the following order (see the numbers in the diagram):
    From bottom to top the ancestors are: ``sphinx.builders.html.StandaloneHTMLBuilder`` and ``sphinx.builders.Builder``.
 
 #. Call the ``app._init_env`` method to create and initialize the ``app.env`` object of the
-   ``sphinx.environment.BuildEnvironment`` class. It will collect all information about documents and the doctree.
+   ``sphinx.environment.BuildEnvironment`` class and then collect the information about source
+   documents and the doctree::
+
+      if freshenv or not os.path.exists(filename):
+         self.env = BuildEnvironment(self)
+         self.env.find_files(self.config, self.builder)
+
+   The ``env.find_files`` method call the ``project.discovery`` method to find the document source files. This method
+   walks through the source folder and returns the discover files names as a set similar to this::
+
+       {'folder2/index', 'index', 'folder1/index'}
+
+   This set is also assigned to the ``project.docnames`` variable.
+
 #. Call the ``app._init_build`` method to initialize the ``app.build`` object. The main job is done the
    inherited ``sphinx.builders.html.StandaloneHTMLBuilder.init`` method. After this, the builder will have all
    the objects to process HTML documents one by one. For every current document, it will use: ``current_docname``,
@@ -94,14 +107,19 @@ The initialization goes in the following order (see the numbers in the diagram):
    .. note:: This is where you can handle the event emitted after the builder object is
       created and available as ``app.builder``.
 
-Project state
-=============
+
+Initialized state
+=================
 
 The initialization phase completes with creation of the ``app`` object (class ``Sphinx``) with the other main objects:
 
 .. uml:: structure_init.uml
 
 The diagram displays incomplete lists of components.
-Some objects have a back-reference to ``app``, such as ``env.app``, as well as links to each other,
-such as ``env.project`` and ``builder.env``.
+The objects have the following specifics:
 
+*  Some objects have a back-reference to ``app``, such as ``env.app``.
+*  Some objects have direct links to each other, such as ``env.project`` and ``builder.env``.
+   This is helps to get necessary data directly bypassing ``app``.
+*  Many object have duplicate links to some ``app`` components, such as ``env.srcdir`` and ``builder.outdir``.
+   This helps to deal with these components directly instead of going through ``app``.

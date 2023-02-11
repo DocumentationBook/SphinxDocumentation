@@ -1,21 +1,22 @@
 @startuml
-package "sphinx" {
-   package "application" {
-      class Sphinx {
-         + extensions
-         + registry
-         + srcdir
-         + outdir
-         + doctreedir
-         + project
-         + events
-         + builder
-         + env
-      }
+package "sphinx.application" {
+   class Sphinx {
+      + extensions
+      + registry
+      + srcdir
+      + outdir
+      + doctreedir
+      + project
+      + events
+      + builder
+      + env
    }
 '   note right of Sphinx: app
+}
+   note right of Sphinx: app
 
-package "project"{
+
+package "sphinx.project"{
    class Project {
       + srcdir
       + source_suffix
@@ -24,7 +25,7 @@ package "project"{
 }
 note bottom of Project: app.project
 
-package "environment" {
+package "sphinx.environment" {
    class BuildEnvironment {
       + app
       + project = app.project
@@ -42,7 +43,7 @@ package "environment" {
 }
 note bottom of BuildEnvironment: app.env
 
-package "registry" {
+package "sphinx.registry" {
    class SphinxComponentRegistry {
       + builders
       + documenters
@@ -75,9 +76,6 @@ package "sphinx.builders.dirhtml" {
    }
 }
 note bottom of DirectoryHTMLBuilder: app.builder
-
-}
-note right of Sphinx: app
 
 Sphinx::project --> Project
 Sphinx::env --> BuildEnvironment

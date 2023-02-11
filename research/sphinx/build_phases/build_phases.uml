@@ -8,7 +8,10 @@ package "sphinx" {
    package "application" {
       folder "Sphinx" {
          [build] as app_build
-         note right of app_build #CadetBlue: <font color=white>READING</font>
+         note right of app_build #CadetBlue
+            <font color=white>READING</font>
+            declared
+         end note
       }
       note left of Sphinx: app
    }
@@ -23,13 +26,17 @@ package "sphinx" {
             [read] as builder_read
             [write] as builder_write
             note top of get_outdated: Getting doc names
+               note left of get_outdated #CadetBlue: <font color=white>READING</font>
+
             note bottom of builder_write #CadetBlue : <font color=white>RESOLVING,</font>
             note bottom of builder_write #CadetBlue : <font color=white>WRITING</font>
 '            note bottom of builder_write #CadetBlue
 '               <font color=white>RESOLVING,</font>
 '               <font color=white>WRITING</font>
 '            end note
-            note left of builder_build: Main orchestrator
+            note right of builder_build: Main orchestrator
+            note left of builder_read #CadetBlue: <font color=white>READING</font>
+
          }
       }
    }

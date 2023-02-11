@@ -37,11 +37,13 @@ package "sphinx" {
    package "project" {
       folder "Project" {
          [~__init__\n      6] as pinit
+         [discover] as project_discover
       }
    }
    package "environment" {
       folder "BuildEnvironment" {
          [~__init__] as einit
+         [find_files] as env_files
       }
    }
    package "builders" {
@@ -67,6 +69,8 @@ package "sphinx" {
    create_builder --> cb
    cb --> b_init
    init_env --> einit
+   init_env --> env_files
+   project_discover <-- env_files
    init_builder --> binit
 }
 @enduml
