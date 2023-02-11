@@ -18,27 +18,27 @@
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../static/documentation_options.js"></script>
+        <script src="../../../static/jquery.js"></script>
+        <script src="../../../static/underscore.js"></script>
+        <script src="../../../static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../static/doctools.js"></script>
     
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
 </head>
@@ -249,7 +249,7 @@ and starts the object’s build process:</p>
 </ol>
 <p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> object created from the <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> class has many properties and methods used while building the project:</p>
 <p class="plantuml">
-<img src="../../../_images/plantuml-82caf783ea839f4b4a0e633f9d623762650b3c3f.png" alt="&#64;startuml
+<img src="../../../images/plantuml-82caf783ea839f4b4a0e633f9d623762650b3c3f.png" alt="&#64;startuml
 
 class sphinx.project.Project {
 }
@@ -403,7 +403,7 @@ previous step. This project will create the <code class="docutils literal notran
 the <code class="docutils literal notranslate"><span class="pre">DirectoryHTMLBuilder</span></code> class that extends subsequently
 the <code class="docutils literal notranslate"><span class="pre">sphinx.builders.html.StandaloneHTMLBuilder</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx.builders.Builder</span></code> classes:</p>
 <p class="plantuml">
-<img src="../../../_images/plantuml-6913e1b2b858e7ef8070f3078d5815a88c682e8a.png" alt="&#64;startuml
+<img src="../../../images/plantuml-6913e1b2b858e7ef8070f3078d5815a88c682e8a.png" alt="&#64;startuml
 'sphinx.application.Sphinx
 sphinx.builders.Builder &lt;|-- sphinx.builders.html.StandaloneHTMLBuilder
 sphinx.builders.html.StandaloneHTMLBuilder &lt;|-- sphinx.builders.dirhtml.DirectoryHTMLBuilder
@@ -424,7 +424,7 @@ abstract sphinx.builders.Builder {
    nodes.NodeVisitor create_translator(*args: Any)
    None create_template_bridge()
    str get_relative_uri(from_: str, to: str, typ: str = None)
-   None post_process_images(doctree: Node)
+   None post_processimages(doctree: Node)
    None compile_catalogs(catalogs: Set[CatalogInfo], message: str)
    None compile_all_catalogs()
    None compile_specific_catalogs()
@@ -482,15 +482,15 @@ class sphinx.builders.html.StandaloneHTMLBuilder {
    None create_pygments_style_file()
    None copy_translation_js()
    None copy_stemmer_js()
-   None copy_theme_static_files()
-   None copy_html_static_files()
+   None copy_themestatic_files()
+   None copy_htmlstatic_files()
    None copy_html_logo()
    None copy_html_favicon()
-   None copy_static_files()
+   None copystatic_files()
    None copy_extra_files()
    None write_buildinfo()
    None cleanup()
-   None post_process_images(doctree: Node)
+   None post_processimages(doctree: Node)
    None load_indexer(docnames: Iterable[str])
    None index_page(pagename: str, doctree: nodes.document, title: str)
    str get_outfilename(pagename: str)
@@ -541,7 +541,7 @@ class sphinx.builders.dirhtml.DirectoryHTMLBuilder {
 </p>
 <p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> initialization process sets up the building environment:</p>
 <p class="plantuml">
-<img src="../../../_images/plantuml-6449e802eaba67104463bbfc99f6012db9ccc48a.png" alt="&#64;startuml
+<img src="../../../images/plantuml-6449e802eaba67104463bbfc99f6012db9ccc48a.png" alt="&#64;startuml
 
 class BuildEnvironment {
    + app: Sphinx = None

@@ -6,10 +6,10 @@ User Interface Customization
 Adding custom CSS
 =================
 
-#. Create a custom CSS. Usually it is placed in the ``_static/css/`` folder.
-#. Ensure the ``_static/`` folder is specified in the ``conf.py`` file::
+#. Create a custom CSS. Usually it is placed in the ``static/css/`` folder.
+#. Ensure the ``static/`` folder is specified in the ``conf.py`` file::
 
-      html_static_path = ['_static']
+      htmlstatic_path = ['static']
 
 #. If the CSS file name is ``custom.css``, then add the following statement to the ``conf.py`` file::
 

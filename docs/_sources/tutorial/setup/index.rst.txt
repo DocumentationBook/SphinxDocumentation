@@ -109,8 +109,8 @@ steps as follows:
       projects. You can use this utility to have Sphinx build your documentation project.
    *  ``make.bat`` is used in Windows OS instead of the ``make`` utility.
    *  ``_build/`` is a subfolder where Sphinx will created the built project files.
-   *  ``_static/`` is a subfolder with custom files for HTML, CSS, and JavaScript. Sphinx will copy all those
-      files to the ``_static/`` subfolder in the built project, thus overriding files with the same name created
+   *  ``static/`` is a subfolder with custom files for HTML, CSS, and JavaScript. Sphinx will copy all those
+      files to the ``static/`` subfolder in the built project, thus overriding files with the same name created
       by default.
    *  ``_templates/`` contains custom templates. If you place your own templates here, they will override
       Jinja2 templates shipped with Sphinx or Sphinx extensions. Jinja2 templates are used to build HTML files.

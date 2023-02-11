@@ -1,4 +1,4 @@
-.. _rest_images:
+.. _restimages:
 
 Images
 ######

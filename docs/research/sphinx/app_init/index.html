@@ -18,27 +18,27 @@
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../static/documentation_options.js"></script>
+        <script src="../../../static/jquery.js"></script>
+        <script src="../../../static/underscore.js"></script>
+        <script src="../../../static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../static/doctools.js"></script>
     
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="next" title="Building Phases" href="../build_phases/" />
@@ -177,7 +177,7 @@
             
   <section id="app-initialization">
 <span id="research-sphinx-process-app"></span><h1>App Initialization<a class="headerlink" href="#app-initialization" title="Permalink to this heading">¶</a></h1>
-<div class="graphviz"><img src="../../../_images/graphviz-eb595af908fac4a9397ff8080b9e10c37e5fd2b6.png" alt="digraph {
+<div class="graphviz"><img src="../../../images/graphviz-eb595af908fac4a9397ff8080b9e10c37e5fd2b6.png" alt="digraph {
 //	graph [rankdir=LR]
 	node [color=none shape=cds fillcolor=lightgrey style=filled]
 	&quot;init&quot; [label=&lt;&lt;b&gt;INITIALIZATION&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../app_init/&quot; target=_top]
@@ -216,7 +216,7 @@ Sphinx builtin and those that are read in the <code class="docutils literal notr
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">app.__init__</span></code> method performs various validations and calls as presented in this diagram:</p>
 <p class="plantuml">
-<img src="../../../_images/plantuml-19994a0ba61bed1aac5037b89c8628fa5ff8ab62.png" alt="&#64;startuml
+<img src="../../../images/plantuml-19994a0ba61bed1aac5037b89c8628fa5ff8ab62.png" alt="&#64;startuml
 package &quot;sphinx&quot; {
    package &quot;config&quot; {
       folder &quot;Config&quot; {
@@ -379,7 +379,7 @@ created and available as <code class="docutils literal notranslate"><span class=
 <h2>Initialized state<a class="headerlink" href="#initialized-state" title="Permalink to this heading">¶</a></h2>
 <p>The initialization phase completes with creation of the <code class="docutils literal notranslate"><span class="pre">app</span></code> object (class <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code>) with the other main objects:</p>
 <p class="plantuml">
-<img src="../../../_images/plantuml-860b578666902b9672f84a2d4268e36b29c2c2ba.png" alt="&#64;startuml
+<img src="../../../images/plantuml-860b578666902b9672f84a2d4268e36b29c2c2ba.png" alt="&#64;startuml
 package &quot;sphinx&quot; {
    package &quot;application&quot; {
       class Sphinx {
