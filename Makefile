@@ -7,7 +7,7 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
-GITPAGES      = doc
+GITPAGES      = docs
 
 # Put it first so that "make" without argument is like "make help".
 help:
