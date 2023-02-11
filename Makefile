@@ -7,10 +7,14 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
+GITPAGES      = doc
 
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+pages:
+	@$(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(GITPAGES)" $(SPHINXOPTS) $(O)
 
 .PHONY: help Makefile
 

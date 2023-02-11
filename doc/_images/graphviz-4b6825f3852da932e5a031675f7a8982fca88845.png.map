@@ -1,0 +1,7 @@
+<map id="%3" name="%3">
+<area shape="rect" id="node1" href="../app_init/" target="_top" title="INITIALIZATION" alt="" coords="5,5,164,53"/>
+<area shape="rect" id="node2" href="../read/" target="_top" title="&lt;b&gt;READING&lt;/b&gt;" alt="" coords="188,5,296,53"/>
+<area shape="rect" id="node3" href="../consistency/" target="_top" title="&lt;b&gt;CONSISTENCY_CHECK&lt;/b&gt;" alt="" coords="320,5,551,53"/>
+<area shape="rect" id="node4" href="../resolve/" target="_top" title="&lt;b&gt;RESOLVING&lt;/b&gt;" alt="" coords="575,5,707,53"/>
+<area shape="rect" id="node5" href="../sphinx/write/" target="_top" title="&lt;b&gt;WRITING&lt;/b&gt;" alt="" coords="731,5,839,53"/>
+</map>
