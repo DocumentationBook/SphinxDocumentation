@@ -13,7 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import sphinxcontrib.spelling
+# import sphinxcontrib.spelling
 
 # -- Project information -----------------------------------------------------
 
@@ -34,7 +34,7 @@ extensions = [
     'sphinx.ext.graphviz',
     'sphinxcontrib.plantuml',
     'sphinx.ext.doctest',
-    'sphinxcontrib.spelling',
+    # 'sphinxcontrib.spelling',
 ]
 
 # Extension config:
