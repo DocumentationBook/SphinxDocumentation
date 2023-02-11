@@ -4,12 +4,13 @@ skinparam ArrowFontColor red
 '   NoteFontColor<< phase >> White
 
 package "sphinx" {
+   (build_main)
    package "application" {
       folder "Sphinx" {
          [build] as app_build
          note right of app_build #CadetBlue: <font color=white>READING</font>
       }
-   note left of Sphinx: app
+      note left of Sphinx: app
    }
 
 
@@ -22,10 +23,12 @@ package "sphinx" {
             [read] as builder_read
             [write] as builder_write
             note top of get_outdated: Getting doc names
-            note bottom of builder_write #CadetBlue
-               <font color=white>RESOLVING,</font>
-               <font color=white>WRITING</font>
-            end note
+            note bottom of builder_write #CadetBlue : <font color=white>RESOLVING,</font>
+            note bottom of builder_write #CadetBlue : <font color=white>WRITING</font>
+'            note bottom of builder_write #CadetBlue
+'               <font color=white>RESOLVING,</font>
+'               <font color=white>WRITING</font>
+'            end note
             note left of builder_build: Main orchestrator
          }
       }
@@ -63,7 +66,7 @@ package "sphinx" {
 '   note bottom of Domain: env.domains{[name], [Domain]}
 }
 
-sphinx.build_main --> app_build : <1>
+build_main --> app_build : <1>
 app_build --> builder_update : <2>
 builder_update --> get_outdated : <3>
 'get_outdated --> env_docs : <4>

@@ -17,7 +17,7 @@ import sphinxcontrib.spelling
 
 # -- Project information -----------------------------------------------------
 
-project = 'Using Sphinx-doc'
+project = 'Detailed Sphinx'
 copyright = '2023, Albert Bagdasarian'
 author = 'Albert Bagdasarian'
 

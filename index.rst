@@ -1,5 +1,5 @@
-Using Sphinx Doc Generator
-##########################
+Detailed Sphinx
+###############
 
 .. toctree::
    :hidden:
@@ -16,13 +16,19 @@ Using Sphinx Doc Generator
 There are two software products branded as Sphinx. This book is about the well-known documentation toolset
 also called Sphinx-doc to distinguish it. Such toolsets are also known as static site generators (SSG).
 
+The main part of this book aims to provide a deep overview of the documentation build process managed by Sphinx.
+Detailed information is useful for those who need to customize their documentation toolset.
+This goes beyond general customization accessible through well-known tools, such as CSS,
+and is mainly about Sphinx-specific ones, such as customizing extension behavior,
+developing your own Sphinx extension, and creating custom event handlers.
+
 
 Introduction
 ============
 
 `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is a powerful documentation toolset (framework) used to create
 a set of bound documents (documentation tree) in different formats (HTML, PDF, ePub, and many more) taking source
-documents marked with reStructuredText (reST) or Markdown.
+documents marked up with reStructuredText (reST) or Markdown.
 Sphinx is shipped as a Python package along with many other packages it depends on. Among the latter,
 `Docutils <https://docutils.sourceforge.io/>`_ is the main reST interpreter.
 That is why Docutils is often mentioned in this documentation.
