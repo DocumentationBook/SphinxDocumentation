@@ -87,7 +87,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../">Deep Investigation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../tools/">The Tracking Tool</a></li>
@@ -176,12 +176,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="top-level-operations">
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="top-level-operations">
 <span id="research-sphinx-process-top"></span><h1>Top Level Operations<a class="headerlink" href="#top-level-operations" title="Permalink to this heading">¶</a></h1>
 <p>The top level operations prepare the environment and start the documentation build process.</p>
 <section id="the-process">
 <h2>The process<a class="headerlink" href="#the-process" title="Permalink to this heading">¶</a></h2>
-<p>he first steps are presented in the following diagram:</p>
+<p>The first steps are presented in the following diagram:</p>
 <p class="plantuml">
 <img src="../../../images/plantuml-38c6eca4d61eeb42373cebdeabf4b85fa2d56a16.png" alt="&#64;startuml
 [sphinx-build]
@@ -241,7 +245,7 @@ in your shell commands and scripts:</p>
 </li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">sphinx.cmd.builds.build_main</span></code> function validates and collects arguments passed
 to the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command (<code class="docutils literal notranslate"><span class="pre">argv</span></code>),
-requests creation of the main application and starts the build processes:</p>
+requests creation of the main application, and starts the building processes as follows:</p>
 <ol class="arabic">
 <li><p>Use the Python standard class <code class="docutils literal notranslate"><span class="pre">argparse.ArgumentParser</span></code> to validate and collect all command line arguments.
 If it detects an error, it completes the operations with an error message. Otherwise, it stores the arguments
@@ -302,11 +306,11 @@ the <code class="docutils literal notranslate"><span class="pre">with</span></co
 <area shape="rect" id="node4" href="../resolve/" target="_top" title="RESOLVING" alt="" coords="556,5,680,53"/>
 <area shape="rect" id="node5" href="../sphinx/write/" target="_top" title="WRITING" alt="" coords="705,5,806,53"/>
 </map><p>The first phase, INITIALIZATION, is implemented during creation and initialization of the <code class="docutils literal notranslate"><span class="pre">app</span></code> object,
-the other are implemented by the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method.</p>
+the others are orchestrated by the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method.</p>
 </section>
 <section id="more-details">
 <h2>More details<a class="headerlink" href="#more-details" title="Permalink to this heading">¶</a></h2>
-<p>At the moment, the process consists of the following two sets of operations presented in more detail
+<p>At the moment, the process consists of the following two global sets of operations presented in more detail
 in the following documents:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../app_init/#research-sphinx-process-app"><span class="std std-ref">App Initialization</span></a></p></li>

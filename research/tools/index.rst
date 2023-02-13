@@ -33,11 +33,12 @@ For example, you can trace the whole documentation build process as follows::
 
 The output file can be in the JSON or HTML format. You can also request a file with the ``.json.gzip`` name
 extension if you need a compressed JSON file.
-To reduce the trace stack, it is better to exclude from tracking all calls of C functions::
+To reduce the trace stack, it is better to exclude all calls of C functions from tracking::
 
    $ viztracer --ignore_c_function sphinx-build -b dirhtml "." "_build"
 
-By default, this utility dumps all trace results to a local file ``result.json``, for example::
+By default, this utility dumps all trace results to a local file ``result.json``. This is an example
+reminder it prints out (the full path is not displayed here intentionally)::
 
    The HTML pages are in _build.
    Total Entries: 457026
@@ -51,10 +52,9 @@ As recommended in the output, run the ``vizviewer`` utility to parse and view th
 The default port number is 9001.
 
 .. note:: You can stop the server after your browser renders the result, because the latter stores the loaded data
-   and you can with it offline without the web server.
+   and you can work with it offline.
 
-You will find later a separate section :ref:`research_tools_analysis` in this document
-describing the use of the interactive viewer.
+A separate section :ref:`research_tools_analysis` in this document describes the use of the interactive viewer.
 
 This tracer utility provides some options that you can use to customize you search, for example:
 
@@ -68,7 +68,7 @@ Running from code
 =================
 
 If you need to focus on a specific part of the program you research, you can insert the tracer to the corresponding
-place inside the program. There are two variations on it:
+place inside the program. There are two variations of this approach:
 
 *  Start and stop the process explicitly, for example::
 
@@ -92,7 +92,7 @@ Analyzing the result
 ====================
 
 The ``vizvieweer`` represents a series of calls as a tree-like graph with the first called function on the root.
-Every line represents a separate Python or system call, generally called an *event*.
+Every horizontal bar represents a separate Python or system call, generally called an *event*.
 
 
 Default presentation
@@ -110,7 +110,7 @@ you will see the tracing graph similar to this:
 
 Most often you will probably use the following operations with this view:
 
-*  Select an event and see its contents on the bottom text panel.
+*  Select an event and see its contents in text panel on the bottom.
 
    In this example, the root module (``sphinx-build``) is selected.
 
@@ -141,8 +141,8 @@ You can run it with the viewer as follows::
 
    $  vizviewer --flamegraph result.json
 
-The advantage of this view seams to be that it automatically expands or contracts the time range to display
-the selected event expanded on the screen:
+The advantage of this view is that it automatically expands or contracts the time range to display the selected event
+in expanded form on the screen.
 
 .. image:: flame_graph.png
    :width: 100%

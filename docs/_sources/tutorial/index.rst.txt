@@ -1,7 +1,7 @@
 .. _tutorial:
 
-Tutorial
-########
+Tutorials
+#########
 
 .. toctree::
    :hidden:
@@ -9,13 +9,15 @@ Tutorial
    setup/index
    rest/index
    qa
+   events/index
    extensions/index
    ui/index
    api
 
+This is a set of guides that will help you step by step to gain experience in solving the main practical
+problems of documentation.
 
-Sources
-=======
+You can learn more from the following resources:
 
 *  `Documenting Your Project in Sphinx <https://www.youtube.com/watch?v=QNHM7q2hLh8&t=1s>`_,
    PyCon 2013, Brandon Rhodes, YouTube recording (2h 21m)

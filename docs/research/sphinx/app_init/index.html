@@ -87,7 +87,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../">Deep Investigation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../tools/">The Tracking Tool</a></li>
@@ -175,7 +175,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="app-initialization">
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="app-initialization">
 <span id="research-sphinx-process-app"></span><h1>App Initialization<a class="headerlink" href="#app-initialization" title="Permalink to this heading">¶</a></h1>
 <div class="graphviz"><img src="../../../images/graphviz-eb595af908fac4a9397ff8080b9e10c37e5fd2b6.png" alt="digraph {
 //	graph [rankdir=LR]
@@ -209,12 +213,12 @@ Sphinx builtin and those that are read in the <code class="docutils literal notr
 <h2>Process<a class="headerlink" href="#process" title="Permalink to this heading">¶</a></h2>
 <p>The app initialization process figures out the absolute paths of the following input and output folders:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">srcdir</span></code> containing input data</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">confdir</span></code> containing the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">doctreedir</span></code> for storing pickled documentation tree (<code class="docutils literal notranslate"><span class="pre">doctree</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">outdir</span></code> for storing build documents</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">srcdir</span></code> contains input data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">confdir</span></code> contains the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doctreedir</span></code> stores pickled documentation tree (<code class="docutils literal notranslate"><span class="pre">doctree</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outdir</span></code> stores built documents.</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">app.__init__</span></code> method performs various validations and calls as presented in this diagram:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">app.__init__</span></code> method performs various validations and calls other methods as presented in this diagram:</p>
 <p class="plantuml">
 <img src="../../../images/plantuml-19994a0ba61bed1aac5037b89c8628fa5ff8ab62.png" alt="&#64;startuml
 package &quot;sphinx&quot; {
@@ -295,14 +299,14 @@ package &quot;sphinx&quot; {
 </p>
 <p>The initialization goes in the following order (see the numbers in the diagram):</p>
 <ol class="arabic">
-<li><p>Create and pre-initialize the <code class="docutils literal notranslate"><span class="pre">app.config</span></code> object. After this, it contains the list of extensions
+<li><p>Create and pre-initialize the <code class="docutils literal notranslate"><span class="pre">app.config</span></code> object. This object contains the list of extensions
 <code class="docutils literal notranslate"><span class="pre">config.extensions</span></code> collected from <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p></li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.setup_extension</span></code> for every builtin extension (<code class="docutils literal notranslate"><span class="pre">builtin_extensions</span></code>) and every extension
 in <code class="docutils literal notranslate"><span class="pre">config.extensions</span></code> collected in the previous step.
 The <code class="docutils literal notranslate"><span class="pre">app.registry</span></code> object created from the <code class="docutils literal notranslate"><span class="pre">sphinx.registry.SphinxComponentRegistry</span></code> class executes
 the <code class="docutils literal notranslate"><span class="pre">load_extension</span></code> method to import the Python module (<code class="docutils literal notranslate"><span class="pre">mod</span></code>) by the extension name <code class="docutils literal notranslate"><span class="pre">extname</span></code>,
-find its <code class="docutils literal notranslate"><span class="pre">setup</span></code> method, and apply this method to the <code class="docutils literal notranslate"><span class="pre">app</span></code> object, that is,
-call <code class="docutils literal notranslate"><span class="pre">setup(app)</span></code> to get <code class="docutils literal notranslate"><span class="pre">metadata</span></code>.
+find its <code class="docutils literal notranslate"><span class="pre">setup</span></code> method. After that, it applies this method to the <code class="docutils literal notranslate"><span class="pre">app</span></code> object, that is,
+calls <code class="docutils literal notranslate"><span class="pre">setup(app)</span></code> to get <code class="docutils literal notranslate"><span class="pre">metadata</span></code>.
 Finally, the  <code class="docutils literal notranslate"><span class="pre">load_extension</span></code> method adds the extension to the <code class="docutils literal notranslate"><span class="pre">app.extensions</span></code> dictionary:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="n">extname</span><span class="p">]</span> <span class="o">=</span> <span class="n">Extension</span><span class="p">(</span><span class="n">extname</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
 </pre></div>
@@ -332,15 +336,15 @@ see <a class="reference external" href="https://www.sphinx-doc.org/en/master/ext
 <p>The initialized project will have an empty set of document names <code class="docutils literal notranslate"><span class="pre">app.project.docnames</span></code>.</p>
 </li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.create_builder(buildername)</span></code> method to create the <code class="docutils literal notranslate"><span class="pre">app.builder</span></code> object
-from the and initialize the Sphinx builder. In this particular case, we consider one of Sphinx builders, which
-name is <code class="docutils literal notranslate"><span class="pre">dirhtml</span></code>
+and initialize this Sphinx builder. In this particular case, we consider one of Sphinx builders, which
+name is <code class="docutils literal notranslate"><span class="pre">dirhtml</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">app.create_builder</span></code> method calls the <code class="docutils literal notranslate"><span class="pre">app.register.create_builder</span></code> and passes the builder name to it.
 The builder name defines the class that is used to create the build object:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">builders</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="n">app</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>With the builder name <code class="docutils literal notranslate"><span class="pre">dirhtml</span></code>, the class will be <code class="docutils literal notranslate"><span class="pre">sphinx.builders.dirhtml.DirectoryHTMLBuilder</span></code>.
-This causes consequent calls of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> methods in the ancestor classes.
+This causes consequent calls of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> methods defined in the ancestor classes.
 From bottom to top the ancestors are: <code class="docutils literal notranslate"><span class="pre">sphinx.builders.html.StandaloneHTMLBuilder</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx.builders.Builder</span></code>.</p>
 </li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app._init_env</span></code> method to create and initialize the <code class="docutils literal notranslate"><span class="pre">app.env</span></code> object of the
@@ -352,16 +356,16 @@ documents and the doctree:</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">env.find_files</span></code> method call the <code class="docutils literal notranslate"><span class="pre">project.discovery</span></code> method to find the document source files. This method
-walks through the source folder and returns the discover files names as a set similar to this:</p>
+walks through the source folder and returns the discovered file names as a set similar to this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;folder2/index&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder1/index&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>This set is also assigned to the <code class="docutils literal notranslate"><span class="pre">project.docnames</span></code> variable.</p>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app._init_build</span></code> method to initialize the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> object. The main job is done the
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app._init_build</span></code> method to initialize the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> object. The main job is done by the
 inherited <code class="docutils literal notranslate"><span class="pre">sphinx.builders.html.StandaloneHTMLBuilder.init</span></code> method. After this, the builder will have all
 the objects to process HTML documents one by one. For every current document, it will use: <code class="docutils literal notranslate"><span class="pre">current_docname</span></code>,
-<code class="docutils literal notranslate"><span class="pre">secnumbers</span></code>, templates, a list of CSS files, a list of Javascript files, and so on.
+<code class="docutils literal notranslate"><span class="pre">secnumbers</span></code>, templates, a list of CSS files, a list of JavaScript files, and so on.
 Finally the <code class="docutils literal notranslate"><span class="pre">app._init_build</span></code> method calls <code class="docutils literal notranslate"><span class="pre">app.events.emit</span></code> to run all handlers subscribed
 to the event called <code class="docutils literal notranslate"><span class="pre">builder-inited</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;builder-inited&#39;</span><span class="p">)</span>
@@ -369,8 +373,8 @@ to the event called <code class="docutils literal notranslate"><span class="pre"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is where you can handle the event emitted after the builder object is
-created and available as <code class="docutils literal notranslate"><span class="pre">app.builder</span></code>.</p>
+<p>This is where you can handle the event emitted after creation of the builder object
+that is available to handlers as <code class="docutils literal notranslate"><span class="pre">app.builder</span></code>.</p>
 </div>
 </li>
 </ol>
@@ -379,10 +383,11 @@ created and available as <code class="docutils literal notranslate"><span class=
 <h2>Initialized state<a class="headerlink" href="#initialized-state" title="Permalink to this heading">¶</a></h2>
 <p>The initialization phase completes with creation of the <code class="docutils literal notranslate"><span class="pre">app</span></code> object (class <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code>) with the other main objects:</p>
 <p class="plantuml">
-<img src="../../../images/plantuml-860b578666902b9672f84a2d4268e36b29c2c2ba.png" alt="&#64;startuml
+<img src="../../../images/plantuml-cbb578dc8517fbf7cc5551ac9a85226eefbeaa58.png" alt="&#64;startuml
 package &quot;sphinx&quot; {
    package &quot;application&quot; {
       class Sphinx {
+         + config
          + extensions
          + registry
          + srcdir
@@ -464,11 +469,8 @@ Sphinx::project --&gt; Project
 Sphinx::env --&gt; BuildEnvironment
 Sphinx::builder --&gt; DirectoryHTMLBuilder
 Sphinx::registry --&gt; SphinxComponentRegistry
-'Sphinx &lt;-[#darkblue,dashed]- BuildEnvironment::app
-'Sphinx &lt;-[#darkblue,dashed]- DirectoryHTMLBuilder::app
 
-SphinxComponentRegistry -[hidden]&gt; sphinx.project.Project
-Project -[hidden]&gt; BuildEnvironment
+SphinxComponentRegistry -[hidden]&gt; Project
 BuildEnvironment -[hidden]&gt; DirectoryHTMLBuilder
 &#64;enduml"/>
 </p>
@@ -477,7 +479,7 @@ The objects have the following specifics:</p>
 <ul class="simple">
 <li><p>Some objects have a back-reference to <code class="docutils literal notranslate"><span class="pre">app</span></code>, such as <code class="docutils literal notranslate"><span class="pre">env.app</span></code>.</p></li>
 <li><p>Some objects have direct links to each other, such as <code class="docutils literal notranslate"><span class="pre">env.project</span></code> and <code class="docutils literal notranslate"><span class="pre">builder.env</span></code>.
-This is helps to get necessary data directly bypassing <code class="docutils literal notranslate"><span class="pre">app</span></code>.</p></li>
+This helps to get necessary data directly bypassing <code class="docutils literal notranslate"><span class="pre">app</span></code>.</p></li>
 <li><p>Many object have duplicate links to some <code class="docutils literal notranslate"><span class="pre">app</span></code> components, such as <code class="docutils literal notranslate"><span class="pre">env.srcdir</span></code> and <code class="docutils literal notranslate"><span class="pre">builder.outdir</span></code>.
 This helps to deal with these components directly instead of going through <code class="docutils literal notranslate"><span class="pre">app</span></code>.</p></li>
 </ul>

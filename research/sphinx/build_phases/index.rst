@@ -16,7 +16,7 @@ Sphinx executes the build phases in the following order at the top level (see th
 
 #. Start the build phases by calling the ``app.build`` method.
    First, it declares the start of the READING phase.
-   Depending ot the command requirement and the source state, it calls one of the following methods:
+   Depending on the command arguments and the source state, it calls one of the following methods:
 
    *  ``build_all`` if the ``sphinx-build`` command requires to rebuild all documents.
    *  ``build_specific`` if the command requires to build the specific files.
@@ -54,14 +54,14 @@ Sphinx executes the build phases in the following order at the top level (see th
 #. Call the ``app.env.check_consistency`` method to check that all source documents are added to the
    ``env.files_to_rebuild`` list except for the root document, orphans, and documents included by other
    documents. The method also checks for domain consistency by calling the ``domain.check_consistency`` method
-   for each domain the ``env.domains`` dictionary. For the example considered here, the method works with
+   for each domain in the ``env.domains`` dictionary. In the example considered here, the method works with
    the following values:
 
-   *  ``env.all_docs``: {'folder1/index': 1676118279.329916, 'folder2/index': 1676118279.332646, 'index': 1676118279.337593}
-   *  ``env.files_to_rebuild``: {'folder1/index': {'index'}, 'folder2/index': {'index'}}
+   *  ``env.all_docs``: ``{'folder1/index': 1676118279.329916, 'folder2/index': 1676118279.332646, 'index': 1676118279.337593}``
+   *  ``env.files_to_rebuild``: ``{'folder1/index': {'index'}, 'folder2/index': {'index'}}``
    *  Domains: ``c.CDomain``, ``changeset.ChangeSetDomain``, ``citation.CitationDomain``, cpp.CPPDomain,
       ``index.IndexDomain``, ``.javascript.JavaScriptDomain``, ``math.MathDomain``, ``python.PythonDomain``,
-      ``rst.ReSTDomain``, std.StandardDomain
+      ``rst.ReSTDomain``, ``std.StandardDomain``
 
    Finally, the method emits the ``env-check-consistency`` event::
 

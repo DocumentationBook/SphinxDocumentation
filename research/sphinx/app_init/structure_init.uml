@@ -2,6 +2,7 @@
 package "sphinx" {
    package "application" {
       class Sphinx {
+         + config
          + extensions
          + registry
          + srcdir
@@ -83,10 +84,7 @@ Sphinx::project --> Project
 Sphinx::env --> BuildEnvironment
 Sphinx::builder --> DirectoryHTMLBuilder
 Sphinx::registry --> SphinxComponentRegistry
-'Sphinx <-[#darkblue,dashed]- BuildEnvironment::app
-'Sphinx <-[#darkblue,dashed]- DirectoryHTMLBuilder::app
 
-SphinxComponentRegistry -[hidden]> sphinx.project.Project
-Project -[hidden]> BuildEnvironment
+SphinxComponentRegistry -[hidden]> Project
 BuildEnvironment -[hidden]> DirectoryHTMLBuilder
 @enduml

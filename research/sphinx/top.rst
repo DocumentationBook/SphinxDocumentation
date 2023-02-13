@@ -9,7 +9,7 @@ The top level operations prepare the environment and start the documentation bui
 The process
 ===========
 
-he first steps are presented in the following diagram:
+The first steps are presented in the following diagram:
 
 .. uml:: top.uml
 
@@ -29,7 +29,7 @@ The process includes the following operations:
 
 #. The ``sphinx.cmd.builds.build_main`` function validates and collects arguments passed
    to the ``sphinx-build`` command (``argv``),
-   requests creation of the main application and starts the build processes:
+   requests creation of the main application, and starts the building processes as follows:
 
    #. Use the Python standard class ``argparse.ArgumentParser`` to validate and collect all command line arguments.
       If it detects an error, it completes the operations with an error message. Otherwise, it stores the arguments
@@ -73,13 +73,13 @@ The whole process consists of several phases declared in the ``sphinx.util.build
 
 
 The first phase, INITIALIZATION, is implemented during creation and initialization of the ``app`` object,
-the other are implemented by the ``app.build`` method.
+the others are orchestrated by the ``app.build`` method.
 
 
 More details
 ============
 
-At the moment, the process consists of the following two sets of operations presented in more detail
+At the moment, the process consists of the following two global sets of operations presented in more detail
 in the following documents:
 
 *  :ref:`research_sphinx_process_app`

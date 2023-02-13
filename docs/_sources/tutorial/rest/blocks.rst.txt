@@ -27,7 +27,7 @@ reading now, looks as follows in HTML::
 Block quote
 ===========
 
-Typically, block quotes contain quotations from other sources. To mark up a paragraph as a block quote move all its
+Typically, block quotes contain quotations from other sources. To mark up a paragraph as a block quote, move all its
 lines to the right, that is, make it indented, similar to this example::
 
    Normal paragraph that is left-aligned. The following is a block quote:

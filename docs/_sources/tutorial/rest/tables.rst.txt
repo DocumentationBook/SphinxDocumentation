@@ -8,7 +8,7 @@ Different approaches
 
 You can use different ways of creating tables:
 
-*  Using grid tables. With this way you use various primitive markup elements
+*  Using grid tables. With this way, you use various primitive markup elements
    (``=``, ``-``, ``+``, ``|``) to draw any simple or complex table.
 *  Using the ``list-table`` directive. It enables you to create simple tables without spanning
    rows or columns.

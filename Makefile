@@ -15,6 +15,7 @@ help:
 
 pages:
 	@$(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(GITPAGES)" $(SPHINXOPTS) $(O)
+	./postbuild_gitpages.sh
 
 .PHONY: help Makefile
 
@@ -22,3 +23,4 @@ pages:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+

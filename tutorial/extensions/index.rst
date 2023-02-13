@@ -1,14 +1,14 @@
 .. _tutorial_ext:
 
-Managing Extensions
-###################
+Extension Management
+####################
 
 This is a set of exercises with Sphinx extensions.
 
 Switch to a specific theme
 ==========================
 
-In the following process, you will switch your documentation site to the ``sphinx_rtd_theme``.
+In the following process, you will switch your documentation site to the ``sphinx_rtd_theme`` theme.
 This is an external theme, therefore you need to install the respective Python package.
 
 #. Install the ``sphinx_rtd_theme`` package using a conda or pip package manager, for example::

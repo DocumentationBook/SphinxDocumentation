@@ -3,6 +3,33 @@
 User Interface Customization
 ############################
 
+Sphinx enables you to customize the appearance of documentation in various ways:
+
+*  Choosing a theme.
+*  Customizing the chosen theme.
+*  Developing your own theme.
+*  Customization via CSS.
+*  Customization via JavaScript.
+
+
+Adding announcement
+===================
+
+Sometimes you may need to add an announcement to every documentation page.
+Sphinx provides you with two convenient configuration options to set in the ``conf.py`` file:
+
+*  ``rst_prolog`` is a string to be added to the beginning of every ``reST`` file during compilation.
+*  ``rst_epilog`` is a string to be added to the end of every ``reST`` file.
+
+.. note:: You won't see those elements in actual ``reST`` files, because they are only added at build time.
+
+For example, to announce that the documentation is in its draft version, use this prolog::
+
+   rst_prolog = """
+   .. warning:: This draft documentation is under development.
+   """
+
+
 Adding custom CSS
 =================
 

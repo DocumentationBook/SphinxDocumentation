@@ -17,7 +17,8 @@ Let us walk through the documentation build process in the hierarchical order fr
 Since the total process can contain hundreds of thousands calls, this journey presents
 only the most important ones for a better understanding of this process.
 
-As the process highly depends on the set of documents, so we will take a simple structure::
+As the process highly depends on the the number and complexity of documents to build,
+we will take a simple structure::
 
    ├── index.rst
    ├── folder1
@@ -26,10 +27,10 @@ As the process highly depends on the set of documents, so we will take a simple 
          └── index.rst
 
 
-All the documentation files a very simple ones containing only text with a couple of sections.
-The building process must run in this folder.
+All the documentation files are very simple. They contain only text with a couple of sections.
+The building process must run in the folder containing the root ``index.rst`` file.
 
-The process is started with the following command::
+The process is started with the following command (you can add the tracer if necessary)::
 
    $ rm -rf _build; sphinx-build -b dirhtml "." "_build" -C
 

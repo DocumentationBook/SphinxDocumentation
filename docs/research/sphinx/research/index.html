@@ -85,7 +85,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../">Deep Investigation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../resources/">Resources</a></li>
@@ -154,7 +154,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="sphinx-research">
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="sphinx-research">
 <span id="concepts-sphinx-research"></span><h1>Sphinx Research<a class="headerlink" href="#sphinx-research" title="Permalink to this heading">¶</a></h1>
 <section id="research-environment">
 <h2>Research environment<a class="headerlink" href="#research-environment" title="Permalink to this heading">¶</a></h2>
@@ -424,7 +428,7 @@ abstract sphinx.builders.Builder {
    nodes.NodeVisitor create_translator(*args: Any)
    None create_template_bridge()
    str get_relative_uri(from_: str, to: str, typ: str = None)
-   None post_processimages(doctree: Node)
+   None post_process_images(doctree: Node)
    None compile_catalogs(catalogs: Set[CatalogInfo], message: str)
    None compile_all_catalogs()
    None compile_specific_catalogs()
@@ -482,15 +486,15 @@ class sphinx.builders.html.StandaloneHTMLBuilder {
    None create_pygments_style_file()
    None copy_translation_js()
    None copy_stemmer_js()
-   None copy_themestatic_files()
-   None copy_htmlstatic_files()
+   None copy_theme_static_files()
+   None copy_html_static_files()
    None copy_html_logo()
    None copy_html_favicon()
-   None copystatic_files()
+   None copy_static_files()
    None copy_extra_files()
    None write_buildinfo()
    None cleanup()
-   None post_processimages(doctree: Node)
+   None post_process_images(doctree: Node)
    None load_indexer(docnames: Iterable[str])
    None index_page(pagename: str, doctree: nodes.document, title: str)
    str get_outfilename(pagename: str)

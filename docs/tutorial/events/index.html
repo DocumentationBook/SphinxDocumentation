@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event Management &mdash; Detailed Sphinx 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../static/documentation_options.js"></script>
+        <script src="../../static/jquery.js"></script>
+        <script src="../../static/underscore.js"></script>
+        <script src="../../static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Managing Extensions" href="../extensions/" />
+    <link rel="prev" title="Quality Assurance" href="../qa/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Detailed Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../setup/">Sphinx Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rest/">reST Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qa/">Quality Assurance</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Event Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#event-handlers">Event handlers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reading-initial-configuration-detailed">Reading initial configuration (detailed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions/">Managing Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/">User Interface Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/">API Presentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../research/">Deep Investigation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Detailed Sphinx</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">Tutorials</a> &raquo;</li>
+        
+      <li>Event Management</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorial/events/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="event-management">
+<h1>Event Management<a class="headerlink" href="#event-management" title="Permalink to this heading">¶</a></h1>
+<p>At certain points, Sphinx emits predefined events that your custom script can subscribe to. You can also
+create an extension that emits events.</p>
+<section id="event-handlers">
+<h2>Event handlers<a class="headerlink" href="#event-handlers" title="Permalink to this heading">¶</a></h2>
+<p>A program that subscribes to an event is activated by Sphinx when it emits the event. The following examples illustrate
+how you can create your own event handler.</p>
+<section id="reading-initial-configuration-detailed">
+<h3>Reading initial configuration (detailed)<a class="headerlink" href="#reading-initial-configuration-detailed" title="Permalink to this heading">¶</a></h3>
+<p>During <a class="reference internal" href="../../research/sphinx/app_init/#research-sphinx-process-app"><span class="std std-ref">App Initialization</span></a>, the <code class="docutils literal notranslate"><span class="pre">app</span></code> object emits the ‘config-inited’ event as defined in the
+<code class="docutils literal notranslate"><span class="pre">sphinx/application.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;config-inited&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By this moment, the <code class="docutils literal notranslate"><span class="pre">app</span></code> object has collected the initial configuration from the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file and is now
+sharing this data with those handlers that are subscribed to the ‘config-inited’ event.</p>
+<p>The easiest way to read the configuration is to add a handler to the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file, because Sphinx executes this
+file before it emits any event. Creating a handler consists of the following steps:</p>
+<ol class="arabic">
+<li><p>Find out the handler signature, that is, a set of its parameters. Follow these rules:</p>
+<ul class="simple">
+<li><p>The first parameter is the <code class="docutils literal notranslate"><span class="pre">app</span></code> object itself.</p></li>
+<li><p>The rest of the parameters are listed in the <code class="docutils literal notranslate"><span class="pre">events.emit</span></code> call shown earlier.
+In this case, there is one parameter, which is <code class="docutils literal notranslate"><span class="pre">self.config</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Using the found signature, start the handler definition as a function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">config_inited_read_handler</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">My handler is alive</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The naming rule is arbitrary. In this example, it is rather obvious - this is a <em>handler</em> that
+<em>reads</em> the data received from the <em>config_inited</em> event notification.</p>
+</li>
+<li><p>Subscribe the handler to the ‘config-inited’ event. Sphinx provides the <code class="docutils literal notranslate"><span class="pre">app.connect</span></code> method for this.
+It must be used inside the <code class="docutils literal notranslate"><span class="pre">setup(app)</span></code> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;config-inited&#39;</span><span class="p">,</span> <span class="n">config_inited_read_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>To verify that your handler works in its simplest form, run the build process:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">-</span><span class="n">b</span> <span class="n">dirhtml</span> <span class="s2">&quot;.&quot;</span> <span class="s2">&quot;_build&quot;</span>
+</pre></div>
+</div>
+<p>Make sure the print function inside the handler prints its text.</p>
+</li>
+<li><p>Define the handler body. To read data, you need to know its structure.
+In the next build run, you can just print the config object as is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;config: </span><span class="si">{</span><span class="n">config</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will get information about the <code class="docutils literal notranslate"><span class="pre">config</span></code> object similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Config</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f944560ff10</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>From here, you understand that in order to read the object properties,
+you need to know the <code class="docutils literal notranslate"><span class="pre">sphinx.config.Config</span></code> structure.
+You will find it in the <code class="docutils literal notranslate"><span class="pre">sphinx/config.py</span></code> file. Well, but which of its properties contain the configuration
+parameters collected at this moment? To answer this question, look at the statement collecting this data before
+the notification is issued.
+This is <code class="docutils literal notranslate"><span class="pre">self.config.init_values()</span></code> in the <code class="docutils literal notranslate"><span class="pre">sphinx.application.py</span></code> file.
+Look at the <code class="docutils literal notranslate"><span class="pre">init_values()</span></code> definition in the <code class="docutils literal notranslate"><span class="pre">sphinx.config.Config</span></code> class.
+You will notice that it collects initial values in the <code class="docutils literal notranslate"><span class="pre">_raw_config</span></code> dictionary.
+To print the contents of this dictionary, add the following line to the handler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">_raw_config</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+</pre></div>
+</div>
+</li>
+<li><p>You can add more statements to the handler, so that its final definition can look like in this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">config_inited_read_handler</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Configuration after reading the conf.py file:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;app.config: </span><span class="si">{</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;config: </span><span class="si">{</span><span class="n">config</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">_raw_config</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">app.config</span></code> and <code class="docutils literal notranslate"><span class="pre">config</span></code> arguments represent the same object as you will see in the print out.</p>
+</div>
+</li>
+<li><p>To test the handler, run the build process again. This time, it prints out a lot of configuration options.</p></li>
+<li><p>Now, that you have verified that the handler works as expected,
+select only those configuration properties that you need.
+The print statement might look similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">_raw_config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;project&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;copyright&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>The printed text contains the requested properties, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="p">:</span> <span class="n">Detailed</span> <span class="n">Sphinx</span>
+<span class="n">author</span><span class="p">:</span> <span class="n">Albert</span> <span class="n">Bagdasarian</span>
+<span class="n">copyright</span><span class="p">:</span> <span class="mi">2023</span><span class="p">,</span> <span class="n">Albert</span> <span class="n">Bagdasarian</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx-core-events">Sphinx core events</a></p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx.application.Sphinx.connect">Sphinx connect</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../extensions/" class="btn btn-neutral float-right" title="Managing Extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../qa/" class="btn btn-neutral float-left" title="Quality Assurance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, Albert Bagdasarian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

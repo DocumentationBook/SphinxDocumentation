@@ -4,7 +4,7 @@ Images
 ######
 
 The ``image`` directive enables you to insert images on a new line or an image after another image if their total width
-doesn't exceed the page width. Its argument is a path or a URL to the image that must be displayed. I can also contain
+doesn't exceed the page width. Its argument is a path or a URL to the image that must be displayed. It can also contain
 options to specify the alternate text (``alt``), width, height, scale, and alignment.
 
 Examples of the image directives:

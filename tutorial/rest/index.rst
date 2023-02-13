@@ -15,7 +15,8 @@ reST Basics
    tables
    images
 
-Here you will find short description of various reST markup elements. They are divided in the following groups:
+In this guide, you'll take a quick look at different elements of the reST markup.
+They are divided into the following groups:
 
 *  Headers
 *  Text blocks
@@ -24,5 +25,4 @@ Here you will find short description of various reST markup elements. They are d
 *  Tables
 *  Images
 
-Before getting into details, get familiar with the general rules.
-
+Before going into details, get familiar with the general rules.

@@ -4,7 +4,7 @@ Headers
 #######
 
 Each HTML section has its own header. The headers can be of different levels marked up in HTML as <H1>, <H2>, and so on.
-In reST, the corresponding headers a marked up as described in the following sections.
+In reST, the corresponding headers are marked up as described in the following sections.
 
 
 Syntax
@@ -14,8 +14,8 @@ You can use various underline elements to markup headers. Docutils is smart enou
 specified. It implies that you first mark up the first level header, then second level and so on.
 However in a style guide
 to you documentation, you should specify what elements you use to mark up the headers of different levels.
-For example,
-the headers in this documentation are marked up as follows (although you won't find more than four levels in it)::
+For example, the headers in the document you are reading now are marked up as follows
+(although you won't find more than four levels in it)::
 
    First-Level Title
    #################
@@ -35,7 +35,7 @@ the headers in this documentation are marked up as follows (although you won't f
    Sixth-Level Title
    '''''''''''''''''
 
-You can extend the numbers even more by using a pair of overline and underline elements (also known in Docutils
+You can extend the number of levels even more by using a pair of overline and underline elements (also known in Docutils
 as document titles versus section titles marked with only underline elements), for example, as proposed in
 `PEP 12 <https://peps.python.org/pep-0012/#section-headings>`_::
 

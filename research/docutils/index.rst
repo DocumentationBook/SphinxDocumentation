@@ -8,7 +8,6 @@ Docutils
 
    schema
    top
-   structure
    publisher
 
 Docutils is the main interpreter of reST files. It works with separate files converting each of them to a separate HTML

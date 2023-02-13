@@ -87,18 +87,19 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../">Tutorial</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../setup/">Sphinx Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rest/">reST Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qa/">Quality Assurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events/">Event Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/">Managing Extensions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">User Interface Customization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-announcement">Adding announcement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adding-custom-css">Adding custom CSS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api/">API Presentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../#sources">Sources</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/">Concepts</a></li>
@@ -150,7 +151,7 @@
     
       <li><a href="../../">Docs</a> &raquo;</li>
         
-          <li><a href="../">Tutorial</a> &raquo;</li>
+          <li><a href="../">Tutorials</a> &raquo;</li>
         
       <li>User Interface Customization</li>
     
@@ -171,14 +172,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="user-interface-customization">
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="user-interface-customization">
 <span id="tutorial-ui"></span><h1>User Interface Customization<a class="headerlink" href="#user-interface-customization" title="Permalink to this heading">¶</a></h1>
+<p>Sphinx enables you to customize the appearance of documentation in various ways:</p>
+<ul class="simple">
+<li><p>Choosing a theme.</p></li>
+<li><p>Customizing the chosen theme.</p></li>
+<li><p>Developing your own theme.</p></li>
+<li><p>Customization via CSS.</p></li>
+<li><p>Customization via JavaScript.</p></li>
+</ul>
+<section id="adding-announcement">
+<h2>Adding announcement<a class="headerlink" href="#adding-announcement" title="Permalink to this heading">¶</a></h2>
+<p>Sometimes you may need to add an announcement to every documentation page.
+Sphinx provides you with two convenient configuration options to set in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rst_prolog</span></code> is a string to be added to the beginning of every <code class="docutils literal notranslate"><span class="pre">reST</span></code> file during compilation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rst_epilog</span></code> is a string to be added to the end of every <code class="docutils literal notranslate"><span class="pre">reST</span></code> file.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You won’t see those elements in actual <code class="docutils literal notranslate"><span class="pre">reST</span></code> files, because they are only added at build time.</p>
+</div>
+<p>For example, to announce that the documentation is in its draft version, use this prolog:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rst_prolog</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">.. warning:: This draft documentation is under development.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
 <section id="adding-custom-css">
 <h2>Adding custom CSS<a class="headerlink" href="#adding-custom-css" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p>Create a custom CSS. Usually it is placed in the <code class="docutils literal notranslate"><span class="pre">static/css/</span></code> folder.</p></li>
 <li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">static/</span></code> folder is specified in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">htmlstatic_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;static&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>

@@ -3,3 +3,7 @@
 _build
 __source
 __test
+.doctrees
+doctrees
+.buildinfo
+objects.inv

@@ -66,3 +66,7 @@ html_static_path = ['_static']
 html_css_files = [
     'css/custom.css',
 ]
+
+rst_prolog = """
+.. warning:: This draft documentation is under development.
+"""

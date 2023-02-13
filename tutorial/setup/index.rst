@@ -3,14 +3,18 @@
 Sphinx Setup
 ############
 
-Sphinx is a Python package, so that you can install it like any other Packages packages.
+Sphinx is a Python package, so you can install it like any other Python packages.
+And, like other systems, it requires additional skills to get started.
+In this guide, you will learn how to start your documentation project, then how to set it up
+and build a simple document tree.
 
 
 Installation
 ============
 
-Depending on your development environment Sphinx can be preinstalled or you can install it within the environment.
-Let us consider some widely used environments:
+Depending on your development environment, Sphinx can be preinstalled in it, for example,
+in Anaconda, or you can install it in an environment you use.
+Let us consider some widely used development environments for Python:
 
 *  `Anaconda <https://docs.anaconda.com/>`_ is a data science collection (distribution) of packages that contains
    a Sphinx package among many other packages.

@@ -87,7 +87,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../">Deep Investigation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../tools/">The Tracking Tool</a></li>
@@ -171,7 +171,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="building-phases">
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="building-phases">
 <span id="research-sphinx-process-phases"></span><h1>Building Phases<a class="headerlink" href="#building-phases" title="Permalink to this heading">¶</a></h1>
 <div class="graphviz"><img src="../../../images/graphviz-4b6825f3852da932e5a031675f7a8982fca88845.png" alt="digraph {
 //	graph [rankdir=LR]
@@ -294,7 +298,7 @@ builder_write -[hidden]&gt; consistency
 <ol class="arabic">
 <li><p>Start the build phases by calling the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method.
 First, it declares the start of the READING phase.
-Depending ot the command requirement and the source state, it calls one of the following methods:</p>
+Depending on the command arguments and the source state, it calls one of the following methods:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">build_all</span></code> if the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command requires to rebuild all documents.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">build_specific</span></code> if the command requires to build the specific files.</p></li>
@@ -332,14 +336,14 @@ node structure.</p>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.check_consistency</span></code> method to check that all source documents are added to the
 <code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code> list except for the root document, orphans, and documents included by other
 documents. The method also checks for domain consistency by calling the <code class="docutils literal notranslate"><span class="pre">domain.check_consistency</span></code> method
-for each domain the <code class="docutils literal notranslate"><span class="pre">env.domains</span></code> dictionary. For the example considered here, the method works with
+for each domain in the <code class="docutils literal notranslate"><span class="pre">env.domains</span></code> dictionary. In the example considered here, the method works with
 the following values:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">env.all_docs</span></code>: {‘folder1/index’: 1676118279.329916, ‘folder2/index’: 1676118279.332646, ‘index’: 1676118279.337593}</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code>: {‘folder1/index’: {‘index’}, ‘folder2/index’: {‘index’}}</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">env.all_docs</span></code>: <code class="docutils literal notranslate"><span class="pre">{'folder1/index':</span> <span class="pre">1676118279.329916,</span> <span class="pre">'folder2/index':</span> <span class="pre">1676118279.332646,</span> <span class="pre">'index':</span> <span class="pre">1676118279.337593}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code>: <code class="docutils literal notranslate"><span class="pre">{'folder1/index':</span> <span class="pre">{'index'},</span> <span class="pre">'folder2/index':</span> <span class="pre">{'index'}}</span></code></p></li>
 <li><p>Domains: <code class="docutils literal notranslate"><span class="pre">c.CDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">changeset.ChangeSetDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">citation.CitationDomain</span></code>, cpp.CPPDomain,
 <code class="docutils literal notranslate"><span class="pre">index.IndexDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">.javascript.JavaScriptDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">math.MathDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">python.PythonDomain</span></code>,
-<code class="docutils literal notranslate"><span class="pre">rst.ReSTDomain</span></code>, std.StandardDomain</p></li>
+<code class="docutils literal notranslate"><span class="pre">rst.ReSTDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">std.StandardDomain</span></code></p></li>
 </ul>
 <p>Finally, the method emits the <code class="docutils literal notranslate"><span class="pre">env-check-consistency</span></code> event:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-check-consistency&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
