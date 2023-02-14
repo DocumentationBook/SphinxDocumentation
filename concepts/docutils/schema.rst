@@ -8,7 +8,7 @@ The key entity in Docutils is the tree-like document structure defined by
 doctree is a hierarchical acyclic tree with the following specifics:
 
 *  Every node is an object of a ``Node`` subclass.
-*  On top of the tree is the ``document`` node.
+*  The tree root is the ``document`` node.
 *  Every node has a parent, except for the root, and a list of children, which is empty for leafs.
 
 A node can be a text block (plain or special), a title, an inline element (emphasized element and other), and other.

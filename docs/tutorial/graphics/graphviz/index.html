@@ -189,12 +189,12 @@ developers use it to create graphs manually or programmatically.</p>
 <p>Graphviz is a <a class="reference external" href="https://gitlab.com/graphviz/graphviz/">C package</a> that must be installed on your computer before you
 can use it to build graphs manually, with Sphinx, or with other applications.
 There are <a class="reference external" href="https://graphviz.org/doc/build.html">building instructions</a> specific for different platforms or you
-or you can install it from its source using a universal procedure. For example, on Mac, you can install in this way:</p>
+can install it from its source using a universal procedure. For example, on Mac, you can install it using this way:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ brew install graphviz
 </pre></div>
 </div>
-<p>Graphviz is a built-in Sphinx extension, so you don’t need to install its Python package. However, you need to add it
-to the list of extensions in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
+<p>The Graphviz Python package is a built-in Sphinx extension, so you don’t need to install its Python package.
+However, you need to add it to the list of extensions in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
    <span class="s1">&#39;sphinx.ext.graphviz&#39;</span><span class="p">,</span>
 <span class="p">]</span>
@@ -216,7 +216,7 @@ to the list of extensions in the <code class="docutils literal notranslate"><spa
 </section>
 <section id="using-hyperlinks">
 <h2>Using hyperlinks<a class="headerlink" href="#using-hyperlinks" title="Permalink to this heading">¶</a></h2>
-<p>When creating several documents bound by the same idea, you will probably need to bid graph images as well.
+<p>When creating several documents bound by the same idea, you will probably need to bind graph images as well.
 To make a reference from an image created by Graphviz, follow this way:</p>
 <ol class="arabic">
 <li><p>Make the Graphviz to output images in the CSV format instead of the default PNG.
@@ -233,8 +233,8 @@ for example:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Using a local path that is usually a relative path from the folder (usually <code class="docutils literal notranslate"><span class="pre">images/</span></code>) where Sphinx stores
-all processed images to the target document:</p>
+<li><p>Using a local path that is usually a relative path from the folder (usually <code class="docutils literal notranslate"><span class="pre">images/</span></code>), where Sphinx stores
+all processed images, to the target document:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">href</span><span class="o">=</span><span class="s2">&quot;../research/sphinx/read/&quot;</span>
 </pre></div>
 </div>

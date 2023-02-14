@@ -192,10 +192,10 @@ how you can create your own event handler.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;config-inited&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>By this moment, the <code class="docutils literal notranslate"><span class="pre">app</span></code> object has collected the initial configuration from the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file and is now
-sharing this data with those handlers that are subscribed to the ‘config-inited’ event.</p>
+<p>By the moment of issuing the event, the <code class="docutils literal notranslate"><span class="pre">app</span></code> object has collected the initial configuration from the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>
+file and is now sharing this data with those handlers that are subscribed to the ‘config-inited’ event.</p>
 <p>The easiest way to read the configuration is to add a handler to the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file, because Sphinx executes this
-file before it emits any event. Creating a handler consists of the following steps:</p>
+file before it emits any events. Creating a handler consists of the following steps:</p>
 <ol class="arabic">
 <li><p>Find out the handler signature, that is, a set of its parameters. Follow these rules:</p>
 <ul class="simple">
@@ -219,8 +219,8 @@ It must be used inside the <code class="docutils literal notranslate"><span clas
 </pre></div>
 </div>
 </li>
-<li><p>To verify that your handler works in its simplest form, run the build process:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">-</span><span class="n">b</span> <span class="n">dirhtml</span> <span class="s2">&quot;.&quot;</span> <span class="s2">&quot;_build&quot;</span>
+<li><p>To verify that your handler works in its simplest form, run the build process in the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sphinx-build -b dirhtml &quot;.&quot; &quot;_build&quot;
 </pre></div>
 </div>
 <p>Make sure the print function inside the handler prints its text.</p>
@@ -237,8 +237,8 @@ In the next build run, you can just print the config object as is:</p>
 <p>From here, you understand that in order to read the object properties,
 you need to know the <code class="docutils literal notranslate"><span class="pre">sphinx.config.Config</span></code> structure.
 You will find it in the <code class="docutils literal notranslate"><span class="pre">sphinx/config.py</span></code> file. Well, but which of its properties contain the configuration
-parameters collected at this moment? To answer this question, look at the statement collecting this data before
-the notification is issued.
+parameters collected at this moment? To answer this question, look at the statement that atars collecting this data
+before the notification is issued.
 This is <code class="docutils literal notranslate"><span class="pre">self.config.init_values()</span></code> in the <code class="docutils literal notranslate"><span class="pre">sphinx.application.py</span></code> file.
 Look at the <code class="docutils literal notranslate"><span class="pre">init_values()</span></code> definition in the <code class="docutils literal notranslate"><span class="pre">sphinx.config.Config</span></code> class.
 You will notice that it collects initial values in the <code class="docutils literal notranslate"><span class="pre">_raw_config</span></code> dictionary.

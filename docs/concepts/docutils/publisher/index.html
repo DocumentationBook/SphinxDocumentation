@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Document Structure &mdash; Detailed Sphinx 0.1 documentation</title>
+  <title>Publisher &mdash; Detailed Sphinx 0.1 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" />
-    <link rel="next" title="Top Level Classes" href="../top/" />
-    <link rel="prev" title="Docutils" href="../" /> 
+    <link rel="next" title="Sphinx Concepts" href="../../sphinx/" />
+    <link rel="prev" title="Top Level Classes" href="../top/" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,18 +88,20 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../">Deep Investigation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../tools/">The Tracking Tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../sphinx/">Sphinx</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../">Docutils</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Document Structure</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Concepts</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../">Docutils Concepts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../schema/">Document Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../top/">Top Level Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../publisher/">Publisher</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Publisher</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../sphinx/">Sphinx Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extension/">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ui/">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../auto/">Auto documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../research/">Deep Investigation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
@@ -147,11 +149,11 @@
     
       <li><a href="../../../">Docs</a> &raquo;</li>
         
-          <li><a href="../../">Deep Investigation</a> &raquo;</li>
+          <li><a href="../../">Concepts</a> &raquo;</li>
         
-          <li><a href="../">Docutils</a> &raquo;</li>
+          <li><a href="../">Docutils Concepts</a> &raquo;</li>
         
-      <li>Document Structure</li>
+      <li>Publisher</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,37 +174,40 @@
 <p class="admonition-title">Warning</p>
 <p>This draft documentation is under development.</p>
 </div>
-<section id="document-structure">
-<span id="concepts-docutils-schema"></span><h1>Document Structure<a class="headerlink" href="#document-structure" title="Permalink to this heading">¶</a></h1>
-<p>The key entity in Docutils is the tree-like document structure defined by
-<a class="reference external" href="https://docutils.sourceforge.io/docs/ref/docutils.dtd">DTD</a> (document type definition). This structure called
-doctree is a hierarchical acyclic tree with the following specifics:</p>
+<section id="publisher">
+<span id="concepts-docutils-publisher"></span><h1>Publisher<a class="headerlink" href="#publisher" title="Permalink to this heading">¶</a></h1>
+<p>The central entity is the <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> class that encapsulating the high-level logic of a Docutils system and
+provides necessary methods to orchestrate the whole process in the following order:</p>
+<ol class="arabic simple">
+<li><p>Reading the source. A reader reads the source and runs parsing several times:</p>
 <ul class="simple">
-<li><p>Every node is an object of a <code class="docutils literal notranslate"><span class="pre">Node</span></code> subclass.</p></li>
-<li><p>On top of the tree is the <code class="docutils literal notranslate"><span class="pre">document</span></code> node.</p></li>
-<li><p>Every node has a parent, except for the root, and a list of children, which is empty for leafs.</p></li>
+<li><p>Parsing.</p></li>
+<li><p>…</p></li>
+<li><p>Parsing.</p></li>
 </ul>
-<p>A node can be a text block (plain or special), a title, an inline element (emphasized element and other), and other.
-Every node can have the following set of attributes as defined by the DTD:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!--
-Attributes shared by all elements in this DTD:
-
-- `ids` are unique identifiers, typically assigned by the system. The NMTOKENS
-  attribute type is used because XML doesn&#39;t support a multiple-ID &quot;IDS&quot; type.
-- `names` are identifiers assigned in the markup.
-- `dupnames` is the same as `name`, used when it&#39;s a duplicate.
-- `source` is the name of the source of this document or fragment.
-- `classes` is used to transmit individuality information forward.
---&gt;
-&lt;!ENTITY % basic.atts
-  &quot; ids       %ids.type;         #IMPLIED
-    names     %refnames.type;    #IMPLIED
-    dupnames  %refnames.type;    #IMPLIED
-    source    CDATA              #IMPLIED
-    classes   %classnames.type;  #IMPLIED
-    %additional.basic.atts; &quot;&gt;
+</li>
+<li><p>Transforming.</p></li>
+<li><p>Creating the output.</p></li>
+</ol>
+<p>Docutils exposes several endpoints for calling the <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> class:</p>
+<ul>
+<li><p>End user front-end utilities (<code class="docutils literal notranslate"><span class="pre">rst2html.py</span></code>, <code class="docutils literal notranslate"><span class="pre">rst2html5.py</span></code>, <code class="docutils literal notranslate"><span class="pre">rst2latex.py</span></code>, <code class="docutils literal notranslate"><span class="pre">rst2odt.py</span></code>, and many more)
+enable a user to convert a reST file into a required format. For this purpose, in the command line,
+specify a utility, a source, and output as in this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rst2html5 index.rst index.html
 </pre></div>
 </div>
+<p>Each utility calls a specific Docutils writer that must output the result in a certain format.
+For example, <code class="docutils literal notranslate"><span class="pre">rst2html5.py</span></code> produces an HTML5 file.</p>
+</li>
+<li><p><a class="reference external" href="https://docutils.sourceforge.io/docs/api/publisher.html#publisher-convenience-functions">Publisher API</a>:
+<code class="docutils literal notranslate"><span class="pre">docutils.core.publish_*</span></code> functions.</p>
+<p>Front-end utilities call the <code class="docutils literal notranslate"><span class="pre">docutils.core.publish_cmdline</span></code> function. The other Publisher functions works with
+specific types of input and output data, such as file, string, dictionary, and document tree. Sphinx calls
+only the <code class="docutils literal notranslate"><span class="pre">publish_doctree</span></code> for testing purposes by <code class="docutils literal notranslate"><span class="pre">sphinx/testing/restructuredtext.py</span></code>.</p>
+</li>
+<li><p>Direct creation of objects from the <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> class. Sphinx uses this way to integrate with Docutils.</p></li>
+</ul>
 </section>
 
 
@@ -213,10 +218,10 @@ Attributes shared by all elements in this DTD:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../top/" class="btn btn-neutral float-right" title="Top Level Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../sphinx/" class="btn btn-neutral float-right" title="Sphinx Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../" class="btn btn-neutral float-left" title="Docutils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../top/" class="btn btn-neutral float-left" title="Top Level Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

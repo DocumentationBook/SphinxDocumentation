@@ -13,12 +13,12 @@ Setup
 Graphviz is a `C package <https://gitlab.com/graphviz/graphviz/>`_ that must be installed on your computer before you
 can use it to build graphs manually, with Sphinx, or with other applications.
 There are `building instructions <https://graphviz.org/doc/build.html>`_ specific for different platforms or you
-or you can install it from its source using a universal procedure. For example, on Mac, you can install in this way::
+can install it from its source using a universal procedure. For example, on Mac, you can install it using this way::
 
    $ brew install graphviz
 
-Graphviz is a built-in Sphinx extension, so you don't need to install its Python package. However, you need to add it
-to the list of extensions in the ``conf.py`` file::
+The Graphviz Python package is a built-in Sphinx extension, so you don't need to install its Python package.
+However, you need to add it to the list of extensions in the ``conf.py`` file::
 
    extensions = [
       'sphinx.ext.graphviz',
@@ -44,7 +44,7 @@ After building the documentation, you will get the following graph:
 Using hyperlinks
 ================
 
-When creating several documents bound by the same idea, you will probably need to bid graph images as well.
+When creating several documents bound by the same idea, you will probably need to bind graph images as well.
 To make a reference from an image created by Graphviz, follow this way:
 
 #. Make the Graphviz to output images in the CSV format instead of the default PNG.
@@ -59,8 +59,8 @@ To make a reference from an image created by Graphviz, follow this way:
 
          href="https://google.com"
 
-   *  Using a local path that is usually a relative path from the folder (usually ``_images/``) where Sphinx stores
-      all processed images to the target document::
+   *  Using a local path that is usually a relative path from the folder (usually ``_images/``), where Sphinx stores
+      all processed images, to the target document::
 
          href="../research/sphinx/read/"
 

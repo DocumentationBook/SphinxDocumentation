@@ -15,7 +15,7 @@ This is an external theme, therefore you need to install the respective Python p
 
       $ conda install -c conda-forge sphinx_rtd_theme
 
-#. In the ``conf.py`` file assign  '`sphinx_rtd_theme`' to the ``html_theme`` variable::
+#. In the ``conf.py`` file, assign  '`sphinx_rtd_theme`' to the ``html_theme`` variable::
 
        html_theme = `sphinx_rtd_theme`
 
@@ -25,6 +25,6 @@ This is an external theme, therefore you need to install the respective Python p
 
    Ensure that there are no errors preventing the build process.
 
-#. Verify how the rebuilt web site look now.
+#. Verify how the rebuilt web site looks now.
 
 

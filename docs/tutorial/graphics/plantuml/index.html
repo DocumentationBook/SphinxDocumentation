@@ -98,7 +98,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../graphviz/">Graphviz</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">PlantUML</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#using-hyperlinks">Using hyperlinks</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#diagrams">Diagrams</a></li>
 </ul>
 </li>
@@ -188,15 +187,16 @@ to create various types of graphic diagrams: <a class="reference internal" href=
 and non-UML.</p>
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
-<p>PlantUML is a Java package that you need to install on your computer. The installation process depends on your
-Operating System. You can find the most convenient way at the <a class="reference external" href="https://plantuml.com/">PlantUML</a> official site.
+<p>PlantUML is a Java package that you need to install on your computer. The installation process depends on the
+operating system installed on your computer.
+You can find the most convenient way at the <a class="reference external" href="https://plantuml.com/">PlantUML</a> official site.
 This package requires the Graphviz package, so you need to install it too if you didn’t do it yet.
 For example, on Mac, you can use Homebrew package manager:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ brew install graphviz
 $ brew install plantuml
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">sphinxcontrib-plantuml</span></code> package is available in the Github
+<p>The <code class="docutils literal notranslate"><span class="pre">sphinxcontrib-plantuml</span></code> Python package is available in the Github
 <a class="reference external" href="https://github.com/sphinx-contrib/plantuml">sphinx-contrib</a> repository.
 Use the following steps to set it up:</p>
 <ol class="arabic">
@@ -231,7 +231,7 @@ of extensions.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Build the documentation as you usually do. You will get the following graphic:</p>
+<li><p>Build the documentation as you usually do. You will get the following graph:</p>
 <p class="plantuml">
 <img src="../../../images/plantuml-3db9f2fc25f6f3b6e5ad85e3169f8b8c46e81f4f.png" alt="&#64;startuml
 user -&gt; (use PlantUML)
@@ -240,33 +240,8 @@ note left of user
    Hello!
 end note"/>
 </p>
-<p>PlantUML generates a new PNG file that Sphinx stores in the <code class="docutils literal notranslate"><span class="pre">build/dirhtml/images/</span></code> folder
+<p>PlantUML generates a new PNG file that Sphinx stores in the <code class="docutils literal notranslate"><span class="pre">build/dirhtml/_images</span></code> folder
 with a randomly generated name similar to <code class="docutils literal notranslate"><span class="pre">plantuml-a0f5e2ce818b07c47f92d6d1c1e2c04993fe35b9.png</span></code>.</p>
-</li>
-</ol>
-</section>
-<section id="using-hyperlinks">
-<h2>Using hyperlinks<a class="headerlink" href="#using-hyperlinks" title="Permalink to this heading">¶</a></h2>
-<p>To make hyperlinks in you diagrams, you need to do the following:</p>
-<ol class="arabic">
-<li><p>Make PlantULM save images in the SVG format. By default it is PNG. For this effect, add the following line
-to <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plantuml_output_format</span> <span class="o">=</span> <span class="s1">&#39;svg_obj&#39;</span>
-</pre></div>
-</div>
-</li>
-<li><p>In a UML file, use the syntax similar to this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span> <span class="s2">&quot;[[../research/sphinx/app/ LABEL]]&quot;</span> <span class="k">as</span> <span class="n">label</span>
-</pre></div>
-</div>
-<p>There are the following rules:</p>
-<ul class="simple">
-<li><p>The hyperlink is enclosed in double square brackets.</p></li>
-<li><p>You can use either absolute path, for example, <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code> or a relative path as in the example.
-By default all images are in the <code class="docutils literal notranslate"><span class="pre">images/</span></code> that is under the site root. That is why you need to figure out
-the relative path to your final HTML page from the <code class="docutils literal notranslate"><span class="pre">images/</span></code> folder.</p></li>
-<li><p>The example contains an optional text (<code class="docutils literal notranslate"><span class="pre">LABEL</span></code>) that readers will see on the screen.</p></li>
-</ul>
 </li>
 </ol>
 </section>

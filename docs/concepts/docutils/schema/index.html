@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top Level Classes &mdash; Detailed Sphinx 0.1 documentation</title>
+  <title>Document Structure &mdash; Detailed Sphinx 0.1 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" />
-    <link rel="next" title="Publisher" href="../publisher/" />
-    <link rel="prev" title="Document Structure" href="../schema/" /> 
+    <link rel="next" title="Top Level Classes" href="../top/" />
+    <link rel="prev" title="Docutils Concepts" href="../" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,18 +88,20 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../">Deep Investigation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../tools/">The Tracking Tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../sphinx/">Sphinx</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../">Docutils</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../schema/">Document Structure</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Top Level Classes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Concepts</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../">Docutils Concepts</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Document Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../top/">Top Level Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../publisher/">Publisher</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../sphinx/">Sphinx Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extension/">Sphinx Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ui/">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../auto/">Auto documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../research/">Deep Investigation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
@@ -147,11 +149,11 @@
     
       <li><a href="../../../">Docs</a> &raquo;</li>
         
-          <li><a href="../../">Deep Investigation</a> &raquo;</li>
+          <li><a href="../../">Concepts</a> &raquo;</li>
         
-          <li><a href="../">Docutils</a> &raquo;</li>
+          <li><a href="../">Docutils Concepts</a> &raquo;</li>
         
-      <li>Top Level Classes</li>
+      <li>Document Structure</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,62 +174,37 @@
 <p class="admonition-title">Warning</p>
 <p>This draft documentation is under development.</p>
 </div>
-<section id="top-level-classes">
-<span id="concepts-docutils-top"></span><h1>Top Level Classes<a class="headerlink" href="#top-level-classes" title="Permalink to this heading">¶</a></h1>
-<p class="plantuml">
-<img src="../../../images/plantuml-c0a47934afb0017c8ad94529e84d37539d3e10cb.png" alt="
-&#64;startuml
-SettingsSpec &lt;|-- Component: extends
-TransformSpec &lt;|-- Component: extends
-Component &lt;|-- docutils.parsers.Parser: extends
-docutils.parsers.Parser &lt;|-- docutils.parsers.rst.Parser: extends
-abstract SettingsSpec {
-   settings_spec: tuple()
-   settings_defaults: None
-   settings_default_overrides: None
-   relative_path_settings: tuple()
-   config_section: None
-   config_section_dependencies: None
-}
+<section id="document-structure">
+<span id="concepts-docutils-schema"></span><h1>Document Structure<a class="headerlink" href="#document-structure" title="Permalink to this heading">¶</a></h1>
+<p>The key entity in Docutils is the tree-like document structure defined by
+<a class="reference external" href="https://docutils.sourceforge.io/docs/ref/docutils.dtd">DTD</a> (document type definition). This structure called
+doctree is a hierarchical acyclic tree with the following specifics:</p>
+<ul class="simple">
+<li><p>Every node is an object of a <code class="docutils literal notranslate"><span class="pre">Node</span></code> subclass.</p></li>
+<li><p>The tree root is the <code class="docutils literal notranslate"><span class="pre">document</span></code> node.</p></li>
+<li><p>Every node has a parent, except for the root, and a list of children, which is empty for leafs.</p></li>
+</ul>
+<p>A node can be a text block (plain or special), a title, an inline element (emphasized element and other), and other.
+Every node can have the following set of attributes as defined by the DTD:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!--
+Attributes shared by all elements in this DTD:
 
-abstract TransformSpec {
-   default_transforms: tuple()
-   unknown_reference_resolvers: tuple()
-   ==
-   list get_transforms()
-}
-
-abstract Component {
-   component_type: None
-   supported: tuple()
-   ==
-   boolean supports(format)
-}
-
-abstract docutils.parsers.Parser {
-   settings_spec = tuple(&lt;predefined values&gt;)
-   component_type = 'parser'
-   config_section = 'parsers'
-   ==
-   abstract parse(inputstring, document)
-   void setup_parse(inputstring, document)
-   void finish_parse()
-}
-
-class docutils.parsers.rst.Parser {
-   supported = ('restructuredtext', 'rst', 'rest', 'restx', 'rtxt', 'rstx')
-   settings_spec = docutils.parsers.Parser.settings_spec + (&lt;reST Parser options&gt;)
-   config_section = 'restructuredtext parser'
-   config_section_dependencies = ('parsers',)
-   ==
-   __init__(rfc2822=False, inliner=None)
-   --
-   docutils.transforms.universal.SmartQuotes get_transforms()
-   void parse(inputstring, document)
-}
-
-&#64;enduml"/>
-</p>
+- `ids` are unique identifiers, typically assigned by the system. The NMTOKENS
+  attribute type is used because XML doesn&#39;t support a multiple-ID &quot;IDS&quot; type.
+- `names` are identifiers assigned in the markup.
+- `dupnames` is the same as `name`, used when it&#39;s a duplicate.
+- `source` is the name of the source of this document or fragment.
+- `classes` is used to transmit individuality information forward.
+--&gt;
+&lt;!ENTITY % basic.atts
+  &quot; ids       %ids.type;         #IMPLIED
+    names     %refnames.type;    #IMPLIED
+    dupnames  %refnames.type;    #IMPLIED
+    source    CDATA              #IMPLIED
+    classes   %classnames.type;  #IMPLIED
+    %additional.basic.atts; &quot;&gt;
+</pre></div>
+</div>
 </section>
 
 
@@ -238,10 +215,10 @@ class docutils.parsers.rst.Parser {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../publisher/" class="btn btn-neutral float-right" title="Publisher" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../top/" class="btn btn-neutral float-right" title="Top Level Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../schema/" class="btn btn-neutral float-left" title="Document Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral float-left" title="Docutils Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

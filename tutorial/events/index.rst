@@ -22,11 +22,11 @@ During :ref:`research_sphinx_process_app`, the ``app`` object emits the 'config-
 
    self.events.emit('config-inited', self.config)
 
-By this moment, the ``app`` object has collected the initial configuration from the ``conf.py`` file and is now
-sharing this data with those handlers that are subscribed to the 'config-inited' event.
+By the moment of issuing the event, the ``app`` object has collected the initial configuration from the ``conf.py``
+file and is now sharing this data with those handlers that are subscribed to the 'config-inited' event.
 
 The easiest way to read the configuration is to add a handler to the ``conf.py`` file, because Sphinx executes this
-file before it emits any event. Creating a handler consists of the following steps:
+file before it emits any events. Creating a handler consists of the following steps:
 
 #. Find out the handler signature, that is, a set of its parameters. Follow these rules:
 
@@ -48,9 +48,9 @@ file before it emits any event. Creating a handler consists of the following ste
       def setup(app):
           app.connect('config-inited', config_inited_read_handler)
 
-#. To verify that your handler works in its simplest form, run the build process::
+#. To verify that your handler works in its simplest form, run the build process in the command line::
 
-       sphinx-build -b dirhtml "." "_build"
+      $ sphinx-build -b dirhtml "." "_build"
 
    Make sure the print function inside the handler prints its text.
 
@@ -66,8 +66,8 @@ file before it emits any event. Creating a handler consists of the following ste
    From here, you understand that in order to read the object properties,
    you need to know the ``sphinx.config.Config`` structure.
    You will find it in the ``sphinx/config.py`` file. Well, but which of its properties contain the configuration
-   parameters collected at this moment? To answer this question, look at the statement collecting this data before
-   the notification is issued.
+   parameters collected at this moment? To answer this question, look at the statement that atars collecting this data
+   before the notification is issued.
    This is ``self.config.init_values()`` in the ``sphinx.application.py`` file.
    Look at the ``init_values()`` definition in the ``sphinx.config.Config`` class.
    You will notice that it collects initial values in the ``_raw_config`` dictionary.
