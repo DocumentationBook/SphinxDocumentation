@@ -105,7 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
 
@@ -162,8 +162,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/research/sphinx/read/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -181,22 +179,17 @@
 </div>
 <section id="read">
 <span id="research-sphinx-read"></span><h1>Read<a class="headerlink" href="#read" title="Permalink to this heading">¶</a></h1>
-<div class="graphviz"><img src="../../../images/graphviz-7ccf0aa08b57d09948a4fec37588bb1eee52332b.png" alt="digraph {
+<div class="graphviz"><object data="../../../images/graphviz-edfaf4bd65932a5edf74fbbc9689505df27f7644.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">digraph {
 //	graph [rankdir=LR]
 	node [color=none fillcolor=lightgrey shape=cds style=filled]
-	&quot;init&quot; [label=INITIALIZATION href=&quot;../app_init/&quot; target=_top]
-	&quot;read&quot; [label=&lt;&lt;b&gt;READING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../read/&quot; target=_top]
-	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../consistency/&quot; target=_top]
-	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../resolve/&quot; target=_top]
-	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../sphinx/write/&quot; target=_top]
-}" usemap="#grapviz3436db65e4" class="graphviz" /></div>
-<map id="grapviz3436db65e4" name="grapviz3436db65e4">
-<area shape="rect" id="node1" href="../app_init/" target="_top" title="INITIALIZATION" alt="" coords="5,5,164,53"/>
-<area shape="rect" id="node2" href="../read/" target="_top" title="&lt;b&gt;READING&lt;/b&gt;" alt="" coords="188,5,296,53"/>
-<area shape="rect" id="node3" href="../consistency/" target="_top" title="CONSISTENCY_CHECK" alt="" coords="321,5,537,53"/>
-<area shape="rect" id="node4" href="../resolve/" target="_top" title="RESOLVING" alt="" coords="561,5,685,53"/>
-<area shape="rect" id="node5" href="../sphinx/write/" target="_top" title="WRITING" alt="" coords="710,5,811,53"/>
-</map><p>The reading phase starts with the calling the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method from the <cite>build_main</cite> function.</p>
+	&quot;init&quot; [label=INITIALIZATION href=&quot;../research/sphinx/app_init/&quot; target=_top]
+	&quot;read&quot; [label=&lt;&lt;b&gt;READING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/read/&quot; target=_top]
+	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../research/sphinx/consistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
+	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../research/sphinx/write/&quot; target=_top]
+}</p></object></div>
+<p>The reading phase starts with the calling the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method from the <cite>build_main</cite> function.</p>
 <section id="process">
 <h2>Process<a class="headerlink" href="#process" title="Permalink to this heading">¶</a></h2>
 <p>The main steps of the process are presented on the following diagram:</p>

@@ -11,9 +11,9 @@ In a text block, reST provides the following typical inline markups:
 
    *  -  Markup type
       -  reST example
-      -  Conversion to HTML
+      -  HTML
    *  -  Emphasized
-      -  | \*emphasized\*
+      -  \*emphasized\*
       -  <em>emphasized</em>
    *  -  Cited
       -  \`citation\`

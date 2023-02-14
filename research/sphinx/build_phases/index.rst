@@ -57,7 +57,8 @@ Sphinx executes the build phases in the following order at the top level (see th
    for each domain in the ``env.domains`` dictionary. In the example considered here, the method works with
    the following values:
 
-   *  ``env.all_docs``: ``{'folder1/index': 1676118279.329916, 'folder2/index': 1676118279.332646, 'index': 1676118279.337593}``
+   *  ``env.all_docs``: ``{'folder1/index': 1676118279.329916, 'folder2/index': 1676118279.332646,``
+                           ``'index': 1676118279.337593}``
    *  ``env.files_to_rebuild``: ``{'folder1/index': {'index'}, 'folder2/index': {'index'}}``
    *  Domains: ``c.CDomain``, ``changeset.ChangeSetDomain``, ``citation.CitationDomain``, cpp.CPPDomain,
       ``index.IndexDomain``, ``.javascript.JavaScriptDomain``, ``math.MathDomain``, ``python.PythonDomain``,

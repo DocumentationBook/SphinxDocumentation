@@ -106,7 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
 
@@ -163,8 +163,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/research/sphinx/top.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -290,22 +288,17 @@ the <code class="docutils literal notranslate"><span class="pre">with</span></co
     <span class="n">WRITING</span> <span class="o">=</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<div class="graphviz"><img src="../../../images/graphviz-5aa474c98737033853b82714802958c2a45e0f0d.png" alt="digraph {
+<div class="graphviz"><object data="../../../images/graphviz-d1f2097b8c319affb6cc67fac00b4303914c9534.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">digraph {
 //	graph [rankdir=LR]
 	node [color=none fillcolor=lightgrey shape=cds style=filled]
-	&quot;init&quot; [label=&quot;INITIALIZATION&quot; href=&quot;../app_init/&quot; target=_top]
-	&quot;read&quot; [label=&quot;READING&quot; href=&quot;../read/&quot; target=_top]
-	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../consistency/&quot; target=_top]
-	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../resolve/&quot; target=_top]
-	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../sphinx/write/&quot; target=_top]
-}" usemap="#grapviz6ed5162364" class="graphviz" /></div>
-<map id="grapviz6ed5162364" name="grapviz6ed5162364">
-<area shape="rect" id="node1" href="../app_init/" target="_top" title="INITIALIZATION" alt="" coords="5,5,164,53"/>
-<area shape="rect" id="node2" href="../read/" target="_top" title="READING" alt="" coords="188,5,291,53"/>
-<area shape="rect" id="node3" href="../consistency/" target="_top" title="CONSISTENCY_CHECK" alt="" coords="315,5,531,53"/>
-<area shape="rect" id="node4" href="../resolve/" target="_top" title="RESOLVING" alt="" coords="556,5,680,53"/>
-<area shape="rect" id="node5" href="../sphinx/write/" target="_top" title="WRITING" alt="" coords="705,5,806,53"/>
-</map><p>The first phase, INITIALIZATION, is implemented during creation and initialization of the <code class="docutils literal notranslate"><span class="pre">app</span></code> object,
+	&quot;init&quot; [label=&quot;INITIALIZATION&quot; href=&quot;../research/sphinx/app_init/&quot; target=_top]
+	&quot;read&quot; [label=&quot;READING&quot; href=&quot;../research/sphinx/read/&quot; target=_top]
+	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../research/sphinxconsistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
+	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../research/sphinx/write/&quot; target=_top]
+}</p></object></div>
+<p>The first phase, INITIALIZATION, is implemented during creation and initialization of the <code class="docutils literal notranslate"><span class="pre">app</span></code> object,
 the others are orchestrated by the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method.</p>
 </section>
 <section id="more-details">

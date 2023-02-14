@@ -1,9 +1,11 @@
 .DS_Store
 .idea
 _build
-__source
+_source
 __test
 .doctrees
 doctrees
 .buildinfo
 objects.inv
+_plantuml
+__pycache__

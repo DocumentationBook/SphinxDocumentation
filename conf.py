@@ -1,8 +1,9 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""Configuration file for the Sphinx documentation builder.
+
+This file only contains a selection of the most common options. For a full
+list see the documentation:
+https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
 
 # -- Path setup --------------------------------------------------------------
 
@@ -67,6 +68,15 @@ html_css_files = [
     'css/custom.css',
 ]
 
+# To make Graphviz build correct hyperlinks:
+graphviz_output_format = 'svg'
+
+# Don't show source reST files, especially on public domains (combined with the next option):
+html_show_sourcelink = False
+# Don't create the __sources/ with source reST files.
+html_copy_source = False
+
 rst_prolog = """
 .. warning:: This draft documentation is under development.
 """
+

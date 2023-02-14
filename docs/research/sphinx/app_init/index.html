@@ -105,7 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
 
@@ -162,8 +162,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/research/sphinx/app_init/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -181,22 +179,17 @@
 </div>
 <section id="app-initialization">
 <span id="research-sphinx-process-app"></span><h1>App Initialization<a class="headerlink" href="#app-initialization" title="Permalink to this heading">¶</a></h1>
-<div class="graphviz"><img src="../../../images/graphviz-eb595af908fac4a9397ff8080b9e10c37e5fd2b6.png" alt="digraph {
+<div class="graphviz"><object data="../../../images/graphviz-2755290dc0b9793239845dadada2d10954f52a42.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">digraph {
 //	graph [rankdir=LR]
 	node [color=none shape=cds fillcolor=lightgrey style=filled]
-	&quot;init&quot; [label=&lt;&lt;b&gt;INITIALIZATION&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../app_init/&quot; target=_top]
-	&quot;read&quot; [label=&quot;READING&quot; href=&quot;../read/&quot; target=_top]
-	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../consistency/&quot; target=_top]
-	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../resolve/&quot; target=_top]
-	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../sphinx/write/&quot; target=_top]
-}" usemap="#grapviz3ca74cc228" class="graphviz" /></div>
-<map id="grapviz3ca74cc228" name="grapviz3ca74cc228">
-<area shape="rect" id="node1" href="../app_init/" target="_top" title="&lt;b&gt;INITIALIZATION&lt;/b&gt;" alt="" coords="5,5,177,53"/>
-<area shape="rect" id="node2" href="../read/" target="_top" title="READING" alt="" coords="201,5,304,53"/>
-<area shape="rect" id="node3" href="../consistency/" target="_top" title="CONSISTENCY_CHECK" alt="" coords="329,5,545,53"/>
-<area shape="rect" id="node4" href="../resolve/" target="_top" title="RESOLVING" alt="" coords="569,5,693,53"/>
-<area shape="rect" id="node5" href="../sphinx/write/" target="_top" title="WRITING" alt="" coords="718,5,819,53"/>
-</map><p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> object is the documentation build root that binds together all other objects necessary for building
+	&quot;init&quot; [label=&lt;&lt;b&gt;INITIALIZATION&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/app_init/&quot; target=_top]
+	&quot;read&quot; [label=&quot;READING&quot; href=&quot;../research/sphinx/read/&quot; target=_top]
+	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../research/sphinx/consistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
+	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../research/sphinx/write/&quot; target=_top]
+}</p></object></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> object is the documentation build root that binds together all other objects necessary for building
 the documentation:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">project</span></code></p></li>

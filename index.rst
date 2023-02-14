@@ -7,7 +7,7 @@ Detailed Sphinx
    tutorial/index
    concepts/index
    research/index
-   resources/index
+   publish/index
    glossary
 
 .. commented:
@@ -55,5 +55,8 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+.. commented:
+
+   * :ref:`modindex`
+   * :ref:`search`

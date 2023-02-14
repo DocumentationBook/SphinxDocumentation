@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
 
@@ -158,8 +158,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/research/sphinx/build_phases/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -177,7 +175,8 @@
 </div>
 <section id="building-phases">
 <span id="research-sphinx-process-phases"></span><h1>Building Phases<a class="headerlink" href="#building-phases" title="Permalink to this heading">¶</a></h1>
-<div class="graphviz"><img src="../../../images/graphviz-4b6825f3852da932e5a031675f7a8982fca88845.png" alt="digraph {
+<div class="graphviz"><object data="../../../images/graphviz-4b6825f3852da932e5a031675f7a8982fca88845.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">digraph {
 //	graph [rankdir=LR]
 	node [color=none fillcolor=lightgrey shape=cds style=filled]
 	&quot;init&quot; [label=INITIALIZATION href=&quot;../app_init/&quot; target=_top]
@@ -185,14 +184,8 @@
 	&quot;consistency&quot; [label=&lt;&lt;b&gt;CONSISTENCY_CHECK&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../consistency/&quot; target=_top]
 	&quot;resolve&quot; [label=&lt;&lt;b&gt;RESOLVING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../resolve/&quot; target=_top]
 	&quot;write&quot; [label=&lt;&lt;b&gt;WRITING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../sphinx/write/&quot; target=_top]
-}" usemap="#grapvizdd93b1ba79" class="graphviz" /></div>
-<map id="grapvizdd93b1ba79" name="grapvizdd93b1ba79">
-<area shape="rect" id="node1" href="../app_init/" target="_top" title="INITIALIZATION" alt="" coords="5,5,164,53"/>
-<area shape="rect" id="node2" href="../read/" target="_top" title="&lt;b&gt;READING&lt;/b&gt;" alt="" coords="188,5,296,53"/>
-<area shape="rect" id="node3" href="../consistency/" target="_top" title="&lt;b&gt;CONSISTENCY_CHECK&lt;/b&gt;" alt="" coords="320,5,551,53"/>
-<area shape="rect" id="node4" href="../resolve/" target="_top" title="&lt;b&gt;RESOLVING&lt;/b&gt;" alt="" coords="575,5,707,53"/>
-<area shape="rect" id="node5" href="../sphinx/write/" target="_top" title="&lt;b&gt;WRITING&lt;/b&gt;" alt="" coords="731,5,839,53"/>
-</map><p>The building phases start with the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method called by the <code class="docutils literal notranslate"><span class="pre">build_main</span></code> function
+}</p></object></div>
+<p>The building phases start with the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method called by the <code class="docutils literal notranslate"><span class="pre">build_main</span></code> function
 after completing the INITIALIZATION phase as presented earlier in <a class="reference internal" href="../top/#research-sphinx-process-top"><span class="std std-ref">Top Level Operations</span></a>.</p>
 <p>The main steps of the process are presented on the following diagram:</p>
 <p class="plantuml">
@@ -339,7 +332,11 @@ documents. The method also checks for domain consistency by calling the <code cl
 for each domain in the <code class="docutils literal notranslate"><span class="pre">env.domains</span></code> dictionary. In the example considered here, the method works with
 the following values:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">env.all_docs</span></code>: <code class="docutils literal notranslate"><span class="pre">{'folder1/index':</span> <span class="pre">1676118279.329916,</span> <span class="pre">'folder2/index':</span> <span class="pre">1676118279.332646,</span> <span class="pre">'index':</span> <span class="pre">1676118279.337593}</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">env.all_docs</span></code>: <code class="docutils literal notranslate"><span class="pre">{'folder1/index':</span> <span class="pre">1676118279.329916,</span> <span class="pre">'folder2/index':</span> <span class="pre">1676118279.332646,</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">'index':</span> <span class="pre">1676118279.337593}</span></code></p>
+</dd>
+</dl>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code>: <code class="docutils literal notranslate"><span class="pre">{'folder1/index':</span> <span class="pre">{'index'},</span> <span class="pre">'folder2/index':</span> <span class="pre">{'index'}}</span></code></p></li>
 <li><p>Domains: <code class="docutils literal notranslate"><span class="pre">c.CDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">changeset.ChangeSetDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">citation.CitationDomain</span></code>, cpp.CPPDomain,
 <code class="docutils literal notranslate"><span class="pre">index.IndexDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">.javascript.JavaScriptDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">math.MathDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">python.PythonDomain</span></code>,

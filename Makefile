@@ -14,8 +14,9 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 pages:
+	@rm -rf docs
 	@$(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(GITPAGES)" $(SPHINXOPTS) $(O)
-	./postbuild_gitpages.sh
+	@./postbuild_gitpages.sh
 
 .PHONY: help Makefile
 

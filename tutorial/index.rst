@@ -12,6 +12,7 @@ Tutorials
    events/index
    extensions/index
    ui/index
+   graphics/index
    api
 
 This is a set of guides that will help you step by step to gain experience in solving the main practical

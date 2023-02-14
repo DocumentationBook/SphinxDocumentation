@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PlantUML &mdash; Detailed Sphinx 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../static/documentation_options.js"></script>
+        <script src="../../../static/jquery.js"></script>
+        <script src="../../../static/underscore.js"></script>
+        <script src="../../../static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="API Presentation" href="../../api/" />
+    <link rel="prev" title="Graphviz" href="../graphviz/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../" class="icon icon-home"> Detailed Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../setup/">Sphinx Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rest/">reST Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../qa/">Quality Assurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../events/">Event Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extensions/">Extension Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ui/">User Interface Customization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Graphic Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../graphviz/">Graphviz</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PlantUML</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-hyperlinks">Using hyperlinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diagrams">Diagrams</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/">API Presentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../research/">Deep Investigation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Detailed Sphinx</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../../">Tutorials</a> &raquo;</li>
+        
+          <li><a href="../">Graphic Tools</a> &raquo;</li>
+        
+      <li>PlantUML</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="plantuml">
+<h1>PlantUML<a class="headerlink" href="#plantuml" title="Permalink to this heading">¶</a></h1>
+<p><a class="reference external" href="https://plantuml.com/">PlantUML</a> is a tool widely used by software analysts, engineers, developers, and others
+to create various types of graphic diagrams: <a class="reference internal" href="../../../glossary/#term-UML"><span class="xref std std-term">UML</span></a> (Sequence, Usecase, Class, Object, Activity, and other)
+and non-UML.</p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<p>PlantUML is a Java package that you need to install on your computer. The installation process depends on your
+Operating System. You can find the most convenient way at the <a class="reference external" href="https://plantuml.com/">PlantUML</a> official site.
+This package requires the Graphviz package, so you need to install it too if you didn’t do it yet.
+For example, on Mac, you can use Homebrew package manager:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ brew install graphviz
+$ brew install plantuml
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sphinxcontrib-plantuml</span></code> package is available in the Github
+<a class="reference external" href="https://github.com/sphinx-contrib/plantuml">sphinx-contrib</a> repository.
+Use the following steps to set it up:</p>
+<ol class="arabic">
+<li><p>Install the <code class="docutils literal notranslate"><span class="pre">sphinxcontrib-plantuml</span></code> extension:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install sphinxcontrib-plantuml
+</pre></div>
+</div>
+</li>
+<li><p>Add this extension to the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s1">&#39;sphinx.ext.graphviz&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;sphinxcontrib.plantuml&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t use Graphviz directly in your files, you can remove the corresponding line from the list
+of extensions.</p>
+</div>
+</li>
+<li><p>Try the updated environment by adding the following simplest test directive to a reST file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. uml::
+
+   @startuml
+   user -&gt; (use PlantUML)
+
+   note left of user
+      Hello!
+   end note
+   @enduml
+</pre></div>
+</div>
+</li>
+<li><p>Build the documentation as you usually do. You will get the following graphic:</p>
+<p class="plantuml">
+<img src="../../../images/plantuml-3db9f2fc25f6f3b6e5ad85e3169f8b8c46e81f4f.png" alt="&#64;startuml
+user -&gt; (use PlantUML)
+
+note left of user
+   Hello!
+end note"/>
+</p>
+<p>PlantUML generates a new PNG file that Sphinx stores in the <code class="docutils literal notranslate"><span class="pre">build/dirhtml/images/</span></code> folder
+with a randomly generated name similar to <code class="docutils literal notranslate"><span class="pre">plantuml-a0f5e2ce818b07c47f92d6d1c1e2c04993fe35b9.png</span></code>.</p>
+</li>
+</ol>
+</section>
+<section id="using-hyperlinks">
+<h2>Using hyperlinks<a class="headerlink" href="#using-hyperlinks" title="Permalink to this heading">¶</a></h2>
+<p>To make hyperlinks in you diagrams, you need to do the following:</p>
+<ol class="arabic">
+<li><p>Make PlantULM save images in the SVG format. By default it is PNG. For this effect, add the following line
+to <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plantuml_output_format</span> <span class="o">=</span> <span class="s1">&#39;svg_obj&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>In a UML file, use the syntax similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span> <span class="s2">&quot;[[../research/sphinx/app/ LABEL]]&quot;</span> <span class="k">as</span> <span class="n">label</span>
+</pre></div>
+</div>
+<p>There are the following rules:</p>
+<ul class="simple">
+<li><p>The hyperlink is enclosed in double square brackets.</p></li>
+<li><p>You can use either absolute path, for example, <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code> or a relative path as in the example.
+By default all images are in the <code class="docutils literal notranslate"><span class="pre">images/</span></code> that is under the site root. That is why you need to figure out
+the relative path to your final HTML page from the <code class="docutils literal notranslate"><span class="pre">images/</span></code> folder.</p></li>
+<li><p>The example contains an optional text (<code class="docutils literal notranslate"><span class="pre">LABEL</span></code>) that readers will see on the screen.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="diagrams">
+<h2>Diagrams<a class="headerlink" href="#diagrams" title="Permalink to this heading">¶</a></h2>
+<p>There are the following types of diagrams that were used in this documentation:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plantuml.com/class-diagram">Classes</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../api/" class="btn btn-neutral float-right" title="API Presentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../graphviz/" class="btn btn-neutral float-left" title="Graphviz" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, Albert Bagdasarian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
