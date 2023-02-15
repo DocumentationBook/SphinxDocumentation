@@ -3,9 +3,25 @@
 Publishing
 ##########
 
+Here you will find various ways of publishing the documentation on a web server.
+
 
 On premise publishing
 =====================
+
+Doc-as-code paradigm implies that the documentation development life cycle (DDLC) looks similar
+to the software development life cycle (SDLC).
+This may sound arguable, but most developers and writers mean this.
+The process includes the following steps:
+
+#. (Optional) Preprocess some resources to build intermediate reST documents and images. Typically, developers
+   create special scripts to extract data that must be synced with the documentation.
+#. Write static documentation using reST markup.
+#. Validate the documentation build process and fix the documents if needed.
+#. Commit the updates in Git, push the commit to the Git server, and assign reviewers.
+#. Discuss the feedback and fix the documents if needed.
+#. Merge the updates with the current Git branch.
+#. Publish the updated documentation on the documentation web site.
 
 
 Publishing to GitHub Pages
@@ -100,7 +116,13 @@ Publishing to Read the Docs
 ===========================
 
 `Read the Docs <https://readthedocs.org/>`_ is a documentation hosting service based primarily on Sphinx
-as a tool for a generating documentation tree. Minimal requirements:
+as a tool for a generating documentation tree.
+
+
+Minimal requirements
+--------------------
+
+Minimal requirements:
 
 #. Sign up to the `Read the Docs <https://readthedocs.org/>`_ to have your account there.
 #. In your documentation project, add
@@ -109,6 +131,62 @@ as a tool for a generating documentation tree. Minimal requirements:
 #. Your Git-based repository (GitHub or another) must contain the full Sphinx-based documentation project.
 
 
+Additional configuration
+------------------------
+
+A stable system, which Read The Docs is, uses reliable components that can be older than you expect.
+That is why you may experience some unexpected behaviour.
+For example, when I published my project for the first time, this system was using a Docker container with
+an old version of Ubuntu and consequently old version of Graphviz.
+This results in incorrect representation of some UML graphs.
+
+To manage such cases, you can add the ``.readthedocs.yaml`` configuration file and specify options that are
+most crucial for you project. This is an example contents::
+
+   # .readthedocs.yaml
+   # Read the Docs configuration file
+   # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+   # Required
+   version: 2
+
+   # Set the version of Python and other tools you might need
+   build:
+     os: ubuntu-22.04
+     tools:
+       python: "3.10"
+       # You can also specify other tool versions:
+       # nodejs: "19"
+       # rust: "1.64"
+       # golang: "1.19"
+     apt_packages:
+       - graphviz
+       - plantuml
+
+
+   # Build documentation in the docs/ directory with Sphinx
+   sphinx:
+      builder: dirhtml
+      configuration: conf.py
+
+   # If using Sphinx, optionally build your docs in additional formats such as PDF
+   # formats:
+   #    - pdf
+
+   # Optionally declare the Python requirements required to build your docs
+   python:
+      install:
+      - requirements: requirements.txt
+
+Pay attention to the following requirements:
+
+*  Use the OS Ubunto of the specified version.
+   Specify the latest LTS (long-term support) version, as the system doesn't accept non-LTS versions.
+*  Specify the Python version that you use in your project locally, which is verified on your project.
+*  Specify the crucial ``apt`` packages that you want to be installed.
+   In this example, they are ``graphviz`` and ``plantuml``.
+
+Other options in this configuration are obvious. It also contains a link to the full documentation.
 
 
 Additional resources
