@@ -99,6 +99,16 @@ After completing all these steps, you can run the build-publish process as follo
 Publishing to Read the Docs
 ===========================
 
+`Read the Docs <https://readthedocs.org/>`_ is a documentation hosting service based primarily on Sphinx
+as a tool for a generating documentation tree. Minimal requirements:
+
+#. Sign up to the `Read the Docs <https://readthedocs.org/>`_ to have your account there.
+#. In your documentation project, add
+   the ``requirement.txt`` file that have a list of Python modules to be used during the build process.
+   These are Sphinx and additional packages that you installed in your development environment (virtenv or conda).
+#. Your Git-based repository (GitHub or another) must contain the full Sphinx-based documentation project.
+
+
 
 
 Additional resources

@@ -57,4 +57,5 @@ builder_build --> consistency : <6>
 get_outdated -[hidden]right-> builder_build
 builder_read -[hidden]> builder_write
 builder_write -[hidden]> consistency
+
 @enduml

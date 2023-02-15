@@ -77,8 +77,8 @@ html_show_sourcelink = False
 # Don't create the __sources/ with source reST files.
 html_copy_source = False
 
-if os.environ.get('READTHEDOCS') is not None:
-    plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
+# if os.environ.get('READTHEDOCS') is not None:
+#     plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
 
 rst_prolog = """
 .. warning:: This draft documentation is under development.
