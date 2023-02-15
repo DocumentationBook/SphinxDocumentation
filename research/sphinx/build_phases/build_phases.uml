@@ -1,7 +1,5 @@
 @startuml
 skinparam ArrowFontColor red
-'   NoteBackgroundColor<< phase >> CadetBlue
-'   NoteFontColor<< phase >> White
 
 package "sphinx" {
    (build_main)
@@ -30,10 +28,6 @@ package "sphinx" {
 
             note bottom of builder_write #CadetBlue : <font color=white>RESOLVING,</font>
             note bottom of builder_write #CadetBlue : <font color=white>WRITING</font>
-'            note bottom of builder_write #CadetBlue
-'               <font color=white>RESOLVING,</font>
-'               <font color=white>WRITING</font>
-'            end note
             note right of builder_build: Main orchestrator
             note left of builder_read #CadetBlue: <font color=white>READING</font>
 
@@ -44,54 +38,23 @@ package "sphinx" {
 
    package "environment" {
       folder "BuildEnvironment" {
-'         [found_docs] as env_docs
-'         together {
-'            [find_files] as env_files
             [check_consistency] as consistency
-'         }
          note bottom of consistency #CadetBlue: <font color=white>CONSISTENCY_CHECK</font>
       }
    }
    note top of BuildEnvironment: app.env
 
-'   note left of BuildEnvironment: app.env
-'   note bottom of consistency: CONSISTENCY_CHECK
-
-'   package "project" {
-'      folder "Project" {
-'         [docnames] as project_docnames
-'         [discover] as project_discover
-'      }
-'   }
-'   note bottom of Project: env.project\napp.env.project\napp.project
-'
-'   package "domains" {
-'      folder "Domain" {
-'         [check_consistency] as domain_consistency
-'      }
-'   }
-'   note bottom of Domain: env.domains{[name], [Domain]}
 }
 
 build_main --> app_build : <1>
 app_build --> builder_update : <2>
 builder_update --> get_outdated : <3>
-'get_outdated --> env_docs : <4>
-'env_docs --> project_docnames
 builder_update --> builder_build : <4>
 builder_build --> builder_read: <5>
 builder_build --> builder_write: <7>
-'builder_write --> env_docs
-'builder_read --> env_files
-'env_files --> project_discover
 builder_build --> consistency: <6>
-'consistency --> domain_consistency
 
 get_outdated -[hidden]right-> builder_build
 builder_read -[hidden]> builder_write
 builder_write -[hidden]> consistency
-'env_docs -[hidden]> env_files
-'env_files -[hidden]> consistency
-'project_docnames -[hidden]> project_discover
-'project_discover -[hidden]> domain_consistency
 @enduml

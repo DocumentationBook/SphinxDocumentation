@@ -81,6 +81,6 @@ rst_prolog = """
 .. warning:: This draft documentation is under development.
 """
 
-if os.environ.get('READTHEDOCS'):
+if os.environ.get('READTHEDOCS') is not None:
     plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
 
