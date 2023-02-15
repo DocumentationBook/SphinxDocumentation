@@ -12,6 +12,7 @@ The process
 The first steps are presented in the following diagram:
 
 .. uml:: top.uml
+   :alt: Top level structure
 
 The process includes the following operations:
 

@@ -10,7 +10,8 @@ after completing the INITIALIZATION phase as presented earlier in :ref:`research
 
 The main steps of the process are presented on the following diagram:
 
-.. uml:: build_phases.uml
+.. uml:: build_phases.puml
+   :alt: Build phases
 
 Sphinx executes the build phases in the following order at the top level (see the diagram for the order numbers):
 

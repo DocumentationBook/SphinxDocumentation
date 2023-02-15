@@ -32,6 +32,7 @@ The app initialization process figures out the absolute paths of the following i
 The ``app.__init__`` method performs various validations and calls other methods as presented in this diagram:
 
 .. uml:: app_init.uml
+   :alt: Initialization phase
 
 The initialization goes in the following order (see the numbers in the diagram):
 
@@ -114,6 +115,7 @@ Initialized state
 The initialization phase completes with creation of the ``app`` object (class ``Sphinx``) with the other main objects:
 
 .. uml:: structure_init.uml
+   :alt: Initized state
 
 The diagram displays incomplete lists of components.
 The objects have the following specifics:

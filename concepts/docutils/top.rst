@@ -4,3 +4,4 @@ Top Level Classes
 #################
 
 .. uml:: top.uml
+   :alt: Top level classes

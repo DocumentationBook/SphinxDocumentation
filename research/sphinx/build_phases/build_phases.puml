@@ -1,5 +1,6 @@
 @startuml
 skinparam ArrowFontColor red
+skinparam Ranksep 20
 
 package "sphinx" {
    (build_main)
@@ -14,19 +15,18 @@ package "sphinx" {
       note left of Sphinx: app
    }
 
-
    package "builders" {
       package "dirhtml" {
          folder "StandaloneHTMLBuilder" {
             [build_update:\n  to_build = self.get_outdated_docs();\n  self.build(to_build)] as builder_update
             [get_outdated_docs:\n  for docname in self.env.found_docs:] as get_outdated
-            [build\n                  ] as builder_build
+            [build] as builder_build
             [read] as builder_read
             [write] as builder_write
             note top of get_outdated: Getting doc names
-               note left of get_outdated #CadetBlue: <font color=white>READING</font>
+            note left of get_outdated #CadetBlue: <font color=white>READING</font>
 
-            note bottom of builder_write #CadetBlue : <font color=white>RESOLVING,</font>
+            note bottom of builder_write #CadetBlue : <font color=white>RESOLVING</font>
             note bottom of builder_write #CadetBlue : <font color=white>WRITING</font>
             note right of builder_build: Main orchestrator
             note left of builder_read #CadetBlue: <font color=white>READING</font>
@@ -50,9 +50,9 @@ build_main --> app_build : <1>
 app_build --> builder_update : <2>
 builder_update --> get_outdated : <3>
 builder_update --> builder_build : <4>
-builder_build --> builder_read: <5>
-builder_build --> builder_write: <7>
-builder_build --> consistency: <6>
+builder_build --> builder_read : <5>
+builder_build --> builder_write : <7>
+builder_build --> consistency : <6>
 
 get_outdated -[hidden]right-> builder_build
 builder_read -[hidden]> builder_write

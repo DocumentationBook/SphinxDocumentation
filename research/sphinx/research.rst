@@ -95,6 +95,7 @@ Let us consider the doc build process from the beginning:
 The ``app`` object created from the ``Sphinx`` class has many properties and methods used while building the project:
 
 .. uml:: app.uml
+   :alt: App object
 
 Some of the most important properties are formed from the ``args`` object that you met in the previous steps::
 
@@ -110,10 +111,12 @@ the ``DirectoryHTMLBuilder`` class that extends subsequently
 the ``sphinx.builders.html.StandaloneHTMLBuilder`` and ``sphinx.builders.Builder`` classes:
 
 .. uml:: builders.uml
+   :alt: Biulder inheritance
 
 The ``app`` initialization process sets up the building environment:
 
 .. uml:: env.uml
+   :alt: App environment object
 
 
 Main build process
