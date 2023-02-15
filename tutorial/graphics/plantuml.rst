@@ -60,6 +60,7 @@ Use the following steps to set it up:
       note left of user
          Hello!
       end note
+      @enduml
 
    PlantUML generates a new PNG file that Sphinx stores in the ``build/dirhtml/_images`` folder
    with a randomly generated name similar to ``plantuml-a0f5e2ce818b07c47f92d6d1c1e2c04993fe35b9.png``.

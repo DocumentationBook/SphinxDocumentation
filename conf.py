@@ -4,6 +4,7 @@ This file only contains a selection of the most common options. For a full
 list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
+import os
 
 # -- Path setup --------------------------------------------------------------
 
@@ -79,4 +80,7 @@ html_copy_source = False
 rst_prolog = """
 .. warning:: This draft documentation is under development.
 """
+
+if os.environ.get('READTHEDOCS'):
+    plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
 
