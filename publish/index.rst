@@ -189,6 +189,30 @@ Pay attention to the following requirements:
 Other options in this configuration are obvious. It also contains a link to the full documentation.
 
 
+Using webhook
+-------------
+
+If you want to update the published documentation immediately after the source Git repository is updated,
+you need to have a special service called webhook installed on GitHub.
+Read the Docs tries to do it automatically, but it might happen that you have different account names on these
+two systems.
+In this case, you can configure the webhook manually:
+
+#. On the Read the Docs dashboard, select your project, and then select the **Admin** tab.
+#. Select the **Integration** item and open an existing webhook that currently doesn't work.
+#. Copy the URL that the system recommends for manual configuration. Its format looks as follows::
+
+      https://readthedocs.org/api/v2/webhook/<your_subdomain>/<webhook_id>/
+
+#. Copy this URL.
+#. Log in to GitHub and open your personal settings or your organization settings depending on your documentation
+   repository location.
+#. In the menu, select **Webhooks** and click the **Add webhook** button.
+#. Paste the URL to the **Payload URL** field and click the **Add webhook** button on the bottom of the panel.
+#. Go back to the the Read the Docs dashboard, make sure the webhook settings panel is still open, and click
+   the **Resync webhook** button. If success, the panel will display the 200 code.
+
+
 Additional resources
 ====================
 
