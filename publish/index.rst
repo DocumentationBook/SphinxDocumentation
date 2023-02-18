@@ -212,6 +212,8 @@ In this case, you can configure the webhook manually:
 #. Go back to the the Read the Docs dashboard, make sure the webhook settings panel is still open, and click
    the **Resync webhook** button. If success, the panel will display the 200 code.
 
+Now you can test if a change in the GitHub repository starts the documentation build process in Read the Docs.
+
 
 Additional resources
 ====================

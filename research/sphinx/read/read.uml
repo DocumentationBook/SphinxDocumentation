@@ -1,0 +1,19 @@
+@startuml
+package "sphinx" {
+   package "builders" {
+      folder "StandaloneHTMLBuilder" {
+         [read] as build_read
+         [_read_serial] as build_serial
+      }
+   }
+   package "environment" {
+      folder "BuildEnvironment" {
+         [find_files\nreturn: added, changed, removed] as env_findfiles
+
+      }
+   }
+}
+
+build_read --> env_findfiles
+build_read --> build_serial
+@enduml

@@ -29,7 +29,8 @@ Sphinx executes the build phases in the following order at the top level (see th
    and prints the summary results of all the phases.
 
 #. Call the ``app.build.build_update`` method that initiates collection of source data and starts
-   the build orchestration method.
+   the build orchestration method. It calls ``app.build.get_outdated_docs`` method to get a list of updated
+   source documents and then ``app.build.build`` update the corresponding targeted documents.
 
 #. Call the ``app.build.get_outdated_docs`` method to get a list of updated documents. It returns a generator
    of the discovered source files, so that the ``to_build`` variable will yield source file paths similar to this::

@@ -43,6 +43,8 @@ Additional resources
 This book doesn't cover all aspects about reST, Docutils, and Sphinx. That is why you are welcome to get more information on
 the subject from various internet resources, for example:
 
+*  `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_
+   provides the most complete collection of resources related to Sphinx.
 *  `reStructuredText Markup Specification <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_
 *  `Sphinx documentation <https://www.sphinx-doc.org/en/master/index.html>`_
 *  `Using the technical documentation generator <https://chiplicity.readthedocs.io/en/latest/Using_Sphinx/index.html>`_
