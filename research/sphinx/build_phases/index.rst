@@ -28,17 +28,19 @@ Sphinx executes the build phases in the following order at the top level (see th
    When the called method completes, the ``app.build`` method cleans up the build environment
    and prints the summary results of all the phases.
 
-#. Call the ``app.build.build_update`` method that initiates collection of source data and starts
+#. Call the ``app.build.build_update`` method that initiates the collection of source data and starts
    the build orchestration method. It calls ``app.build.get_outdated_docs`` method to get a list of updated
-   source documents and then ``app.build.build`` update the corresponding targeted documents.
+   source documents and then ``app.build.build`` to update the corresponding targeted documents.
 
-#. Call the ``app.build.get_outdated_docs`` method to get a list of updated documents. It returns a generator
-   of the discovered source files, so that the ``to_build`` variable will yield source file paths similar to this::
+#. Call the ``app.build.get_outdated_docs`` method to get a list of outdated documents, which are those that
+   depend on the updated documents.
+   It returns a generator of the discovered source files, so that the ``to_build`` variable will yield source file paths
+   similar to this::
 
       to_build: ['index', 'folder1/index', 'folder2/index']
 
    This data is taken from the ``env.found_docs`` property method, which in its turn read it from ``project.docnames``.
-   The latter was prepare during :ref:`INITIALIZATION<research_sphinx_process_app>`.
+   The latter was prepared during :ref:`INITIALIZATION<research_sphinx_process_app>`.
 
 #. Call the ``app.build.build`` method that works as the phase orchestrator.
    It receives a list of source file paths and a phrase for printing similar to this::
@@ -51,7 +53,14 @@ Sphinx executes the build phases in the following order at the top level (see th
          updated_docnames = set(self.read())
 
    At this phase, Sphinx works closely with Docutils to parse each source document and obtain the hierarchical
-   node structure.
+   node structure of it. The ``app.build.read`` method returns a list of names of the documents that were updated
+   or added. The ``app.build.build`` method extends this list with the names of outdated documents, which are
+   those that depend on the updated documents. It creates the following name lists:
+
+   *  ``updated_docnames`` includes the names of the *updated and outdated* documents
+   *  ``outdated`` consists of the names of the *outdated* documents
+
+   The ``app.build.build`` method pickles the ``updated_docnames`` list.
 
 #. Call the ``app.env.check_consistency`` method to check that all source documents are added to the
    ``env.files_to_rebuild`` list except for the root document, orphans, and documents included by other
@@ -59,10 +68,12 @@ Sphinx executes the build phases in the following order at the top level (see th
    for each domain in the ``env.domains`` dictionary. In the example considered here, the method works with
    the following values:
 
-   *  ``env.all_docs``: ``{'folder1/index': 1676118279.329916, 'folder2/index': 1676118279.332646,``
-                           ``'index': 1676118279.337593}``
+   *  | ``env.all_docs``:
+      | ``{'folder1/index':1676118279.329916,'folder2/index':1676118279.332646,``
+      | ``'index':1676118279.337593}``
+
    *  ``env.files_to_rebuild``: ``{'folder1/index': {'index'}, 'folder2/index': {'index'}}``
-   *  Domains: ``c.CDomain``, ``changeset.ChangeSetDomain``, ``citation.CitationDomain``, cpp.CPPDomain,
+   *  Domains: ``c.CDomain``, ``changeset.ChangeSetDomain``, ``citation.CitationDomain``, ``cpp.CPPDomain``,
       ``index.IndexDomain``, ``.javascript.JavaScriptDomain``, ``math.MathDomain``, ``python.PythonDomain``,
       ``rst.ReSTDomain``, ``std.StandardDomain``
 

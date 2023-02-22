@@ -28,7 +28,13 @@ Glossary
       [list] (match any character in the list),
       and [!list] (matches any character, except for the characters in the specified list).
 
+   Outdated documents
+      These are the documents that were not updated but dependant updated documents.
+
    UML
    Unified Modeling Language
       UML is a language used to visually represent hardware and software systems, logical objects, math objects,
       sequences, and other materialized and non-materialized objects and processes.
+
+   Updated documents
+      A list of updated source documents.

@@ -1,19 +1,27 @@
 @startuml
+skinparam ArrowFontColor red
+
 package "sphinx" {
-   package "builders" {
-      folder "StandaloneHTMLBuilder" {
-         [read] as build_read
-         [_read_serial] as build_serial
-      }
-   }
    package "environment" {
       folder "BuildEnvironment" {
          [find_files\nreturn: added, changed, removed] as env_findfiles
-
+         [clear_doc] as env_clear
+         env_findfiles -[hidden]> env_clear
+      }
+   }
+   package "builders" {
+      folder "StandaloneHTMLBuilder" {
+         [build] as build_build
+         [read] as build_read
+         [_read_serial] as build_serial
+         [read_doc] as build_rdoc
       }
    }
 }
-
-build_read --> env_findfiles
-build_read --> build_serial
+build_build --> build_read:  <1>
+build_read --> env_findfiles: <2>
+build_read --> env_clear: <3>
+env_clear -[hidden]> build_serial
+build_read --> build_serial: <4>
+build_serial --> build_rdoc: <5>
 @enduml
