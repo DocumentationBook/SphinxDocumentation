@@ -52,7 +52,7 @@ Sphinx executes the build phases in the following order at the top level (see th
       with logging.pending_warnings():
          updated_docnames = set(self.read())
 
-   At this phase, Sphinx works closely with Docutils to parse each source document and obtain the hierarchical
+   In this phase, Sphinx works closely with Docutils to parse each source document and obtain the hierarchical
    node structure of it. The ``app.build.read`` method returns a list of names of the documents that were updated
    or added. The ``app.build.build`` method extends this list with the names of outdated documents, which are
    those that depend on the updated documents. It creates the following name lists:
@@ -63,7 +63,7 @@ Sphinx executes the build phases in the following order at the top level (see th
    The ``app.build.build`` method pickles the ``updated_docnames`` list.
 
 #. Call the ``app.env.check_consistency`` method to check that all source documents are added to the
-   ``env.files_to_rebuild`` list except for the root document, orphans, and documents included by other
+   ``env.files_to_rebuild`` list, except for the root document, orphans, and documents included by other
    documents. The method also checks for domain consistency by calling the ``domain.check_consistency`` method
    for each domain in the ``env.domains`` dictionary. In the example considered here, the method works with
    the following values:
@@ -77,11 +77,11 @@ Sphinx executes the build phases in the following order at the top level (see th
       ``index.IndexDomain``, ``.javascript.JavaScriptDomain``, ``math.MathDomain``, ``python.PythonDomain``,
       ``rst.ReSTDomain``, ``std.StandardDomain``
 
-   Finally, the method emits the ``env-check-consistency`` event::
+   Finally, the method emits the 'env-check-consistency' event::
 
       self.events.emit('env-check-consistency', self)
 
-   .. note:: This is where you can handle the event emitted after the source documents are checked
-      on consistency.
+   .. note:: This is where you can handle the 'env-check-consistency' event emitted after
+      the source documents are checked on consistency.
 
 #. Call the ``app.build.write`` method to implement the RESOLVING and WRITING phases.

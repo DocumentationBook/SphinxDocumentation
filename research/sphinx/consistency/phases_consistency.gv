@@ -1,9 +1,9 @@
 digraph {
 //	graph [rankdir=LR]
 	node [color=none shape=cds fillcolor=lightgrey style=filled]
-	"init" [label=INITIALIZATION href="../research/sphinx/app_init/" target=_top]
-	"read" [label=READING href="../research/sphinx/read/" target=_top]
-	"consistency" [label=<<b>CONSISTENCY_CHECK</b>> fillcolor=cadetblue4 fontcolor=white href="../research/sphinx/consistency/" target=_top]
-	"resolve" [label="RESOLVING" href="../research/sphinx/resolve/" target=_top]
-	"write" [label="WRITING" href="../research/sphinx/write/" target=_top]
+	"init" [label="INITIALIZATION  " href="../research/sphinx/app_init/" target=_top]
+	"read" [label="READING  " href="../research/sphinx/read/" target=_top]
+	"consistency" [label=<<b>CONSISTENCY_CHECK &#160;&#160;</b>> fillcolor=cadetblue4 fontcolor=white href="../research/sphinx/consistency/" target=_top]
+	"resolve" [label="RESOLVING  " href="../research/sphinx/resolve/" target=_top]
+	"write" [label="WRITING  " href="../research/sphinx/write/" target=_top]
 }

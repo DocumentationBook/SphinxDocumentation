@@ -29,7 +29,7 @@ Introduction
 `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is a powerful documentation toolset (framework) used to create
 a set of bound documents (documentation tree) in different formats (HTML, PDF, ePub, and many more) taking source
 documents marked up with reStructuredText (reST) or Markdown.
-Sphinx is shipped as a Python package along with many other packages it depends on. Among the latter,
+Sphinx is shipped as a Python package along with many other packages it depends on. Among them,
 `Docutils <https://docutils.sourceforge.io/>`_ is the main reST interpreter.
 That is why Docutils is often mentioned in this documentation.
 
@@ -44,21 +44,23 @@ This book doesn't cover all aspects about reST, Docutils, and Sphinx. That is wh
 the subject from various internet resources, for example:
 
 *  `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_
-   provides the most complete collection of resources related to Sphinx.
+   provides the most comprehensive and well-structured collection of resources related to Sphinx.
 *  `reStructuredText Markup Specification <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_
+   is the complete reference guide to reST.
 *  `Sphinx documentation <https://www.sphinx-doc.org/en/master/index.html>`_
+   is the main Sphinx documentation site.
 *  `Using the technical documentation generator <https://chiplicity.readthedocs.io/en/latest/Using_Sphinx/index.html>`_
+   is about effective using of text (reST) and graphic (Graphviz and PlantUML) tools within Sphinx.
 
 .. commented:
 
    *  `Генератор документации Sphinx <https://sphinx-ru.readthedocs.io/ru/latest/>`_ (Russian)
 
-Indices and tables
-==================
+   Indices and tables
+   ==================
 
-* :ref:`genindex`
+   * :ref:`genindex`
 
-.. commented:
 
    * :ref:`modindex`
    * :ref:`search`

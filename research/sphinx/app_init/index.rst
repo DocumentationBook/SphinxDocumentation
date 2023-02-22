@@ -58,7 +58,8 @@ The initialization goes in the following order (see the numbers in the diagram):
 
       self.events.emit('config-inited', self.config)
 
-   .. note:: This is where you can handle the event emitted after the ``app.config`` object is initialized.
+   .. note:: This is where you can handle the 'config-inited' event emitted
+      after the ``app.config`` object is initialized.
 
    For more information about subscribing to events,
    see `Sphinx core events <https://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx-core-events>`_.
@@ -105,7 +106,7 @@ The initialization goes in the following order (see the numbers in the diagram):
 
       self.events.emit('builder-inited')
 
-   .. note:: This is where you can handle the event emitted after creation of the builder object
+   .. note:: This is where you can handle the event 'builder-inited' emitted after creation of the builder object
       that is available to handlers as ``app.builder``.
 
 

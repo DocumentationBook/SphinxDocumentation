@@ -10,6 +10,7 @@ Sphinx
    app_init/index
    build_phases/index
    read/index
+   write/index
 
 This set of documents takes a detailed look at the documentation process in Sphinx.
 

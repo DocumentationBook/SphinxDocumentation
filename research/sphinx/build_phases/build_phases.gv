@@ -1,9 +1,9 @@
 digraph {
 //	graph [rankdir=LR]
 	node [color=none fillcolor=lightgrey shape=cds style=filled]
-	"init" [label=INITIALIZATION href="../app_init/" target=_top]
-	"read" [label=<<b>READING</b>> fillcolor=cadetblue4 fontcolor=white href="../read/" target=_top]
-	"consistency" [label=<<b>CONSISTENCY_CHECK</b>> fillcolor=cadetblue4 fontcolor=white href="../consistency/" target=_top]
-	"resolve" [label=<<b>RESOLVING</b>> fillcolor=cadetblue4 fontcolor=white href="../resolve/" target=_top]
-	"write" [label=<<b>WRITING</b>> fillcolor=cadetblue4 fontcolor=white href="../sphinx/write/" target=_top]
+	"init" [label="INITIALIZATION  " href="../app_init/" target=_top]
+	"read" [label=<<b>READING &#160;&#160;</b>> fillcolor=cadetblue4 fontcolor=white href="../read/" target=_top]
+	"consistency" [label=<<b>CONSISTENCY_CHECK &#160;&#160;</b>> fillcolor=cadetblue4 fontcolor=white href="../consistency/" target=_top]
+	"resolve" [label=<<b>RESOLVING &#160;&#160;</b>> fillcolor=cadetblue4 fontcolor=white href="../resolve/" target=_top]
+	"write" [label=<<b>WRITING &#160;&#160;</b>> fillcolor=cadetblue4 fontcolor=white href="../sphinx/write/" target=_top]
 }
