@@ -5,8 +5,18 @@ package "sphinx" {
    package "environment" {
       folder "BuildEnvironment" {
          [get_and_resolve_doctree] as env_resolve
+         [get_doctree] as env_getdoctree
+         [apply_post_transforms] as env_posttransform
+         env_getdoctree -[hidden]> env_posttransform
       }
       note top of env_resolve #CadetBlue: <font color=white>RESOLVING</font>
+      package "adapters" {
+         package "toctree" {
+            folder "TocTree" {
+               [resolve] as env_toc_resolve
+            }
+         }
+      }
    }
    package "builders" {
       folder "StandaloneHTMLBuilder" {
@@ -21,12 +31,35 @@ package "sphinx" {
       }
    }
    environment -[hidden]> builders
+   package "transforms" {
+      folder "SphinxTransformer" {
+         [add_transforms] as transform_add
+         [apply_transforms] as transform_apply
+         transform_add -[hidden]> transform_apply
+      }
+   }
 
 }
 build_build --> build_write:  <1>
 build_write --> build_prepare: <2>
 build_write --> build_serial: <3>
 build_serial --> env_resolve: <4..>
+env_resolve --> env_getdoctree: <4.1>
+env_resolve --> env_posttransform: <4.2>
+env_posttransform --> transform_add: <4.2.1>
+env_posttransform --> transform_apply: <4.2.2>
+env_resolve --> env_toc_resolve: <4.3.2>
 build_serial --> build_w_serial: <..5..>
 build_serial --> build_w_doc: <..6>
+
+package "docutils" {
+   package "nodes" {
+      folder "Node" {
+         [findall] as docutils_node_findall
+      }
+   }
+}
+storage Pickles as pickles
+env_resolve --> docutils_node_findall: <4.3.1>
+env_getdoctree --> pickles
 @enduml

@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" />
-    <link rel="next" title="Docutils" href="../../docutils/" />
+    <link rel="next" title="Resolve and Write" href="../write/" />
     <link rel="prev" title="Building Phases" href="../build_phases/" /> 
 </head>
 
@@ -100,6 +100,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#project-state">Project state</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../write/">Resolve and Write</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
@@ -179,20 +180,178 @@
 </div>
 <section id="read">
 <span id="research-sphinx-read"></span><h1>Read<a class="headerlink" href="#read" title="Permalink to this heading">¶</a></h1>
-<div class="graphviz"><object data="../../../images/graphviz-edfaf4bd65932a5edf74fbbc9689505df27f7644.svg" type="image/svg+xml" class="graphviz">
+<div class="graphviz"><object data="../../../images/graphviz-bdf7751b91dc5033f7add830fd2d5a59d0ddd2ff.svg" type="image/svg+xml" class="graphviz">
 <p class="warning">digraph {
 //	graph [rankdir=LR]
 	node [color=none fillcolor=lightgrey shape=cds style=filled]
-	&quot;init&quot; [label=INITIALIZATION href=&quot;../research/sphinx/app_init/&quot; target=_top]
-	&quot;read&quot; [label=&lt;&lt;b&gt;READING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/read/&quot; target=_top]
-	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../research/sphinx/consistency/&quot; target=_top]
-	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
-	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../research/sphinx/write/&quot; target=_top]
+	&quot;init&quot; [label=&quot;INITIALIZATION  &quot; href=&quot;../research/sphinx/app_init/&quot; target=_top]
+	&quot;read&quot; [label=&lt;&lt;b&gt;READING &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/read/&quot; target=_top]
+	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK  &quot; href=&quot;../research/sphinx/consistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&quot;RESOLVING  &quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
+	&quot;write&quot; [label=&quot;WRITING  &quot; href=&quot;../research/sphinx/write/&quot; target=_top]
 }</p></object></div>
-<p>The reading phase starts with the calling the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method from the <cite>build_main</cite> function.</p>
+<p>At the READING phase Sphinx reads all new and updated files.
+This phase is declared by the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method as described in <a class="reference internal" href="../build_phases/#research-sphinx-process-phases"><span class="std std-ref">Building Phases</span></a>.</p>
 <section id="process">
 <h2>Process<a class="headerlink" href="#process" title="Permalink to this heading">¶</a></h2>
-<p>The main steps of the process are presented on the following diagram:</p>
+<p>As mentioned earlier, the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method calls the <code class="docutils literal notranslate"><span class="pre">app.builder.get_outdated_docs</span></code> method that supplies
+a generator of discovered updated documents, but this list is used after the READING phase.</p>
+<p>The main steps of the READING phase are performed by the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method as presented
+on the following diagram:</p>
+<p class="plantuml">
+<img src="../../../images/plantuml-2fba703a60b379fb5220b905bb9004e63e2858f4.png" alt="The READING phase"/>
+</p>
+<ol class="arabic">
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method defined in the <code class="docutils literal notranslate"><span class="pre">sphinx.builders.Builder</span></code> class.
+This method doesn’t have any input parameters declared.
+So it gets everything from the objects created during the INITIALIZATION phase.
+This method starts with logging the beginning of a phrase that will be later printed out on the screen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">updating</span> <span class="n">environment</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.find_files</span></code> method defined in the <code class="docutils literal notranslate"><span class="pre">sphinx.environment.BuildEnvironment</span></code> class.
+This methods searches and returns three kinds of source documents: <code class="docutils literal notranslate"><span class="pre">removed</span></code>, <code class="docutils literal notranslate"><span class="pre">changed</span></code>, and <code class="docutils literal notranslate"><span class="pre">added</span></code>.
+After calling this method, the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method emits the ‘env-get-outdated’ event.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is where you can handle the ‘env-get-outdated’ event emitted by the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method.</p>
+</div>
+<p>In a handler, you are able to make additional changes.
+The handler gets the names of all the three groups of source documents and it
+must return a list of updated sets of documents or an empty list.
+This is how <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method emits the event and updates the <code class="docutils literal notranslate"><span class="pre">changed</span></code> set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">docs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-get-outdated&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">added</span><span class="p">,</span> <span class="n">changed</span><span class="p">,</span> <span class="n">removed</span><span class="p">):</span>
+    <span class="n">changed</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">found_docs</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.clear_doc</span></code> method to remove those built documents whose source files were removed.
+Before calling this method, the <code class="docutils literal notranslate"><span class="pre">app.build.read</span></code> method emits the ‘env-purge-doc’ event:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">docname</span> <span class="ow">in</span> <span class="n">removed</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-purge-doc&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">docname</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">clear_doc</span><span class="p">(</span><span class="n">docname</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is where you can handle the ‘env-purge-doc’ event emitted by the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method
+before removing the documents.</p>
+</div>
+<p>After the <code class="docutils literal notranslate"><span class="pre">changed</span></code> and <code class="docutils literal notranslate"><span class="pre">removed</span></code> lists are processed, the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method updates the global
+tables of contents (<code class="docutils literal notranslate"><span class="pre">env.glob_toctrees</span></code>). The logger receives the size of each of the three lists:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">s</span> <span class="n">added</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span> <span class="n">changed</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span> <span class="n">removed</span>
+</pre></div>
+</div>
+<p>Before the next step, the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method emits the ‘env-before-read-docs’ event, providing the list
+of lists of added and changed documents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-before-read-docs&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">docnames</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is where you can handle the ‘env-before-read-docs’ event emitted by the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method
+before it starts reading and parsing the added and changed documents. A handler can change or reorder those
+documents.</p>
+</div>
+</li>
+<li><p>Verify if parallel processing is required by checking the <code class="docutils literal notranslate"><span class="pre">self.app.parallel</span></code> attribute and respectively
+call the <code class="docutils literal notranslate"><span class="pre">app.builder._read_parallel</span></code> or the <code class="docutils literal notranslate"><span class="pre">app.builder._read_serial</span></code> method.
+This example process uses the latter, and this step takes most time of the READING phase.
+This method receives as input a list of names of the updated and added documents and then it orchestrates the
+document reading process for every document in a cycle through the <code class="docutils literal notranslate"><span class="pre">sphinx.util.status_iterator</span></code> function.
+The latter runs the following steps for each document in a cycle:</p>
+<ul>
+<li><p>Emit the ‘env-purge-doc’ event to notify the subscribed handlers that a particular document will be removed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-purge-doc&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">docname</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is where you can handle the ‘env-purge-doc’ event emitted by
+the <code class="docutils literal notranslate"><span class="pre">app.builder._read_serial</span></code> method.</p>
+</div>
+</li>
+<li><p>Remove the document from the <code class="docutils literal notranslate"><span class="pre">app.env</span></code> object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">clear_doc</span><span class="p">(</span><span class="n">docname</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Launch the <code class="docutils literal notranslate"><span class="pre">app.build.read_doc</span></code> method to start parsing the document as a <em>doctree</em> object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">read_doc</span><span class="p">(</span><span class="n">docname</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>While parsing a document, the <code class="docutils literal notranslate"><span class="pre">sphinx.util.status_iterator</span></code> function prints out a message mentioning this
+document, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reading</span> <span class="n">sources</span><span class="o">...</span> <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span> <span class="n">tutorial</span><span class="o">/</span><span class="n">ui</span><span class="o">/</span><span class="n">index</span>
+</pre></div>
+</div>
+<p>Every line rewrites the previous one, so finally you will see the name of the last parsed document.
+The displayed percentage is proportional to the number of parsed documents.</p>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.read_doc</span></code> method to start parsing the document as a <em>doctree</em> object.
+This method interacts with the <code class="docutils literal notranslate"><span class="pre">docutils</span></code> package using the following steps:</p>
+<ul>
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">app.registry.get_publisher</span></code> method to create the main docutils
+object <code class="docutils literal notranslate"><span class="pre">publisher</span></code> of the Parser class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">publisher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">get_publisher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">,</span> <span class="n">filetype</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Supply the source document to <code class="docutils literal notranslate"><span class="pre">publisher</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">publisher</span><span class="o">.</span><span class="n">set_source</span><span class="p">(</span><span class="n">source_path</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the document parsing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>Get the parsed object <code class="docutils literal notranslate"><span class="pre">doctree</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doctree</span> <span class="o">=</span> <span class="n">publisher</span><span class="o">.</span><span class="n">document</span>
+</pre></div>
+</div>
+</li>
+<li><p>Save the <code class="docutils literal notranslate"><span class="pre">doctree</span></code> object in the pickled file which name consists of the document name extended with
+the <code class="docutils literal notranslate"><span class="pre">.doctree</span></code> suffix.</p></li>
+</ul>
+<p>After all documents are parsed, the pickled storage of the simplest project looks similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>_build/.doctrees
+├── environment.pickle
+├── folder1
+│ └── index.doctree
+├── folder2
+│ └── index.doctree
+└── index.doctree
+</pre></div>
+</div>
+</li>
+<li><p>After the <code class="docutils literal notranslate"><span class="pre">app.builder._read_serial</span></code> method completes parsing the documents, the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method
+performs the following final operations within the READING phase:</p>
+<ul>
+<li><p>Verify if the root document is built and send an error message if it isn’t.</p></li>
+<li><p>Emit the ‘env-updated’ event to request the subscribed handlers if they need to add more documents in this phase:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">retval</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-updated&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">retval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">docnames</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">retval</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If there are additional documents, extend the <code class="docutils literal notranslate"><span class="pre">docnames</span></code> list.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is where you can handle the ‘env-updated’ event emitted by the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method
+after it gets parsed documents. A handler can add more document names to the list of names that
+the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method will return to its caller, that is, to the <code class="docutils literal notranslate"><span class="pre">app.builder.build</span></code> method
+(see the next step).</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Return the list of names of the updated documents.</p></li>
+</ol>
 </section>
 <section id="project-state">
 <h2>Project state<a class="headerlink" href="#project-state" title="Permalink to this heading">¶</a></h2>
@@ -207,7 +366,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../docutils/" class="btn btn-neutral float-right" title="Docutils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../write/" class="btn btn-neutral float-right" title="Resolve and Write" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../build_phases/" class="btn btn-neutral float-left" title="Building Phases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

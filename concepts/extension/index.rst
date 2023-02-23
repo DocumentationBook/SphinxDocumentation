@@ -11,6 +11,7 @@ Every extension is a Python package that adds a specific functionality to Sphinx
 
 *  Sphinx directives and roles
 *  Templates of HTML output
+*  Event handlers
 *  Sphinx builders
 *  Source parsers
 *

@@ -93,7 +93,12 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Publishing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#on-premise-publishing">On premise publishing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#publishing-to-github-pages">Publishing to GitHub Pages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#publishing-to-read-the-docs">Publishing to Read the Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-to-read-the-docs">Publishing to Read the Docs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#minimal-requirements">Minimal requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-configuration">Additional configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-webhook">Using webhook</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-resources">Additional resources</a></li>
 </ul>
 </li>
@@ -166,8 +171,23 @@
 </div>
 <section id="publishing">
 <span id="resources-pipeline"></span><h1>Publishing<a class="headerlink" href="#publishing" title="Permalink to this heading">¶</a></h1>
+<p>Here you will find various ways of publishing the documentation on a web server.</p>
 <section id="on-premise-publishing">
 <h2>On premise publishing<a class="headerlink" href="#on-premise-publishing" title="Permalink to this heading">¶</a></h2>
+<p>Doc-as-code paradigm implies that the documentation development life cycle (DDLC) looks similar
+to the software development life cycle (SDLC).
+This may sound arguable, but most developers and writers mean this.
+The process includes the following steps:</p>
+<ol class="arabic simple">
+<li><p>(Optional) Preprocess some resources to build intermediate reST documents and images. Typically, developers
+create special scripts to extract data that must be synced with the documentation.</p></li>
+<li><p>Write static documentation using reST markup.</p></li>
+<li><p>Validate the documentation build process and fix the documents if needed.</p></li>
+<li><p>Commit the updates in Git, push the commit to the Git server, and assign reviewers.</p></li>
+<li><p>Discuss the feedback and fix the documents if needed.</p></li>
+<li><p>Merge the updates with the current Git branch.</p></li>
+<li><p>Publish the updated documentation on the documentation web site.</p></li>
+</ol>
 </section>
 <section id="publishing-to-github-pages">
 <h2>Publishing to GitHub Pages<a class="headerlink" href="#publishing-to-github-pages" title="Permalink to this heading">¶</a></h2>
@@ -270,15 +290,105 @@ You can do it using the <strong>Pages</strong> item in the repository <strong>Se
 </section>
 <section id="publishing-to-read-the-docs">
 <h2>Publishing to Read the Docs<a class="headerlink" href="#publishing-to-read-the-docs" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://readthedocs.org/">Read the Docs</a> is a documentation hosting service based primarily on Sphinx
+as a tool for a generating documentation tree.</p>
+<section id="minimal-requirements">
+<h3>Minimal requirements<a class="headerlink" href="#minimal-requirements" title="Permalink to this heading">¶</a></h3>
+<p>Minimal requirements:</p>
+<ol class="arabic simple">
+<li><p>Sign up to the <a class="reference external" href="https://readthedocs.org/">Read the Docs</a> to have your account there.</p></li>
+<li><p>In your documentation project, add
+the <code class="docutils literal notranslate"><span class="pre">requirement.txt</span></code> file that have a list of Python modules to be used during the build process.
+These are Sphinx and additional packages that you installed in your development environment (virtenv or conda).</p></li>
+<li><p>Your Git-based repository (GitHub or another) must contain the full Sphinx-based documentation project.</p></li>
+</ol>
+</section>
+<section id="additional-configuration">
+<h3>Additional configuration<a class="headerlink" href="#additional-configuration" title="Permalink to this heading">¶</a></h3>
+<p>A stable system, which Read The Docs is, uses reliable components that can be older than you expect.
+That is why you may experience some unexpected behaviour.
+For example, when I published my project for the first time, this system was using a Docker container with
+an old version of Ubuntu and consequently old version of Graphviz.
+This results in incorrect representation of some UML graphs.</p>
+<p>To manage such cases, you can add the <code class="docutils literal notranslate"><span class="pre">.readthedocs.yaml</span></code> configuration file and specify options that are
+most crucial for you project. This is an example contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .readthedocs.yaml</span>
+<span class="c1"># Read the Docs configuration file</span>
+<span class="c1"># See https://docs.readthedocs.io/en/stable/config-file/v2.html for details</span>
+
+<span class="c1"># Required</span>
+<span class="n">version</span><span class="p">:</span> <span class="mi">2</span>
+
+<span class="c1"># Set the version of Python and other tools you might need</span>
+<span class="n">build</span><span class="p">:</span>
+  <span class="n">os</span><span class="p">:</span> <span class="n">ubuntu</span><span class="o">-</span><span class="mf">22.04</span>
+  <span class="n">tools</span><span class="p">:</span>
+    <span class="n">python</span><span class="p">:</span> <span class="s2">&quot;3.10&quot;</span>
+    <span class="c1"># You can also specify other tool versions:</span>
+    <span class="c1"># nodejs: &quot;19&quot;</span>
+    <span class="c1"># rust: &quot;1.64&quot;</span>
+    <span class="c1"># golang: &quot;1.19&quot;</span>
+  <span class="n">apt_packages</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">graphviz</span>
+    <span class="o">-</span> <span class="n">plantuml</span>
+
+
+<span class="c1"># Build documentation in the docs/ directory with Sphinx</span>
+<span class="n">sphinx</span><span class="p">:</span>
+   <span class="n">builder</span><span class="p">:</span> <span class="n">dirhtml</span>
+   <span class="n">configuration</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">py</span>
+
+<span class="c1"># If using Sphinx, optionally build your docs in additional formats such as PDF</span>
+<span class="c1"># formats:</span>
+<span class="c1">#    - pdf</span>
+
+<span class="c1"># Optionally declare the Python requirements required to build your docs</span>
+<span class="n">python</span><span class="p">:</span>
+   <span class="n">install</span><span class="p">:</span>
+   <span class="o">-</span> <span class="n">requirements</span><span class="p">:</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Pay attention to the following requirements:</p>
+<ul class="simple">
+<li><p>Use the OS Ubunto of the specified version.
+Specify the latest LTS (long-term support) version, as the system doesn’t accept non-LTS versions.</p></li>
+<li><p>Specify the Python version that you use in your project locally, which is verified on your project.</p></li>
+<li><p>Specify the crucial <code class="docutils literal notranslate"><span class="pre">apt</span></code> packages that you want to be installed.
+In this example, they are <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> and <code class="docutils literal notranslate"><span class="pre">plantuml</span></code>.</p></li>
+</ul>
+<p>Other options in this configuration are obvious. It also contains a link to the full documentation.</p>
+</section>
+<section id="using-webhook">
+<h3>Using webhook<a class="headerlink" href="#using-webhook" title="Permalink to this heading">¶</a></h3>
+<p>If you want to update the published documentation immediately after the source Git repository is updated,
+you need to have a special service called webhook installed on GitHub.
+Read the Docs tries to do it automatically, but it might happen that you have different account names on these
+two systems.
+In this case, you can configure the webhook manually:</p>
+<ol class="arabic">
+<li><p>On the Read the Docs dashboard, select your project, and then select the <strong>Admin</strong> tab.</p></li>
+<li><p>Select the <strong>Integration</strong> item and open an existing webhook that currently doesn’t work.</p></li>
+<li><p>Copy the URL that the system recommends for manual configuration. Its format looks as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">webhook</span><span class="o">/&lt;</span><span class="n">your_subdomain</span><span class="o">&gt;/&lt;</span><span class="n">webhook_id</span><span class="o">&gt;/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Copy this URL.</p></li>
+<li><p>Log in to GitHub and open your personal settings or your organization settings depending on your documentation
+repository location.</p></li>
+<li><p>In the menu, select <strong>Webhooks</strong> and click the <strong>Add webhook</strong> button.</p></li>
+<li><p>Paste the URL to the <strong>Payload URL</strong> field and click the <strong>Add webhook</strong> button on the bottom of the panel.</p></li>
+<li><p>Go back to the the Read the Docs dashboard, make sure the webhook settings panel is still open, and click
+the <strong>Resync webhook</strong> button. If success, the panel will display the 200 code.</p></li>
+</ol>
+<p>Now you can test if a change in the GitHub repository starts the documentation build process in Read the Docs.</p>
+</section>
 </section>
 <section id="additional-resources">
 <h2>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><dl class="simple">
-<dt><a class="reference external" href="https://github.com/UnlockedEdu/documentation-pipeline-generator">UnlockedEdu/documentation-pipeline-generator</a> and</dt><dd><p>a separate <a class="reference external" href="https://unlockededu.github.io/documentation-pipeline-generator/">documentation site</a></p>
-</dd>
-</dl>
-</li>
+<li><p><a class="reference external" href="https://github.com/UnlockedEdu/documentation-pipeline-generator">UnlockedEdu/documentation-pipeline-generator</a> and
+a separate <a class="reference external" href="https://unlockededu.github.io/documentation-pipeline-generator/">documentation site</a></p></li>
 <li><p><a class="reference external" href="https://gitlab.com/papercut-docs-as-code/docs-as-code">Docs-as-code pipeline on GitLab using Sphinx and Docker</a></p></li>
 <li><p><a class="reference external" href="https://www.docslikecode.com/">Treat Docs Like Code: GitHub and Sphinx</a></p></li>
 <li><p><a class="reference external" href="https://docs.github.com/en/pages">GitHub Pages</a></p></li>

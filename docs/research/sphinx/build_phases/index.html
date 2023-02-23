@@ -96,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../app_init/">App Initialization</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Building Phases</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../read/">Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../write/">Resolve and Write</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
@@ -175,117 +176,21 @@
 </div>
 <section id="building-phases">
 <span id="research-sphinx-process-phases"></span><h1>Building Phases<a class="headerlink" href="#building-phases" title="Permalink to this heading">¶</a></h1>
-<div class="graphviz"><object data="../../../images/graphviz-4b6825f3852da932e5a031675f7a8982fca88845.svg" type="image/svg+xml" class="graphviz">
+<div class="graphviz"><object data="../../../images/graphviz-c6468a86d9a6bf99735d8a71277d1f7eb59f56b9.svg" type="image/svg+xml" class="graphviz">
 <p class="warning">digraph {
 //	graph [rankdir=LR]
 	node [color=none fillcolor=lightgrey shape=cds style=filled]
-	&quot;init&quot; [label=INITIALIZATION href=&quot;../app_init/&quot; target=_top]
-	&quot;read&quot; [label=&lt;&lt;b&gt;READING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../read/&quot; target=_top]
-	&quot;consistency&quot; [label=&lt;&lt;b&gt;CONSISTENCY_CHECK&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../consistency/&quot; target=_top]
-	&quot;resolve&quot; [label=&lt;&lt;b&gt;RESOLVING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../resolve/&quot; target=_top]
-	&quot;write&quot; [label=&lt;&lt;b&gt;WRITING&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../sphinx/write/&quot; target=_top]
+	&quot;init&quot; [label=&quot;INITIALIZATION  &quot; href=&quot;../app_init/&quot; target=_top]
+	&quot;read&quot; [label=&lt;&lt;b&gt;READING &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../read/&quot; target=_top]
+	&quot;consistency&quot; [label=&lt;&lt;b&gt;CONSISTENCY_CHECK &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../consistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&lt;&lt;b&gt;RESOLVING &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../resolve/&quot; target=_top]
+	&quot;write&quot; [label=&lt;&lt;b&gt;WRITING &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../sphinx/write/&quot; target=_top]
 }</p></object></div>
 <p>The building phases start with the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method called by the <code class="docutils literal notranslate"><span class="pre">build_main</span></code> function
 after completing the INITIALIZATION phase as presented earlier in <a class="reference internal" href="../top/#research-sphinx-process-top"><span class="std std-ref">Top Level Operations</span></a>.</p>
 <p>The main steps of the process are presented on the following diagram:</p>
 <p class="plantuml">
-<img src="../../../images/plantuml-62017a59390bd78cea19c314bf149879c23b3107.png" alt="&#64;startuml
-skinparam ArrowFontColor red
-'   NoteBackgroundColor&lt;&lt; phase &gt;&gt; CadetBlue
-'   NoteFontColor&lt;&lt; phase &gt;&gt; White
-
-package &quot;sphinx&quot; {
-   (build_main)
-   package &quot;application&quot; {
-      folder &quot;Sphinx&quot; {
-         [build] as app_build
-         note right of app_build #CadetBlue
-            &lt;font color=white&gt;READING&lt;/font&gt;
-            declared
-         end note
-      }
-      note left of Sphinx: app
-   }
-
-
-   package &quot;builders&quot; {
-      package &quot;dirhtml&quot; {
-         folder &quot;StandaloneHTMLBuilder&quot; {
-            [build_update:\n  to_build = self.get_outdated_docs();\n  self.build(to_build)] as builder_update
-            [get_outdated_docs:\n  for docname in self.env.found_docs:] as get_outdated
-            [build\n                  ] as builder_build
-            [read] as builder_read
-            [write] as builder_write
-            note top of get_outdated: Getting doc names
-               note left of get_outdated #CadetBlue: &lt;font color=white&gt;READING&lt;/font&gt;
-
-            note bottom of builder_write #CadetBlue : &lt;font color=white&gt;RESOLVING,&lt;/font&gt;
-            note bottom of builder_write #CadetBlue : &lt;font color=white&gt;WRITING&lt;/font&gt;
-'            note bottom of builder_write #CadetBlue
-'               &lt;font color=white&gt;RESOLVING,&lt;/font&gt;
-'               &lt;font color=white&gt;WRITING&lt;/font&gt;
-'            end note
-            note right of builder_build: Main orchestrator
-            note left of builder_read #CadetBlue: &lt;font color=white&gt;READING&lt;/font&gt;
-
-         }
-      }
-   }
-   note top of StandaloneHTMLBuilder: app.builder
-
-   package &quot;environment&quot; {
-      folder &quot;BuildEnvironment&quot; {
-'         [found_docs] as env_docs
-'         together {
-'            [find_files] as env_files
-            [check_consistency] as consistency
-'         }
-         note bottom of consistency #CadetBlue: &lt;font color=white&gt;CONSISTENCY_CHECK&lt;/font&gt;
-      }
-   }
-   note top of BuildEnvironment: app.env
-
-'   note left of BuildEnvironment: app.env
-'   note bottom of consistency: CONSISTENCY_CHECK
-
-'   package &quot;project&quot; {
-'      folder &quot;Project&quot; {
-'         [docnames] as project_docnames
-'         [discover] as project_discover
-'      }
-'   }
-'   note bottom of Project: env.project\napp.env.project\napp.project
-'
-'   package &quot;domains&quot; {
-'      folder &quot;Domain&quot; {
-'         [check_consistency] as domain_consistency
-'      }
-'   }
-'   note bottom of Domain: env.domains{[name], [Domain]}
-}
-
-build_main --&gt; app_build : &lt;1&gt;
-app_build --&gt; builder_update : &lt;2&gt;
-builder_update --&gt; get_outdated : &lt;3&gt;
-'get_outdated --&gt; env_docs : &lt;4&gt;
-'env_docs --&gt; project_docnames
-builder_update --&gt; builder_build : &lt;4&gt;
-builder_build --&gt; builder_read: &lt;5&gt;
-builder_build --&gt; builder_write: &lt;7&gt;
-'builder_write --&gt; env_docs
-'builder_read --&gt; env_files
-'env_files --&gt; project_discover
-builder_build --&gt; consistency: &lt;6&gt;
-'consistency --&gt; domain_consistency
-
-get_outdated -[hidden]right-&gt; builder_build
-builder_read -[hidden]&gt; builder_write
-builder_write -[hidden]&gt; consistency
-'env_docs -[hidden]&gt; env_files
-'env_files -[hidden]&gt; consistency
-'project_docnames -[hidden]&gt; project_discover
-'project_discover -[hidden]&gt; domain_consistency
-&#64;enduml"/>
+<img src="../../../images/plantuml-57cf38f37142ac13097979a495fd7d533862ff89.png" alt="Build phases"/>
 </p>
 <p>Sphinx executes the build phases in the following order at the top level (see the diagram for the order numbers):</p>
 <ol class="arabic">
@@ -302,15 +207,18 @@ This method is considered in the following steps.</p></li>
 <p>When the called method completes, the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method cleans up the build environment
 and prints the summary results of all the phases.</p>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.build_update</span></code> method that initiates collection of source data and starts
-the build orchestration method.</p></li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.get_outdated_docs</span></code> method to get a list of updated documents. It returns a generator
-of the discovered source files, so that the <code class="docutils literal notranslate"><span class="pre">to_build</span></code> variable will yield source file paths similar to this:</p>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.build_update</span></code> method that initiates the collection of source data and starts
+the build orchestration method. It calls <code class="docutils literal notranslate"><span class="pre">app.build.get_outdated_docs</span></code> method to get a list of updated
+source documents and then <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> to update the corresponding targeted documents.</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.get_outdated_docs</span></code> method to get a list of outdated documents, which are those that
+depend on the updated documents.
+It returns a generator of the discovered source files, so that the <code class="docutils literal notranslate"><span class="pre">to_build</span></code> variable will yield source file paths
+similar to this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">to_build</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder2/index&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>This data is taken from the <code class="docutils literal notranslate"><span class="pre">env.found_docs</span></code> property method, which in its turn read it from <code class="docutils literal notranslate"><span class="pre">project.docnames</span></code>.
-The latter was prepare during <a class="reference internal" href="../app_init/#research-sphinx-process-app"><span class="std std-ref">INITIALIZATION</span></a>.</p>
+The latter was prepared during <a class="reference internal" href="../app_init/#research-sphinx-process-app"><span class="std std-ref">INITIALIZATION</span></a>.</p>
 </li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> method that works as the phase orchestrator.
 It receives a list of source file paths and a phrase for printing similar to this:</p>
@@ -323,33 +231,41 @@ It receives a list of source file paths and a phrase for printing similar to thi
    <span class="n">updated_docnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>At this phase, Sphinx works closely with Docutils to parse each source document and obtain the hierarchical
-node structure.</p>
+<p>In this phase, Sphinx works closely with Docutils to parse each source document and obtain the hierarchical
+node structure of it. The <code class="docutils literal notranslate"><span class="pre">app.build.read</span></code> method returns a list of names of the documents that were updated
+or added. The <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> method extends this list with the names of outdated documents, which are
+those that depend on the updated documents. It creates the following name lists:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">updated_docnames</span></code> includes the names of the <em>updated and outdated</em> documents</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outdated</span></code> consists of the names of the <em>outdated</em> documents</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> method pickles the <code class="docutils literal notranslate"><span class="pre">updated_docnames</span></code> list.</p>
 </li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.check_consistency</span></code> method to check that all source documents are added to the
-<code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code> list except for the root document, orphans, and documents included by other
+<code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code> list, except for the root document, orphans, and documents included by other
 documents. The method also checks for domain consistency by calling the <code class="docutils literal notranslate"><span class="pre">domain.check_consistency</span></code> method
 for each domain in the <code class="docutils literal notranslate"><span class="pre">env.domains</span></code> dictionary. In the example considered here, the method works with
 the following values:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">env.all_docs</span></code>: <code class="docutils literal notranslate"><span class="pre">{'folder1/index':</span> <span class="pre">1676118279.329916,</span> <span class="pre">'folder2/index':</span> <span class="pre">1676118279.332646,</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">'index':</span> <span class="pre">1676118279.337593}</span></code></p>
-</dd>
-</dl>
+<ul>
+<li><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">env.all_docs</span></code>:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{'folder1/index':1676118279.329916,'folder2/index':1676118279.332646,</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">'index':1676118279.337593}</span></code></div>
+</div>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code>: <code class="docutils literal notranslate"><span class="pre">{'folder1/index':</span> <span class="pre">{'index'},</span> <span class="pre">'folder2/index':</span> <span class="pre">{'index'}}</span></code></p></li>
-<li><p>Domains: <code class="docutils literal notranslate"><span class="pre">c.CDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">changeset.ChangeSetDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">citation.CitationDomain</span></code>, cpp.CPPDomain,
+<li><p>Domains: <code class="docutils literal notranslate"><span class="pre">c.CDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">changeset.ChangeSetDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">citation.CitationDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp.CPPDomain</span></code>,
 <code class="docutils literal notranslate"><span class="pre">index.IndexDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">.javascript.JavaScriptDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">math.MathDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">python.PythonDomain</span></code>,
 <code class="docutils literal notranslate"><span class="pre">rst.ReSTDomain</span></code>, <code class="docutils literal notranslate"><span class="pre">std.StandardDomain</span></code></p></li>
 </ul>
-<p>Finally, the method emits the <code class="docutils literal notranslate"><span class="pre">env-check-consistency</span></code> event:</p>
+<p>Finally, the method emits the ‘env-check-consistency’ event:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-check-consistency&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is where you can handle the event emitted after the source documents are checked
-on consistency.</p>
+<p>This is where you can handle the ‘env-check-consistency’ event emitted after
+the source documents are checked on consistency.</p>
 </div>
 </li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.write</span></code> method to implement the RESOLVING and WRITING phases.</p></li>

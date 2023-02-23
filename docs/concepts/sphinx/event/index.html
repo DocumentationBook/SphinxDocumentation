@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Top Level Classes &mdash; Detailed Sphinx 0.1 documentation</title>
+  <title>Events &mdash; Detailed Sphinx 0.1 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" />
-    <link rel="next" title="Publisher" href="../publisher/" />
-    <link rel="prev" title="Document Structure" href="../schema/" /> 
+    <link rel="next" title="Sphinx Extensions" href="../../extension/" />
+    <link rel="prev" title="Theme Templates" href="../templates/" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,13 +89,16 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../">Concepts</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../">Docutils Concepts</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../schema/">Document Structure</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Top Level Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../publisher/">Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils Concepts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Sphinx Concepts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../config/">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../templates/">Theme Templates</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#event-emission">Event emission</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../sphinx/">Sphinx Concepts</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../extension/">Sphinx Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ui/">User Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../auto/">Auto documentation</a></li>
@@ -151,9 +154,9 @@
         
           <li><a href="../../">Concepts</a> &raquo;</li>
         
-          <li><a href="../">Docutils Concepts</a> &raquo;</li>
+          <li><a href="../">Sphinx Concepts</a> &raquo;</li>
         
-      <li>Top Level Classes</li>
+      <li>Events</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -174,11 +177,21 @@
 <p class="admonition-title">Warning</p>
 <p>This draft documentation is under development.</p>
 </div>
-<section id="top-level-classes">
-<span id="concepts-docutils-top"></span><h1>Top Level Classes<a class="headerlink" href="#top-level-classes" title="Permalink to this heading">¶</a></h1>
-<p class="plantuml">
-<img src="../../../images/plantuml-76fcc6701119d80017648add48d707d6d78b9b9a.png" alt="Top level classes"/>
-</p>
+<section id="events">
+<span id="concepts-sphinx-event"></span><h1>Events<a class="headerlink" href="#events" title="Permalink to this heading">¶</a></h1>
+<p>Event management is a convenient and powerful mechanism of monitoring and controlling the processes.</p>
+<section id="event-emission">
+<h2>Event emission<a class="headerlink" href="#event-emission" title="Permalink to this heading">¶</a></h2>
+<p>To get messages about events emitted by Sphinx during documentation build process, add <code class="docutils literal notranslate"><span class="pre">-vv`</span> <span class="pre">argument</span>
+<span class="pre">to</span> <span class="pre">the</span> <span class="pre">``sphinx-build</span></code> command.
+You will see messages similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">writing</span> <span class="n">output</span><span class="o">...</span> <span class="p">[</span> <span class="mi">33</span><span class="o">%</span><span class="p">]</span> <span class="n">folder1</span><span class="o">/</span><span class="n">index</span>
+<span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;doctree-resolved&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">document</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">section</span> <span class="s2">&quot;folder 1 index file&quot;</span><span class="o">...&gt;&gt;</span><span class="p">,</span> <span class="s1">&#39;folder1/index&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;html-page-context&#39;</span><span class="p">(</span><span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;page.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;embedded&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">,</span>
+<span class="s1">&#39;release&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -189,10 +202,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../publisher/" class="btn btn-neutral float-right" title="Publisher" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../extension/" class="btn btn-neutral float-right" title="Sphinx Extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../schema/" class="btn btn-neutral float-left" title="Document Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../templates/" class="btn btn-neutral float-left" title="Theme Templates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

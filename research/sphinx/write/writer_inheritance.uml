@@ -1,0 +1,62 @@
+@startuml
+skinparam nodesep 100
+
+package docutils {
+   package writers {
+      abstract docutils.writers.Writer {
+         ==
+         write(self, document, destination):
+         \tself.document = document
+         \tself.translate()
+         \treturn destination.write(self.output)
+      }
+      package _html_base {
+         class docutils.writers._html_base.Writer {
+         }
+      }
+      package html4css1 {
+         class docutils.writers.html4css1.Writer {
+         ==
+         translate(self):
+         \tself.output = self.apply_template()
+         }
+      }
+'      docutils.writers.Writer::translate -> docutils.writers.html4css1.Writer::translate
+   }
+   package io {
+      class StringOutput {
+         ==
+         write(self, data):
+         \tself.destination = self.encode(data)
+         \treturn self.destination
+      }
+   }
+}
+
+package sphinx {
+   package writers.html {
+         class sphinx.writers.html.HTMLWriter {
+            ==
+            translate(self):
+            \tself.output = self.visitor.astext()
+
+         }
+   }
+
+   package builders.html {
+         class StandaloneHTMLBuilder {
+            + docwriter
+            ==
+            write_doc(self, docname, doctree):
+            \tdestination = StringOutput()
+            \tself.docwriter.write(doctree, destination)
+         }
+   }
+}
+docutils.writers.Writer <|-- docutils.writers._html_base.Writer : extends
+docutils.writers._html_base.Writer <|-- docutils.writers.html4css1.Writer : extends
+docutils.writers.html4css1.Writer <|-- sphinx.writers.html.HTMLWriter : extends
+sphinx.writers.html.HTMLWriter <|-- StandaloneHTMLBuilder::docwriter : docwriter is instance of HTMLWriter
+StringOutput <|-- StandaloneHTMLBuilder::destination : destination\n is instance of\nStringOutput
+docutils.writers.Writer -> StringOutput::write : destination.write
+@enduml

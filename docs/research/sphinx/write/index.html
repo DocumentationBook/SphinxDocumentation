@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Resolve and Write &mdash; Detailed Sphinx 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../static/documentation_options.js"></script>
+        <script src="../../../static/jquery.js"></script>
+        <script src="../../../static/underscore.js"></script>
+        <script src="../../../static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Docutils" href="../../docutils/" />
+    <link rel="prev" title="Read" href="../read/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../" class="icon icon-home"> Detailed Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Deep Investigation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../tools/">The Tracking Tool</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Sphinx</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../top/">Top Level Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../app_init/">App Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_phases/">Building Phases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../read/">Read</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Resolve and Write</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#process">Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#class-inheritance">Class inheritance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project-state">Project state</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Detailed Sphinx</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../../">Deep Investigation</a> &raquo;</li>
+        
+          <li><a href="../">Sphinx</a> &raquo;</li>
+        
+      <li>Resolve and Write</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This draft documentation is under development.</p>
+</div>
+<section id="resolve-and-write">
+<span id="research-sphinx-write"></span><h1>Resolve and Write<a class="headerlink" href="#resolve-and-write" title="Permalink to this heading">¶</a></h1>
+<div class="graphviz"><object data="../../../images/graphviz-83782fd39960fe8e026d039cf5ae5903a4ea701b.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">digraph {
+//	graph [rankdir=LR]
+	node [color=none fillcolor=lightgrey shape=cds style=filled]
+	&quot;init&quot; [label=&quot;INITIALIZATION  &quot; href=&quot;../research/sphinx/app_init/&quot; target=_top]
+	&quot;read&quot; [label=&quot;READING  &quot; href=&quot;../research/sphinx/read/&quot; target=_top]
+	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK  &quot; href=&quot;../research/sphinx/consistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&lt;&lt;b&gt;RESOLVING &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/resolve/&quot; target=_top]
+	&quot;write&quot; [label=&lt;&lt;b&gt;WRITING &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/write/&quot; target=_top]
+}</p></object></div>
+<p>Sphinx continues processing the parsed documents. It determines the final list of the documents to process and
+then implements RESOLVING and WRITING phases for each document.</p>
+<section id="process">
+<h2>Process<a class="headerlink" href="#process" title="Permalink to this heading">¶</a></h2>
+<p>The main steps are presented on the following diagram:</p>
+<p class="plantuml">
+<img src="../../../images/plantuml-6c63dc908b03d996e83e4ed7090974048f35a239.png" alt="The write method"/>
+</p>
+<ol class="arabic">
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">app.builder.write</span></code> method defined in the <code class="docutils literal notranslate"><span class="pre">sphinx.builders.Builder</span></code> class.
+Its signature looks as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">build_docnames</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">updated_docnames</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> \
+           <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;update&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># NOQA</span>
+</pre></div>
+</div>
+<p>If you temporarily uncomment the print statement that follows the method definition, it will display the received
+arguments similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">build_docnames</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder2/index&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">}</span>
+<span class="n">updated_docnames</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder2/index&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]</span>
+<span class="n">method</span><span class="p">:</span> <span class="n">update</span>
+</pre></div>
+</div>
+<p>In this list:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build_docnames</span></code> is a list of names initially passed to the <code class="docutils literal notranslate"><span class="pre">build</span></code> method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updated_docnames</span></code> is a list of names generated by the <code class="docutils literal notranslate"><span class="pre">read</span></code> method and extended with the names
+of the outdated documents.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> defines the operation for the <code class="docutils literal notranslate"><span class="pre">app.builder.write</span></code> method.
+If the method is <code class="docutils literal notranslate"><span class="pre">update</span></code>, the <code class="docutils literal notranslate"><span class="pre">app.builder.write</span></code> method will unite <code class="docutils literal notranslate"><span class="pre">build_docnames</span></code>
+and <code class="docutils literal notranslate"><span class="pre">updated_docnames</span></code> into the <code class="docutils literal notranslate"><span class="pre">docnames</span></code> set and process the united set.</p></li>
+</ul>
+<p>The method determines whether to process documents in parallel or sequentially.
+In this process the latter is used.</p>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.prepare_writing</span></code> to prepare the documentation</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder._write_serial</span></code> method passing it the list of documents generated in the previous step.
+The method processes all documents one by one in a cycle.
+To make the method display all files that it processes, add the <code class="docutils literal notranslate"><span class="pre">-v</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> utility.
+Then you will see messages similar to these:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">writing</span> <span class="n">output</span><span class="o">...</span> <span class="p">[</span> <span class="mi">33</span><span class="o">%</span><span class="p">]</span> <span class="n">folder1</span><span class="o">/</span><span class="n">index</span>
+<span class="n">writing</span> <span class="n">output</span><span class="o">...</span> <span class="p">[</span> <span class="mi">66</span><span class="o">%</span><span class="p">]</span> <span class="n">folder2</span><span class="o">/</span><span class="n">index</span>
+<span class="n">writing</span> <span class="n">output</span><span class="o">...</span> <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span> <span class="n">index</span>
+</pre></div>
+</div>
+<p>For each document, the method turns on the RESOLVING phase, in which it runs the <code class="docutils literal notranslate"><span class="pre">env.get_and_resolve_doctree</span></code>,
+and then the WRITING phase, in which it runs the <code class="docutils literal notranslate"><span class="pre">app.builder.write_doc_serialized</span></code>
+and <code class="docutils literal notranslate"><span class="pre">app.builder.write_doc</span></code> methods.</p>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.get_and_resolve_doctree</span></code> method passing it the document name and the reference
+to the <code class="docutils literal notranslate"><span class="pre">app.builder</span></code> object. This methods orchestrates the document parsing in the following order:</p>
+<ul>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.get_doctree</span></code> method passing the document name (docname) to it to find the pickled file
+and read the doctree from it.</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.apply_post_transforms</span></code> method passing the docname and doctree to it to resolve
+all pending references between the doctree nodes and convert images. To perform those operations, this method
+creates an object from a class extending the <code class="docutils literal notranslate"><span class="pre">sphinx.transforms.SphinxTransform</span></code> class and calls
+subsequently its <code class="docutils literal notranslate"><span class="pre">add_transforms</span></code> and <code class="docutils literal notranslate"><span class="pre">apply_transforms</span></code> methods.
+After processing the doctree, the <code class="docutils literal notranslate"><span class="pre">app.env.get_doctree</span></code> method emits the ‘doctree-resolved’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;doctree-resolved&#39;</span><span class="p">,</span> <span class="n">doctree</span><span class="p">,</span> <span class="n">docname</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is where you can handle the ‘doctree-resolved’ event emitted by the <code class="docutils literal notranslate"><span class="pre">app.env.get_doctree</span></code> method.
+A subscribed handler can make changes in the doctree.</p>
+</div>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">docutils.nodes.Node.findall</span></code> method to get every doctree node and finally process it
+by creating an object from the <code class="docutils literal notranslate"><span class="pre">sphinx.environment.adapters.toctree.TocTree</span></code> class and calling
+its <code class="docutils literal notranslate"><span class="pre">resolve</span></code> method.</p></li>
+</ul>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.write_doc_serialized</span></code> method passing it the document name and its <code class="docutils literal notranslate"><span class="pre">doctree</span></code> determined
+in the previous step. The method performs the following actions:</p>
+<ul class="simple">
+<li><p>Call the class-level <code class="docutils literal notranslate"><span class="pre">post_process_images</span></code> method of the <code class="docutils literal notranslate"><span class="pre">sphinx.builders.Builders</span></code> class to resolve
+URIs of the document images. The method saves the results in the <code class="docutils literal notranslate"><span class="pre">app.builder.images</span></code> dictionary.</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.index_page</span></code>
+to add the document name and title to the <code class="docutils literal notranslate"><span class="pre">app.builder.indexer</span></code> object
+of the <code class="docutils literal notranslate"><span class="pre">sphinx.search.IndexBuilder</span></code> class.</p></li>
+</ul>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.write_doc</span></code> method passing it the document name and its <code class="docutils literal notranslate"><span class="pre">doctree</span></code> to finally define all
+document component and save it in its file. The method performs the following operations:</p>
+<ul>
+<li><p>Define the destination as an object of the  <code class="docutils literal notranslate"><span class="pre">docutils.io.StringOutput</span></code> class, which is an output wrapper.
+The default destination path in this class is string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default_destination_path</span> <span class="o">=</span> <span class="s1">&#39;&lt;string&gt;&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.docwriter.write</span></code> method to perform the document final translation to the specified
+language and to write it using the write method of the <code class="docutils literal notranslate"><span class="pre">app.builder.docwriter</span></code> object.
+The latter is an instance of the <code class="docutils literal notranslate"><span class="pre">sphinx.writers.html.HTMLWriter</span></code> class which is included in a long
+inheritance chain as presented in <a class="reference internal" href="#research-sphinx-write-inheritance"><span class="std std-ref">Class inheritance</span></a>
+The <code class="docutils literal notranslate"><span class="pre">write</span></code> method defined in the <code class="docutils literal notranslate"><span class="pre">docutils.writers.Writer</span></code> abstract class runs translation
+of the doctree and runs the <code class="docutils literal notranslate"><span class="pre">destination.write</span></code> method.</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.docwriter.assemble_parts</span></code> method that creates
+the <code class="docutils literal notranslate"><span class="pre">app.builder.docwriter.parts</span></code> dictionary.</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.get_doc_context</span></code> method to create the template context for the HTML page.
+The method returns the context of the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s1">&#39;parents&#39;</span><span class="p">:</span> <span class="n">parents</span><span class="p">,</span>
+   <span class="s1">&#39;prev&#39;</span><span class="p">:</span> <span class="n">prev</span><span class="p">,</span>
+   <span class="s1">&#39;next&#39;</span><span class="p">:</span> <span class="nb">next</span><span class="p">,</span>
+   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+   <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="p">,</span>
+   <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="n">body</span><span class="p">,</span>
+   <span class="s1">&#39;metatags&#39;</span><span class="p">:</span> <span class="n">metatags</span><span class="p">,</span>
+   <span class="s1">&#39;rellinks&#39;</span><span class="p">:</span> <span class="n">rellinks</span><span class="p">,</span>
+   <span class="s1">&#39;sourcename&#39;</span><span class="p">:</span> <span class="n">sourcename</span><span class="p">,</span>
+   <span class="s1">&#39;toc&#39;</span><span class="p">:</span> <span class="n">toc</span><span class="p">,</span>
+   <span class="c1"># only display a TOC if there&#39;s more than one item to show</span>
+   <span class="s1">&#39;display_toc&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">toc_num_entries</span><span class="p">[</span><span class="n">docname</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">),</span>
+   <span class="s1">&#39;page_source_suffix&#39;</span><span class="p">:</span> <span class="n">source_suffix</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.handle_page</span></code> method to create and save the HTML page.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="class-inheritance">
+<span id="research-sphinx-write-inheritance"></span><h2>Class inheritance<a class="headerlink" href="#class-inheritance" title="Permalink to this heading">¶</a></h2>
+<p>In the write steps, the system uses complex class inheritance as displayed on the following diagram:</p>
+<p class="plantuml">
+<img src="../../../images/plantuml-40daea4bab57f155cc6de5ce0829e2d5b6d1bc5a.png" alt="Writer inheritance"/>
+</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">app.builder.docwriter.write</span></code> method is inherited from the <code class="docutils literal notranslate"><span class="pre">docutils.writers.Writer</span></code> abstract class.
+To write the doctree, it calls <code class="docutils literal notranslate"><span class="pre">destination.write</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The destination object is an instance of the <code class="docutils literal notranslate"><span class="pre">docutils.io.StringOutput</span></code> class that defines its <code class="docutils literal notranslate"><span class="pre">write</span></code> method as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;Encode `data`, store it in `self.destination`, and return it.&quot;&quot;&quot;</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">destination</span>
+</pre></div>
+</div>
+</section>
+<section id="project-state">
+<h2>Project state<a class="headerlink" href="#project-state" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../docutils/" class="btn btn-neutral float-right" title="Docutils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../read/" class="btn btn-neutral float-left" title="Read" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, Albert Bagdasarian
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

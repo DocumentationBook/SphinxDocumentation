@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../app_init/">App Initialization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../build_phases/">Building Phases</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../read/">Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../write/">Resolve and Write</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
@@ -185,45 +186,7 @@
 <h2>The process<a class="headerlink" href="#the-process" title="Permalink to this heading">¶</a></h2>
 <p>The first steps are presented in the following diagram:</p>
 <p class="plantuml">
-<img src="../../../images/plantuml-38c6eca4d61eeb42373cebdeabf4b85fa2d56a16.png" alt="&#64;startuml
-[sphinx-build]
-package &quot;sphinx&quot; {
-   package &quot;cmd.build&quot; {
-      [build_main:\napp=Sphinx(args); app.build(..)] as [build_main]
-      [sphinx-build] --&gt; [main]
-      [main] -&gt; [build_main]
-
-      note left of main
-         Setting
-         locale
-      end note
-
-      note right of build_main
-         Collecting args and
-         initiating the processes
-      end note
-   }
-
-   package &quot;application&quot; {
-      [Sphinx.~__init(args)__] as [Sphinx]
-      [Sphinx.build(..)] as [build]
-      [Sphinx] -[hidden] [build]
-      [build_main] --&gt; [Sphinx]
-      [build_main] --&gt; [build]
-
-      note left of Sphinx
-         INITIALIZATION
-      end note
-
-      note right of build
-         READING
-         CONSISTENCY_CHECK
-         RESOLVING
-         WRITING
-      end note
-   }
-}
-&#64;enduml"/>
+<img src="../../../images/plantuml-38c6eca4d61eeb42373cebdeabf4b85fa2d56a16.png" alt="Top level structure"/>
 </p>
 <p>The process includes the following operations:</p>
 <ol class="arabic">
@@ -288,15 +251,15 @@ the <code class="docutils literal notranslate"><span class="pre">with</span></co
     <span class="n">WRITING</span> <span class="o">=</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<div class="graphviz"><object data="../../../images/graphviz-d1f2097b8c319affb6cc67fac00b4303914c9534.svg" type="image/svg+xml" class="graphviz">
+<div class="graphviz"><object data="../../../images/graphviz-75455b800b6058a6b1cb73ff03c5519995a53829.svg" type="image/svg+xml" class="graphviz">
 <p class="warning">digraph {
 //	graph [rankdir=LR]
 	node [color=none fillcolor=lightgrey shape=cds style=filled]
-	&quot;init&quot; [label=&quot;INITIALIZATION&quot; href=&quot;../research/sphinx/app_init/&quot; target=_top]
-	&quot;read&quot; [label=&quot;READING&quot; href=&quot;../research/sphinx/read/&quot; target=_top]
-	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../research/sphinxconsistency/&quot; target=_top]
-	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
-	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../research/sphinx/write/&quot; target=_top]
+	&quot;init&quot; [label=&quot;INITIALIZATION  &quot; href=&quot;../research/sphinx/app_init/&quot; target=_top]
+	&quot;read&quot; [label=&quot;READING  &quot; href=&quot;../research/sphinx/read/&quot; target=_top]
+	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK  &quot; href=&quot;../research/sphinxconsistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&quot;RESOLVING  &quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
+	&quot;write&quot; [label=&quot;WRITING  &quot; href=&quot;../research/sphinx/write/&quot; target=_top]
 }</p></object></div>
 <p>The first phase, INITIALIZATION, is implemented during creation and initialization of the <code class="docutils literal notranslate"><span class="pre">app</span></code> object,
 the others are orchestrated by the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method.</p>

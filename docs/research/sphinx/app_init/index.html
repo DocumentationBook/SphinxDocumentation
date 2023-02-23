@@ -100,6 +100,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../build_phases/">Building Phases</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../read/">Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../write/">Resolve and Write</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../docutils/">Docutils</a></li>
@@ -179,15 +180,14 @@
 </div>
 <section id="app-initialization">
 <span id="research-sphinx-process-app"></span><h1>App Initialization<a class="headerlink" href="#app-initialization" title="Permalink to this heading">¶</a></h1>
-<div class="graphviz"><object data="../../../images/graphviz-2755290dc0b9793239845dadada2d10954f52a42.svg" type="image/svg+xml" class="graphviz">
+<div class="graphviz"><object data="../../../images/graphviz-89479e0d245d0f4c797deb78fd253ec0905298f6.svg" type="image/svg+xml" class="graphviz">
 <p class="warning">digraph {
-//	graph [rankdir=LR]
 	node [color=none shape=cds fillcolor=lightgrey style=filled]
-	&quot;init&quot; [label=&lt;&lt;b&gt;INITIALIZATION&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/app_init/&quot; target=_top]
-	&quot;read&quot; [label=&quot;READING&quot; href=&quot;../research/sphinx/read/&quot; target=_top]
-	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK&quot; href=&quot;../research/sphinx/consistency/&quot; target=_top]
-	&quot;resolve&quot; [label=&quot;RESOLVING&quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
-	&quot;write&quot; [label=&quot;WRITING&quot; href=&quot;../research/sphinx/write/&quot; target=_top]
+	&quot;init&quot; [label=&lt;&lt;b&gt;INITIALIZATION &amp;#160;&amp;#160;&lt;/b&gt;&gt; fillcolor=cadetblue4 fontcolor=white href=&quot;../research/sphinx/app_init/&quot; target=_top]
+	&quot;read&quot; [label=&quot;READING  &quot; href=&quot;../research/sphinx/read/&quot; target=_top]
+	&quot;consistency&quot; [label=&quot;CONSISTENCY_CHECK  &quot; href=&quot;../research/sphinx/consistency/&quot; target=_top]
+	&quot;resolve&quot; [label=&quot;RESOLVING  &quot; href=&quot;../research/sphinx/resolve/&quot; target=_top]
+	&quot;write&quot; [label=&quot;WRITING  &quot; href=&quot;../research/sphinx/write/&quot; target=_top]
 }</p></object></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> object is the documentation build root that binds together all other objects necessary for building
 the documentation:</p>
@@ -213,82 +213,7 @@ Sphinx builtin and those that are read in the <code class="docutils literal notr
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">app.__init__</span></code> method performs various validations and calls other methods as presented in this diagram:</p>
 <p class="plantuml">
-<img src="../../../images/plantuml-19994a0ba61bed1aac5037b89c8628fa5ff8ab62.png" alt="&#64;startuml
-package &quot;sphinx&quot; {
-   package &quot;config&quot; {
-      folder &quot;Config&quot; {
-         [~__init__ or read\npre_init_values\n       1] as cinit
-         [setup\ninit_values\n      4] as csetup
-      }
-   }
-   package &quot;application&quot; {
-      folder &quot;Sphinx&quot; {
-         [~__init__] as init
-         [setup_extension(ext)\nfor ext in\nbuiltin_extensions,\nuser-given_extensions\n                   2] as setup_extension
-   '      [setup_extension(ext)\nfor ext in\nuser-given_extensions\n     2] as setup_extension2
-         [preload_builder\n             3] as preload_builder
-         [create_builder\n            7] as create_builder
-         [_init_env\n        8] as init_env
-         [_init_builder\n           9] as init_builder
-         init --&gt; setup_extension
-         init --&gt; preload_builder
-         init --&gt; create_builder
-         init --&gt; init_env
-         init --&gt; init_builder
-         }
-   }
-   package &quot;registry&quot; {
-      folder &quot;SphinxComponentRegistry&quot; {
-         [load_extension()] as r1
-         [preload_builder()] as pb
-         [create_builder()] as cb
-      }
-   }
-   package &quot;events&quot;{
-      folder &quot;Event&quot; {
-         [emit\n   5] as emit
-      }
-   }
-   package &quot;project&quot; {
-      folder &quot;Project&quot; {
-         [~__init__\n      6] as pinit
-         [discover] as project_discover
-      }
-   }
-   package &quot;environment&quot; {
-      folder &quot;BuildEnvironment&quot; {
-         [~__init__] as einit
-         [find_files] as env_files
-      }
-   }
-   package &quot;builders&quot; {
-      package &quot;dirhtml&quot; {
-         folder &quot;StandaloneHTMLBuilder&quot; {
-            [~__init__] as b_init
-            [init] as binit
-         }
-      }
-   }
-   cinit -[hidden]&gt; csetup
-   csetup -[hidden]&gt;  setup_extension
-   setup_extension -[hidden]&gt; preload_builder
-   preload_builder -[hidden]&gt; create_builder
-   create_builder -[hidden]&gt; init_env
-
-   init --&gt; cinit
-   init --&gt; csetup
-   init --&gt; emit
-   init --&gt; pinit
-   setup_extension --&gt; r1
-   preload_builder --&gt; pb
-   create_builder --&gt; cb
-   cb --&gt; b_init
-   init_env --&gt; einit
-   init_env --&gt; env_files
-   project_discover &lt;-- env_files
-   init_builder --&gt; binit
-}
-&#64;enduml"/>
+<img src="../../../images/plantuml-19994a0ba61bed1aac5037b89c8628fa5ff8ab62.png" alt="Initialization phase"/>
 </p>
 <p>The initialization goes in the following order (see the numbers in the diagram):</p>
 <ol class="arabic">
@@ -317,7 +242,8 @@ The latter adds the builder to the <code class="docutils literal notranslate"><s
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is where you can handle the event emitted after the <code class="docutils literal notranslate"><span class="pre">app.config</span></code> object is initialized.</p>
+<p>This is where you can handle the ‘config-inited’ event emitted
+after the <code class="docutils literal notranslate"><span class="pre">app.config</span></code> object is initialized.</p>
 </div>
 <p>For more information about subscribing to events,
 see <a class="reference external" href="https://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx-core-events">Sphinx core events</a>.</p>
@@ -366,7 +292,7 @@ to the event called <code class="docutils literal notranslate"><span class="pre"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is where you can handle the event emitted after creation of the builder object
+<p>This is where you can handle the event ‘builder-inited’ emitted after creation of the builder object
 that is available to handlers as <code class="docutils literal notranslate"><span class="pre">app.builder</span></code>.</p>
 </div>
 </li>
@@ -376,96 +302,7 @@ that is available to handlers as <code class="docutils literal notranslate"><spa
 <h2>Initialized state<a class="headerlink" href="#initialized-state" title="Permalink to this heading">¶</a></h2>
 <p>The initialization phase completes with creation of the <code class="docutils literal notranslate"><span class="pre">app</span></code> object (class <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code>) with the other main objects:</p>
 <p class="plantuml">
-<img src="../../../images/plantuml-cbb578dc8517fbf7cc5551ac9a85226eefbeaa58.png" alt="&#64;startuml
-package &quot;sphinx&quot; {
-   package &quot;application&quot; {
-      class Sphinx {
-         + config
-         + extensions
-         + registry
-         + srcdir
-         + outdir
-         + doctreedir
-         + project
-         + events
-         + builder
-         + env
-      }
-   }
-'   note right of Sphinx: app
-
-package &quot;project&quot;{
-   class Project {
-      + srcdir
-      + source_suffix
-      + docnames
-   }
-}
-note bottom of Project: app.project
-
-package &quot;environment&quot; {
-   class BuildEnvironment {
-      + app
-      + project = app.project
-      + srcdir = app.srcdir
-      + config
-      + outdir
-      + doctreedir = app.doctreedir
-      + events = app.events
-      + domains
-      + all_docs
-      + titles
-      + tocs
-      + images
-   }
-}
-note bottom of BuildEnvironment: app.env
-
-package &quot;registry&quot; {
-   class SphinxComponentRegistry {
-      + builders
-      + documenters
-      + css_files
-      + js_files
-      + domains
-      + domain_directives
-      + domain_roles
-      + html_themes
-      + post_transforms
-      + source_parsers
-      + sourcs_inputs
-      + translators
-      + publishers
-   }
-}
-note bottom of SphinxComponentRegistry: app.registry
-
-package &quot;sphinx.builders.dirhtml&quot; {
-   class DirectoryHTMLBuilder {
-      + app
-      + env
-      + srcdir = app.srcdir
-      + confdir = app.confdir
-      + outdir = app.outdir
-      + doctreedir = app.doctreedir
-      + events = app.events
-      + images
-      + image_dir
-   }
-}
-note bottom of DirectoryHTMLBuilder: app.builder
-
-}
-note right of Sphinx: app
-
-Sphinx::project --&gt; Project
-Sphinx::env --&gt; BuildEnvironment
-Sphinx::builder --&gt; DirectoryHTMLBuilder
-Sphinx::registry --&gt; SphinxComponentRegistry
-
-SphinxComponentRegistry -[hidden]&gt; Project
-BuildEnvironment -[hidden]&gt; DirectoryHTMLBuilder
-&#64;enduml"/>
+<img src="../../../images/plantuml-cbb578dc8517fbf7cc5551ac9a85226eefbeaa58.png" alt="Initized state"/>
 </p>
 <p>The diagram displays incomplete lists of components.
 The objects have the following specifics:</p>
