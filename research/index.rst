@@ -1,7 +1,7 @@
 .. _research:
 
-Deep Investigation
-#####################
+Exploration
+###########
 
 .. toctree::
    :hidden:

@@ -1,7 +1,7 @@
 .. _resources_pipeline:
 
-Publishing
-##########
+Publication
+###########
 
 Here you will find various ways of publishing the documentation on a web server.
 
