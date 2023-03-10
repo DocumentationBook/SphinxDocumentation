@@ -27,6 +27,7 @@
         <script src="../static/underscore.js"></script>
         <script src="../static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../static/doctools.js"></script>
+        <script src="../static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../static/js/theme.js"></script>
 
@@ -41,7 +42,7 @@
   <link rel="stylesheet" href="../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="prev" title="Publishing" href="../publish/" /> 
+    <link rel="prev" title="Publication" href="../publish/" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,8 +89,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../research/">Deep Investigation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../publish/">Publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../research/">Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publish/">Publication</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
 </ul>
 
@@ -167,6 +168,10 @@ In some encoding types (UTF-8-sig, UTF-16, UTF-32), BOM is specified at the begi
 In other encoding types (UTF-16BE, UTF-16LE, UTF-32BE, UTF-32LE) the byte order is fixed.
 (<a class="reference external" href="https://unicode.org/faq/utf_bom.html">Source</a>)</p>
 </dd>
+<dt id="term-CommonMark">CommonMark<a class="headerlink" href="#term-CommonMark" title="Permalink to this term">¶</a></dt><dd><p>Canonical interpretation of Markdown. It is a subset of <a class="reference internal" href="#term-MyST"><span class="xref std std-term">MyST</span></a>. So the latter is preferable when you
+need to choose an extension for Sphinx to support Markdown.
+(<a class="reference external" href="https://commonmark.org/">Source</a>)</p>
+</dd>
 <dt id="term-Docutils">Docutils<a class="headerlink" href="#term-Docutils" title="Permalink to this term">¶</a></dt><dd><p>A Python package installed along with Sphinx and being the main reST interpreter.</p>
 </dd>
 <dt id="term-DTD">DTD<a class="headerlink" href="#term-DTD" title="Permalink to this term">¶</a></dt><dd><p>Docutils <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/docutils.dtd">DTD</a> (document type definition) created in
@@ -175,6 +180,10 @@ accordance with the <a class="reference external" href="https://tdg.docbook.org/
 <dt id="term-Glob-style-pattern">Glob-style pattern<a class="headerlink" href="#term-Glob-style-pattern" title="Permalink to this term">¶</a></dt><dt id="term-Wildcard">Wildcard<a class="headerlink" href="#term-Wildcard" title="Permalink to this term">¶</a></dt><dd><p>The standard shell constructs * (any characters), ? (any one character),
 [list] (match any character in the list),
 and [!list] (matches any character, except for the characters in the specified list).</p>
+</dd>
+<dt id="term-MyST">MyST<a class="headerlink" href="#term-MyST" title="Permalink to this term">¶</a></dt><dd><p><em>Markedly Structured Text</em> is a Markdown flavour that makes it easier to create computational
+documents. It is a superset of <a class="reference internal" href="#term-CommonMark"><span class="xref std std-term">CommonMark</span></a> Markdown. It is used as a markup in Jupiter Notebook.
+(<a class="reference external" href="https://jupyterbook.org/en/stable/content/myst.html">Source</a>)</p>
 </dd>
 <dt id="term-Outdated-documents">Outdated documents<a class="headerlink" href="#term-Outdated-documents" title="Permalink to this term">¶</a></dt><dd><p>These are the documents that were not updated but dependant updated documents.</p>
 </dd>
@@ -195,7 +204,7 @@ sequences, and other materialized and non-materialized objects and processes.</p
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../publish/" class="btn btn-neutral float-left" title="Publishing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../publish/" class="btn btn-neutral float-left" title="Publication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

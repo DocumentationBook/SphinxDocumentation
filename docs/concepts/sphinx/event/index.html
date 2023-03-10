@@ -27,6 +27,7 @@
         <script src="../../../static/underscore.js"></script>
         <script src="../../../static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../static/doctools.js"></script>
+        <script src="../../../static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../../../static/js/theme.js"></script>
 
@@ -41,7 +42,7 @@
   <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" />
-    <link rel="next" title="Sphinx Extensions" href="../../extension/" />
+    <link rel="next" title="Interlinks" href="../interlink/" />
     <link rel="prev" title="Theme Templates" href="../templates/" /> 
 </head>
 
@@ -95,8 +96,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../templates/">Theme Templates</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Events</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#event-emission">Event emission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event-gallery">Event gallery</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../interlink/">Interlinks</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../extension/">Sphinx Extensions</a></li>
@@ -104,8 +107,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../auto/">Auto documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../research/">Deep Investigation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../research/">Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
 
@@ -192,6 +195,33 @@ You will see messages similar to the following:</p>
 </pre></div>
 </div>
 </section>
+<section id="event-gallery">
+<h2>Event gallery<a class="headerlink" href="#event-gallery" title="Permalink to this heading">¶</a></h2>
+<p>While processing documentation, Sphinx emits events from different steps of its phases.
+The following sections present events in the order they are emitted in a test project.</p>
+<section id="config-inited">
+<h3>config-inited<a class="headerlink" href="#config-inited" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>emitting event: ‘config-inited’(&lt;sphinx.config.Config object at 0x7f96d21ec760&gt;,)</p>
+</div></blockquote>
+</section>
+<section id="builder-inited">
+<h3>builder-inited<a class="headerlink" href="#builder-inited" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>emitting event: ‘builder-inited’()</p>
+</div></blockquote>
+</section>
+<section id="env-get-outdated">
+<h3>env-get-outdated<a class="headerlink" href="#env-get-outdated" title="Permalink to this heading">¶</a></h3>
+<p>updating environment: locale_dir /Users/albertbagdasaryan/workspace/SphinxDetailed/__test/locales/en/LC_MESSAGES does not exists
+[app] emitting event: ‘env-get-outdated’(&lt;sphinx.environment.BuildEnvironment object at 0x7f96d21ec880&gt;, {‘folder1/index’, ‘index’, ‘folder2</p>
+</section>
+<section id="env-before-read-docs">
+<h3>env-before-read-docs<a class="headerlink" href="#env-before-read-docs" title="Permalink to this heading">¶</a></h3>
+<p>[new config] 3 added, 0 changed, 0 removed
+[app] emitting event: ‘env-before-read-docs’(&lt;sphinx.environment.BuildEnvironment object at 0x7f96d21ec880&gt;, [‘folder1/index’, ‘folder2/index’,</p>
+</section>
+</section>
 </section>
 
 
@@ -202,7 +232,7 @@ You will see messages similar to the following:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../extension/" class="btn btn-neutral float-right" title="Sphinx Extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../interlink/" class="btn btn-neutral float-right" title="Interlinks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../templates/" class="btn btn-neutral float-left" title="Theme Templates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

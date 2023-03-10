@@ -16,3 +16,4 @@ sphinxcontrib-plantuml==0.24.1
 sphinxcontrib-spelling==7.7.0
 viztracer==0.15.6
 xdot==1.2
+sphinx-lesson==0.8.15

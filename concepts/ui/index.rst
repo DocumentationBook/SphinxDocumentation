@@ -13,3 +13,8 @@ Site view customization methods:
 
 .. note:: When you do any customization, think about the maintenance process.
 
+
+Additional resources
+====================
+
+*  `Sphinx-design extension <https://sphinx-design.readthedocs.io/en/furo-theme/additional.html>`_

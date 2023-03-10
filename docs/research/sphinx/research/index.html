@@ -27,6 +27,7 @@
         <script src="../../../static/underscore.js"></script>
         <script src="../../../static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../static/doctools.js"></script>
+        <script src="../../../static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../../../static/js/theme.js"></script>
 
@@ -87,8 +88,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../">Deep Investigation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../">Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publish/">Publication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary/">Glossary</a></li>
 </ul>
 
@@ -280,7 +281,7 @@ the <code class="docutils literal notranslate"><span class="pre">sphinx.builders
 <li><p>The <code class="docutils literal notranslate"><span class="pre">app.build(args.force_all,</span> <span class="pre">filenames)</span></code> method starts processing the project.
 The process has the following phases declared in the <code class="docutils literal notranslate"><span class="pre">sphinx.util.build_phase.BuildPhase</span></code> enum class:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BuildPhase</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
-   <span class="sd">&quot;&quot;&quot;Build phase of Sphinx application.&quot;&quot;&quot;</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Build phase of Sphinx application.&quot;&quot;&quot;</span>
    <span class="n">INITIALIZATION</span> <span class="o">=</span> <span class="mi">1</span>
    <span class="n">READING</span> <span class="o">=</span> <span class="mi">2</span>
    <span class="n">CONSISTENCY_CHECK</span> <span class="o">=</span> <span class="mi">3</span>

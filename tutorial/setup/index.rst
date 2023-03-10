@@ -23,7 +23,7 @@ Let us consider some widely used development environments for Python:
    system, you can create various Python virtual environments. To use Sphinx in an environment, for example,
    environment called `py10` (meaning Python 3.10), install it as follows::
 
-      $ conda install -y sphinx
+      $ conda install sphinx
 
    .. note:: in the conda environment, you can also use pip if conda cannot find a required Python package.
 
@@ -32,7 +32,7 @@ Let us consider some widely used development environments for Python:
    `venv <https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment>`_.
    Inside an environment, install Sphinx using the following command::
 
-      $ pip install -y sphinx
+      $ pip install sphinx
 
    pip can also work in the conda environment. This is helpful when the conda repository (being more reliable and
    conservative) doesn't contain a required package.
