@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -226,7 +226,7 @@ and <code class="docutils literal notranslate"><span class="pre">updated_docname
 <p>The method determines whether to process documents in parallel or sequentially.
 In this process the latter is used.</p>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.prepare_writing</span></code> to prepare the documentation</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.prepare_writing</span></code> to prepare the documentation.</p></li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder._write_serial</span></code> method passing it the list of documents generated in the previous step.
 The method processes all documents one by one in a cycle.
 To make the method display all files that it processes, add the <code class="docutils literal notranslate"><span class="pre">-v</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> utility.
@@ -278,7 +278,7 @@ of the <code class="docutils literal notranslate"><span class="pre">sphinx.searc
 document component and save it in its file. The method performs the following operations:</p>
 <ul>
 <li><p>Define the destination as an object of the  <code class="docutils literal notranslate"><span class="pre">docutils.io.StringOutput</span></code> class, which is an output wrapper.
-The default destination path in this class is string:</p>
+The default destination path in this class is a string:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default_destination_path</span> <span class="o">=</span> <span class="s1">&#39;&lt;string&gt;&#39;</span>
 </pre></div>
 </div>

@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -193,13 +193,14 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">app</span></code> object is the documentation build root that binds together all other objects necessary for building
 the documentation:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">project</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">builder</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">environment</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">project</span></code> collects a set of document names.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">builder</span></code> is a builder object of the class chosen in the initial <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command
+(argument <code class="docutils literal notranslate"><span class="pre">-b</span></code> or <code class="docutils literal notranslate"><span class="pre">-M</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">environment</span></code> contains all information about the documents in the documentation tree.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">registry</span></code> is an object of class <code class="docutils literal notranslate"><span class="pre">sphinx.registry.SphinxComponentRegistry</span></code> that contains the app components,
 which are building blocks and tools discovered and used in the process.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">events</span></code> is an object of class <code class="docutils literal notranslate"><span class="pre">sphinx.events.EventManager</span></code> that emits events at some
-program checkpoints addressing to event subscribers.</p></li>
+program checkpoints addressing them to event subscribers.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> is an object of class <code class="docutils literal notranslate"><span class="pre">sphinx.config.Config</span></code> containing all configuration parameters, those that are
 Sphinx builtin and those that are read in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file.</p></li>
 </ul>
@@ -212,7 +213,8 @@ Sphinx builtin and those that are read in the <code class="docutils literal notr
 <li><p><code class="docutils literal notranslate"><span class="pre">doctreedir</span></code> stores pickled documentation tree (<code class="docutils literal notranslate"><span class="pre">doctree</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">outdir</span></code> stores built documents.</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">app.__init__</span></code> method performs various validations and calls other methods as presented in this diagram:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">app.__init__</span></code> method performs various validations and calls other methods as presented in this diagram
+(your reading will be more comfortable if you open this diagram in a separate window):</p>
 <p class="plantuml">
 <img src="../../../images/plantuml-19994a0ba61bed1aac5037b89c8628fa5ff8ab62.png" alt="Initialization phase"/>
 </p>
@@ -275,14 +277,14 @@ documents and the doctree:</p>
    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">env.find_files</span></code> method call the <code class="docutils literal notranslate"><span class="pre">project.discovery</span></code> method to find the document source files. This method
+<p>The <code class="docutils literal notranslate"><span class="pre">env.find_files</span></code> method calls the <code class="docutils literal notranslate"><span class="pre">project.discovery</span></code> method to find the document source files. This method
 walks through the source folder and returns the discovered file names as a set similar to this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;folder2/index&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder1/index&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>This set is also assigned to the <code class="docutils literal notranslate"><span class="pre">project.docnames</span></code> variable.</p>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app._init_build</span></code> method to initialize the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> object. The main job is done by the
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app._init_build</span></code> method to initialize the <code class="docutils literal notranslate"><span class="pre">app.builder</span></code> object. The main job is done by the
 inherited <code class="docutils literal notranslate"><span class="pre">sphinx.builders.html.StandaloneHTMLBuilder.init</span></code> method. After this, the builder will have all
 the objects to process HTML documents one by one. For every current document, it will use: <code class="docutils literal notranslate"><span class="pre">current_docname</span></code>,
 <code class="docutils literal notranslate"><span class="pre">secnumbers</span></code>, templates, a list of CSS files, a list of JavaScript files, and so on.

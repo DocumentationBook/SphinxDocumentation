@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -201,25 +201,135 @@ You will see messages similar to the following:</p>
 The following sections present events in the order they are emitted in a test project.</p>
 <section id="config-inited">
 <h3>config-inited<a class="headerlink" href="#config-inited" title="Permalink to this heading">¶</a></h3>
-<blockquote>
-<div><p>emitting event: ‘config-inited’(&lt;sphinx.config.Config object at 0x7f96d21ec760&gt;,)</p>
-</div></blockquote>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;config-inited&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Config</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f96d21ec760</span><span class="o">&gt;</span><span class="p">,)</span>
+</pre></div>
+</div>
 </section>
 <section id="builder-inited">
 <h3>builder-inited<a class="headerlink" href="#builder-inited" title="Permalink to this heading">¶</a></h3>
-<blockquote>
-<div><p>emitting event: ‘builder-inited’()</p>
-</div></blockquote>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;builder-inited&#39;</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 <section id="env-get-outdated">
 <h3>env-get-outdated<a class="headerlink" href="#env-get-outdated" title="Permalink to this heading">¶</a></h3>
-<p>updating environment: locale_dir /Users/albertbagdasaryan/workspace/SphinxDetailed/__test/locales/en/LC_MESSAGES does not exists
-[app] emitting event: ‘env-get-outdated’(&lt;sphinx.environment.BuildEnvironment object at 0x7f96d21ec880&gt;, {‘folder1/index’, ‘index’, ‘folder2</p>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">updating</span> <span class="n">environment</span><span class="p">:</span> <span class="n">locale_dir</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">albertbagdasaryan</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">SphinxDetailed</span><span class="o">/</span><span class="n">__test</span><span class="o">/</span><span class="n">locales</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">LC_MESSAGES</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exists</span>
+<span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;env-get-outdated&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">BuildEnvironment</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f96d21ec880</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder2</span>
+</pre></div>
+</div>
 </section>
 <section id="env-before-read-docs">
 <h3>env-before-read-docs<a class="headerlink" href="#env-before-read-docs" title="Permalink to this heading">¶</a></h3>
-<p>[new config] 3 added, 0 changed, 0 removed
-[app] emitting event: ‘env-before-read-docs’(&lt;sphinx.environment.BuildEnvironment object at 0x7f96d21ec880&gt;, [‘folder1/index’, ‘folder2/index’,</p>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">new</span> <span class="n">config</span><span class="p">]</span> <span class="mi">3</span> <span class="n">added</span><span class="p">,</span> <span class="mi">0</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">0</span> <span class="n">removed</span>
+<span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;env-before-read-docs&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">BuildEnvironment</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f96d21ec880</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;folder2/index&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="env-purge-doc">
+<h3>env-purge-doc<a class="headerlink" href="#env-purge-doc" title="Permalink to this heading">¶</a></h3>
+<p>This and the following two event are emitted after reading a source document, for example after reading one of
+three documents (33% read).</p>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reading</span> <span class="n">sources</span><span class="o">...</span> <span class="p">[</span> <span class="mi">33</span><span class="o">%</span><span class="p">]</span> <span class="n">folder1</span><span class="o">/</span><span class="n">index</span>
+<span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;env-purge-doc&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">BuildEnvironment</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f96d21ec880</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;folder1/index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="source-read">
+<h3>source-read<a class="headerlink" href="#source-read" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;source-read&#39;</span><span class="p">(</span><span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Folder 1 Index File</span><span class="se">\n</span><span class="s1">###################</span><span class="se">\n\n</span><span class="s1">File content of the Folder 1 index i</span>
+</pre></div>
+</div>
+</section>
+<section id="doctree-read">
+<h3>doctree-read<a class="headerlink" href="#doctree-read" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;doctree-read&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">document</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">section</span> <span class="s2">&quot;folder 1 index file&quot;</span><span class="o">...&gt;&gt;</span><span class="p">,)</span>
+</pre></div>
+</div>
+</section>
+<section id="env-updated">
+<h3>env-updated<a class="headerlink" href="#env-updated" title="Permalink to this heading">¶</a></h3>
+<p>This event is emitted after all source documents are read.</p>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;env-updated&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">BuildEnvironment</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f96d21ec880</span><span class="o">&gt;</span><span class="p">,)</span>
+</pre></div>
+</div>
+</section>
+<section id="env-get-updated">
+<h3>env-get-updated<a class="headerlink" href="#env-get-updated" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">looking</span> <span class="k">for</span> <span class="n">now</span><span class="o">-</span><span class="n">outdated</span> <span class="n">files</span><span class="o">...</span> <span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;env-get-updated&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">BuildEnvironment</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f96d21ec880</span><span class="o">&gt;</span><span class="p">,)</span>
+<span class="n">none</span> <span class="n">found</span>
+</pre></div>
+</div>
+</section>
+<section id="env-check-consistency">
+<h3>env-check-consistency<a class="headerlink" href="#env-check-consistency" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pickling</span> <span class="n">environment</span><span class="o">...</span> <span class="n">done</span>
+<span class="n">checking</span> <span class="n">consistency</span><span class="o">...</span> <span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;env-check-consistency&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">sphinx</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">BuildEnvironment</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f96d21ec880</span><span class="o">&gt;</span><span class="p">,)</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+</section>
+<section id="doctree-resolved">
+<h3>doctree-resolved<a class="headerlink" href="#doctree-resolved" title="Permalink to this heading">¶</a></h3>
+<p>This and the next event are emitted after writing every document, for example, after writing one of three documents:</p>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docnames</span> <span class="n">to</span> <span class="n">write</span><span class="p">:</span> <span class="n">folder1</span><span class="o">/</span><span class="n">index</span><span class="p">,</span> <span class="n">folder2</span><span class="o">/</span><span class="n">index</span><span class="p">,</span> <span class="n">index</span>
+<span class="n">preparing</span> <span class="n">documents</span><span class="o">...</span> <span class="n">done</span>
+<span class="n">writing</span> <span class="n">output</span><span class="o">...</span> <span class="p">[</span> <span class="mi">33</span><span class="o">%</span><span class="p">]</span> <span class="n">folder1</span><span class="o">/</span><span class="n">index</span>
+<span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;doctree-resolved&#39;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">document</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">section</span> <span class="s2">&quot;folder 1 index file&quot;</span><span class="o">...&gt;&gt;</span><span class="p">,</span> <span class="s1">&#39;folder1/index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="html-page-context">
+<h3>html-page-context<a class="headerlink" href="#html-page-context" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;html-page-context&#39;</span><span class="p">(</span><span class="s1">&#39;folder1/index&#39;</span><span class="p">,</span> <span class="s1">&#39;page.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;embedded&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;release&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="html-page-context-of-the-general-index">
+<h3>html-page-context of the general index<a class="headerlink" href="#html-page-context-of-the-general-index" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generating</span> <span class="n">indices</span><span class="o">...</span> <span class="n">genindex</span> <span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;html-page-context&#39;</span><span class="p">(</span><span class="s1">&#39;genindex&#39;</span><span class="p">,</span> <span class="s1">&#39;genindex.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;embedded&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;release&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+</section>
+<section id="html-collect-pages">
+<h3>html-collect-pages<a class="headerlink" href="#html-collect-pages" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;html-collect-pages&#39;</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="html-page-context-of-additional-pages">
+<h3>html-page-context of additional pages<a class="headerlink" href="#html-page-context-of-additional-pages" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">writing</span> <span class="n">additional</span> <span class="n">pages</span><span class="o">...</span> <span class="n">search</span> <span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;html-page-context&#39;</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="s1">&#39;search.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;embedded&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;release&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;la</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+</section>
+<section id="build-finished">
+<h3>build-finished<a class="headerlink" href="#build-finished" title="Permalink to this heading">¶</a></h3>
+<p>Logged message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">copying</span> <span class="n">static</span> <span class="n">files</span><span class="o">...</span> <span class="n">done</span>
+<span class="n">copying</span> <span class="n">extra</span> <span class="n">files</span><span class="o">...</span> <span class="n">done</span>
+<span class="n">dumping</span> <span class="n">search</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">English</span> <span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="n">en</span><span class="p">)</span><span class="o">...</span> <span class="n">done</span>
+<span class="n">dumping</span> <span class="nb">object</span> <span class="n">inventory</span><span class="o">...</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">app</span><span class="p">]</span> <span class="n">emitting</span> <span class="n">event</span><span class="p">:</span> <span class="s1">&#39;build-finished&#39;</span><span class="p">(</span><span class="kc">None</span><span class="p">,)</span>
+<span class="n">build</span> <span class="n">succeeded</span><span class="o">.</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>

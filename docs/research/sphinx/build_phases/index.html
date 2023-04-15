@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -208,10 +208,10 @@ This method is considered in the following steps.</p></li>
 <p>When the called method completes, the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method cleans up the build environment
 and prints the summary results of all the phases.</p>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.build_update</span></code> method that initiates the collection of source data and starts
-the build orchestration method. It calls <code class="docutils literal notranslate"><span class="pre">app.build.get_outdated_docs</span></code> method to get a list of updated
-source documents and then <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> to update the corresponding targeted documents.</p></li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.get_outdated_docs</span></code> method to get a list of outdated documents, which are those that
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.build_update</span></code> method that initiates the collection of source data and starts
+the build orchestration method. It calls <code class="docutils literal notranslate"><span class="pre">app.builder.get_outdated_docs</span></code> method to get a list of updated
+source documents and then <code class="docutils literal notranslate"><span class="pre">app.builder.build</span></code> to update the corresponding targeted documents.</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.get_outdated_docs</span></code> method to get a list of outdated documents, which are those that
 depend on the updated documents.
 It returns a generator of the discovered source files, so that the <code class="docutils literal notranslate"><span class="pre">to_build</span></code> variable will yield source file paths
 similar to this:</p>
@@ -221,26 +221,27 @@ similar to this:</p>
 <p>This data is taken from the <code class="docutils literal notranslate"><span class="pre">env.found_docs</span></code> property method, which in its turn read it from <code class="docutils literal notranslate"><span class="pre">project.docnames</span></code>.
 The latter was prepared during <a class="reference internal" href="../app_init/#research-sphinx-process-app"><span class="std std-ref">INITIALIZATION</span></a>.</p>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> method that works as the phase orchestrator.
-It receives a list of source file paths and a phrase for printing similar to this:</p>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.build</span></code> method that works as the phase orchestrator.
+It receives a list of source file paths and a phrase for printing that you will see on the screen.
+It is similar to this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">targets</span> <span class="k">for</span> <span class="mi">3</span> <span class="n">source</span> <span class="n">files</span> <span class="n">that</span> <span class="n">are</span> <span class="n">out</span> <span class="n">of</span> <span class="n">date</span>
 </pre></div>
 </div>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.read</span></code> method that implements the main part of the READING phase:</p>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method that implements the main part of the READING phase:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">logging</span><span class="o">.</span><span class="n">pending_warnings</span><span class="p">():</span>
    <span class="n">updated_docnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>In this phase, Sphinx works closely with Docutils to parse each source document and obtain the hierarchical
-node structure of it. The <code class="docutils literal notranslate"><span class="pre">app.build.read</span></code> method returns a list of names of the documents that were updated
-or added. The <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> method extends this list with the names of outdated documents, which are
+node structure of it. The <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method returns a list of names of the documents that were updated
+or added. The <code class="docutils literal notranslate"><span class="pre">app.builder.build</span></code> method extends this list with the names of outdated documents, which are
 those that depend on the updated documents. It creates the following name lists:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">updated_docnames</span></code> includes the names of the <em>updated and outdated</em> documents</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">outdated</span></code> consists of the names of the <em>outdated</em> documents</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">app.build.build</span></code> method pickles the <code class="docutils literal notranslate"><span class="pre">updated_docnames</span></code> list.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">app.builder.build</span></code> method pickles the <code class="docutils literal notranslate"><span class="pre">updated_docnames</span></code> list.</p>
 </li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.env.check_consistency</span></code> method to check that all source documents are added to the
 <code class="docutils literal notranslate"><span class="pre">env.files_to_rebuild</span></code> list, except for the root document, orphans, and documents included by other
@@ -269,7 +270,7 @@ the following values:</p>
 the source documents are checked on consistency.</p>
 </div>
 </li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.build.write</span></code> method to implement the RESOLVING and WRITING phases.</p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">app.builder.write</span></code> method to implement the RESOLVING and WRITING phases.</p></li>
 </ol>
 </section>
 

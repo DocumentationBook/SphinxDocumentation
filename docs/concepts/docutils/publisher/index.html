@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -177,10 +177,10 @@
 </div>
 <section id="publisher">
 <span id="concepts-docutils-publisher"></span><h1>Publisher<a class="headerlink" href="#publisher" title="Permalink to this heading">¶</a></h1>
-<p>The central entity is the <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> class that encapsulating the high-level logic of a Docutils system and
+<p>The central entity is the <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> class that encapsulates the high-level logic of Docutils and
 provides necessary methods to orchestrate the whole process in the following order:</p>
 <ol class="arabic simple">
-<li><p>Reading the source. A reader reads the source and runs parsing several times:</p>
+<li><p>Reading the source. A reader object reads the source and runs parsing several times:</p>
 <ul class="simple">
 <li><p>Parsing.</p></li>
 <li><p>…</p></li>
@@ -205,7 +205,7 @@ For example, <code class="docutils literal notranslate"><span class="pre">rst2ht
 <code class="docutils literal notranslate"><span class="pre">docutils.core.publish_*</span></code> functions.</p>
 <p>Front-end utilities call the <code class="docutils literal notranslate"><span class="pre">docutils.core.publish_cmdline</span></code> function. The other Publisher functions works with
 specific types of input and output data, such as file, string, dictionary, and document tree. Sphinx calls
-only the <code class="docutils literal notranslate"><span class="pre">publish_doctree</span></code> for testing purposes by <code class="docutils literal notranslate"><span class="pre">sphinx/testing/restructuredtext.py</span></code>.</p>
+only the <code class="docutils literal notranslate"><span class="pre">publish_doctree</span></code> function for testing purposes from the <code class="docutils literal notranslate"><span class="pre">sphinx/testing/restructuredtext.py</span></code> script.</p>
 </li>
 <li><p>Direct creation of objects from the <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> class. Sphinx uses this way to integrate with Docutils.</p></li>
 </ul>

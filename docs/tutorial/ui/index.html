@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -180,11 +180,11 @@
 <span id="tutorial-ui"></span><h1>User Interface Customization<a class="headerlink" href="#user-interface-customization" title="Permalink to this heading">¶</a></h1>
 <p>Sphinx enables you to customize the appearance of documentation in various ways:</p>
 <ul class="simple">
-<li><p>Choosing a theme.</p></li>
-<li><p>Customizing the chosen theme.</p></li>
-<li><p>Developing your own theme.</p></li>
-<li><p>Customization via CSS.</p></li>
-<li><p>Customization via JavaScript.</p></li>
+<li><p>Choosing a theme</p></li>
+<li><p>Customizing the chosen theme</p></li>
+<li><p>Developing your own theme</p></li>
+<li><p>Customization via CSS</p></li>
+<li><p>Customization via JavaScript</p></li>
 </ul>
 <section id="adding-announcement">
 <h2>Adding announcement<a class="headerlink" href="#adding-announcement" title="Permalink to this heading">¶</a></h2>
@@ -225,13 +225,15 @@ Sphinx provides you with two convenient configuration options to set in the <cod
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
-<p>Adding a border around any image:</p>
+<p>To add a border around any image, add the following definition to the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="p">{</span>
    <span class="n">border</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="c1">#e1e4e5;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Override the default Graphviz (class <code class="docutils literal notranslate"><span class="pre">graphviz</span></code>) configuration of the image borders:</p>
+<p>However, this style doesn’t affect images built with Graphviz.
+To override the default Graphviz (class <code class="docutils literal notranslate"><span class="pre">graphviz</span></code>) configuration of the image borders, add the <code class="docutils literal notranslate"><span class="pre">.graphviz</span></code> class to
+the above definition or create a new one:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span><span class="o">.</span><span class="n">graphviz</span> <span class="p">{</span>
     <span class="n">border</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="c1">#e1e4e5;</span>
 <span class="p">}</span>

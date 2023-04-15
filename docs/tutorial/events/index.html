@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -238,7 +238,7 @@ In the next build run, you can just print the config object as is:</p>
 <p>From here, you understand that in order to read the object properties,
 you need to know the <code class="docutils literal notranslate"><span class="pre">sphinx.config.Config</span></code> structure.
 You will find it in the <code class="docutils literal notranslate"><span class="pre">sphinx/config.py</span></code> file. Well, but which of its properties contain the configuration
-parameters collected at this moment? To answer this question, look at the statement that atars collecting this data
+parameters collected at this moment? To answer this question, look at the statement that starts collecting this data
 before the notification is issued.
 This is <code class="docutils literal notranslate"><span class="pre">self.config.init_values()</span></code> in the <code class="docutils literal notranslate"><span class="pre">sphinx.application.py</span></code> file.
 Look at the <code class="docutils literal notranslate"><span class="pre">init_values()</span></code> definition in the <code class="docutils literal notranslate"><span class="pre">sphinx.config.Config</span></code> class.

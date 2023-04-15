@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -189,8 +189,9 @@ developers use it to create graphs manually or programmatically.</p>
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
 <p>Graphviz is a <a class="reference external" href="https://gitlab.com/graphviz/graphviz/">C package</a> that must be installed on your computer before you
 can use it to build graphs manually, with Sphinx, or with other applications.
-There are <a class="reference external" href="https://graphviz.org/doc/build.html">building instructions</a> specific for different platforms or you
-can install it from its source using a universal procedure. For example, on Mac, you can install it using this way:</p>
+You can follow the <a class="reference external" href="https://graphviz.org/doc/build.html">building instructions</a> specific for different platforms,
+or you can install it from its source using a universal procedure.
+For example, on Mac, you can install it using this way:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ brew install graphviz
 </pre></div>
 </div>
@@ -220,7 +221,7 @@ However, you need to add it to the list of extensions in the <code class="docuti
 <p>When creating several documents bound by the same idea, you will probably need to bind graph images as well.
 To make a reference from an image created by Graphviz, follow this way:</p>
 <ol class="arabic">
-<li><p>Make the Graphviz to output images in the CSV format instead of the default PNG.
+<li><p>Make Graphviz output images in the CSV format instead of the default PNG.
 To do this, add the following option to the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">graphviz_output_format</span> <span class="o">=</span> <span class="s1">&#39;svg&#39;</span>
 </pre></div>

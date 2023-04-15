@@ -65,7 +65,7 @@ env-purge-doc
 -------------
 
 This and the following two event are emitted after reading a source document, for example after reading one of
-three documents (33% read)::
+three documents (33% read).
 
 Logged message::
 

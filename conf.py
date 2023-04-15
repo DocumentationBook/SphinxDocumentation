@@ -36,7 +36,7 @@ extensions = [
     'sphinx.ext.graphviz',
     'sphinxcontrib.plantuml',
     'sphinx.ext.doctest',
-    'rinoh.frontend.sphinx',
+    # 'rinoh.frontend.sphinx',
     # 'sphinxcontrib.spelling',
 ]
 

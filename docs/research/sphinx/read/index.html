@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -196,7 +196,8 @@ This phase is declared by the <code class="docutils literal notranslate"><span c
 <section id="process">
 <h2>Process<a class="headerlink" href="#process" title="Permalink to this heading">¶</a></h2>
 <p>As mentioned earlier, the <code class="docutils literal notranslate"><span class="pre">app.build</span></code> method calls the <code class="docutils literal notranslate"><span class="pre">app.builder.get_outdated_docs</span></code> method that supplies
-a generator of discovered updated documents, but this list is used after the READING phase.</p>
+a Python generator that yields a list of discovered updated document names,
+but this list is used after the READING phase.</p>
 <p>The main steps of the READING phase are performed by the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method as presented
 on the following diagram:</p>
 <p class="plantuml">
@@ -330,9 +331,10 @@ the <code class="docutils literal notranslate"><span class="pre">.doctree</span>
 </pre></div>
 </div>
 </li>
-<li><p>After the <code class="docutils literal notranslate"><span class="pre">app.builder._read_serial</span></code> method completes parsing the documents, the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method
+</ol>
+<p>After the <code class="docutils literal notranslate"><span class="pre">app.builder._read_serial</span></code> method completes parsing the documents, the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method
 performs the following final operations within the READING phase:</p>
-<ul>
+<ol class="arabic">
 <li><p>Verify if the root document is built and send an error message if it isn’t.</p></li>
 <li><p>Emit the ‘env-updated’ event to request the subscribed handlers if they need to add more documents in this phase:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">retval</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s1">&#39;env-updated&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">):</span>
@@ -348,8 +350,6 @@ after it gets parsed documents. A handler can add more document names to the lis
 the <code class="docutils literal notranslate"><span class="pre">app.builder.read</span></code> method will return to its caller, that is, to the <code class="docutils literal notranslate"><span class="pre">app.builder.build</span></code> method
 (see the next step).</p>
 </div>
-</li>
-</ul>
 </li>
 <li><p>Return the list of names of the updated documents.</p></li>
 </ol>

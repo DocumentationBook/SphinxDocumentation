@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -220,17 +220,17 @@ reminder it prints out (the full path is not displayed here intentionally):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vizviewer [--port &lt;number&gt;] result.json
 </pre></div>
 </div>
-<p>The default port number is 9001.</p>
+<p>This command runs a web server with the default TCP port number 9001 to present the collected data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can stop the server after your browser renders the result, because the latter stores the loaded data
+<p>You can stop the web server after your browser renders the result, because the latter stores the loaded data
 and you can work with it offline.</p>
 </div>
 <p>A separate section <a class="reference internal" href="#research-tools-analysis"><span class="std std-ref">Analyzing the result</span></a> in this document describes the use of the interactive viewer.</p>
 <p>This tracer utility provides some options that you can use to customize you search, for example:</p>
 <ul>
 <li><p>To see only some top level program calls, limit the depth of the stack. For example, to get Sphinx calls not deeper
-than 5 levels, use this command:</p>
+than 10 levels, use this command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ viztracer -o top.json --max_stack_depth 10 --ignore_c_function sphinx-build -b dirhtml &quot;.&quot; &quot;_build&quot;
 </pre></div>
 </div>
