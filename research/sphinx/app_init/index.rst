@@ -8,13 +8,14 @@ App Initialization
 The ``app`` object is the documentation build root that binds together all other objects necessary for building
 the documentation:
 
-*  ``project``
-*  ``builder``
-*  ``environment``
+*  ``project`` collects a set of document names.
+*  ``builder`` is a builder object of the class chosen in the initial ``sphinx-build`` command
+   (argument ``-b`` or ``-M``).
+*  ``environment`` contains all information about the documents in the documentation tree.
 *  ``registry`` is an object of class ``sphinx.registry.SphinxComponentRegistry`` that contains the app components,
    which are building blocks and tools discovered and used in the process.
 *  ``events`` is an object of class ``sphinx.events.EventManager`` that emits events at some
-   program checkpoints addressing to event subscribers.
+   program checkpoints addressing them to event subscribers.
 *  ``config`` is an object of class ``sphinx.config.Config`` containing all configuration parameters, those that are
    Sphinx builtin and those that are read in the ``conf.py`` file.
 
@@ -29,7 +30,8 @@ The app initialization process figures out the absolute paths of the following i
 *  ``doctreedir`` stores pickled documentation tree (``doctree``).
 *  ``outdir`` stores built documents.
 
-The ``app.__init__`` method performs various validations and calls other methods as presented in this diagram:
+The ``app.__init__`` method performs various validations and calls other methods as presented in this diagram
+(your reading will be more comfortable if you open this diagram in a separate window):
 
 .. uml:: app_init.uml
    :alt: Initialization phase
@@ -90,14 +92,14 @@ The initialization goes in the following order (see the numbers in the diagram):
          self.env = BuildEnvironment(self)
          self.env.find_files(self.config, self.builder)
 
-   The ``env.find_files`` method call the ``project.discovery`` method to find the document source files. This method
+   The ``env.find_files`` method calls the ``project.discovery`` method to find the document source files. This method
    walks through the source folder and returns the discovered file names as a set similar to this::
 
        {'folder2/index', 'index', 'folder1/index'}
 
    This set is also assigned to the ``project.docnames`` variable.
 
-#. Call the ``app._init_build`` method to initialize the ``app.build`` object. The main job is done by the
+#. Call the ``app._init_build`` method to initialize the ``app.builder`` object. The main job is done by the
    inherited ``sphinx.builders.html.StandaloneHTMLBuilder.init`` method. After this, the builder will have all
    the objects to process HTML documents one by one. For every current document, it will use: ``current_docname``,
    ``secnumbers``, templates, a list of CSS files, a list of JavaScript files, and so on.

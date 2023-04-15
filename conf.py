@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.graphviz',
     'sphinxcontrib.plantuml',
     'sphinx.ext.doctest',
+    'rinoh.frontend.sphinx',
     # 'sphinxcontrib.spelling',
 ]
 
@@ -83,4 +84,7 @@ html_copy_source = False
 rst_prolog = """
 .. warning:: This draft documentation is under development.
 """
+
+# rinoh_documents = [dict(doc='index',        # top-level file (index.rst)
+#                         target='manual')]   # output file (manual.pdf)
 

@@ -5,11 +5,11 @@ User Interface Customization
 
 Sphinx enables you to customize the appearance of documentation in various ways:
 
-*  Choosing a theme.
-*  Customizing the chosen theme.
-*  Developing your own theme.
-*  Customization via CSS.
-*  Customization via JavaScript.
+*  Choosing a theme
+*  Customizing the chosen theme
+*  Developing your own theme
+*  Customization via CSS
+*  Customization via JavaScript
 
 
 Adding announcement
@@ -48,13 +48,15 @@ Adding custom CSS
 Examples
 ========
 
-Adding a border around any image::
+To add a border around any image, add the following definition to the ``custom.css`` file::
 
    img {
       border: 1px solid #e1e4e5;
    }
 
-Override the default Graphviz (class ``graphviz``) configuration of the image borders::
+However, this style doesn't affect images built with Graphviz.
+To override the default Graphviz (class ``graphviz``) configuration of the image borders, add the ``.graphviz`` class to
+the above definition or create a new one::
 
    img.graphviz {
        border: 1px solid #e1e4e5;

@@ -3,10 +3,10 @@
 Publisher
 #########
 
-The central entity is the ``Publisher`` class that encapsulating the high-level logic of a Docutils system and
+The central entity is the ``Publisher`` class that encapsulates the high-level logic of Docutils and
 provides necessary methods to orchestrate the whole process in the following order:
 
-#. Reading the source. A reader reads the source and runs parsing several times:
+#. Reading the source. A reader object reads the source and runs parsing several times:
 
    * Parsing.
    * ...
@@ -31,6 +31,6 @@ Docutils exposes several endpoints for calling the ``Publisher`` class:
 
    Front-end utilities call the ``docutils.core.publish_cmdline`` function. The other Publisher functions works with
    specific types of input and output data, such as file, string, dictionary, and document tree. Sphinx calls
-   only the ``publish_doctree`` for testing purposes by ``sphinx/testing/restructuredtext.py``.
+   only the ``publish_doctree`` function for testing purposes from the ``sphinx/testing/restructuredtext.py`` script.
 
 *  Direct creation of objects from the ``Publisher`` class. Sphinx uses this way to integrate with Docutils.

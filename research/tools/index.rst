@@ -49,9 +49,9 @@ As recommended in the output, run the ``vizviewer`` utility to parse and view th
 
    $ vizviewer [--port <number>] result.json
 
-The default port number is 9001.
+This command runs a web server with the default TCP port number 9001 to present the collected data.
 
-.. note:: You can stop the server after your browser renders the result, because the latter stores the loaded data
+.. note:: You can stop the web server after your browser renders the result, because the latter stores the loaded data
    and you can work with it offline.
 
 A separate section :ref:`research_tools_analysis` in this document describes the use of the interactive viewer.
@@ -59,7 +59,7 @@ A separate section :ref:`research_tools_analysis` in this document describes the
 This tracer utility provides some options that you can use to customize you search, for example:
 
 *  To see only some top level program calls, limit the depth of the stack. For example, to get Sphinx calls not deeper
-   than 5 levels, use this command::
+   than 10 levels, use this command::
 
       $ viztracer -o top.json --max_stack_depth 10 --ignore_c_function sphinx-build -b dirhtml "." "_build"
 

@@ -12,8 +12,9 @@ Setup
 
 Graphviz is a `C package <https://gitlab.com/graphviz/graphviz/>`_ that must be installed on your computer before you
 can use it to build graphs manually, with Sphinx, or with other applications.
-There are `building instructions <https://graphviz.org/doc/build.html>`_ specific for different platforms or you
-can install it from its source using a universal procedure. For example, on Mac, you can install it using this way::
+You can follow the `building instructions <https://graphviz.org/doc/build.html>`_ specific for different platforms,
+or you can install it from its source using a universal procedure.
+For example, on Mac, you can install it using this way::
 
    $ brew install graphviz
 
@@ -47,7 +48,7 @@ Using hyperlinks
 When creating several documents bound by the same idea, you will probably need to bind graph images as well.
 To make a reference from an image created by Graphviz, follow this way:
 
-#. Make the Graphviz to output images in the CSV format instead of the default PNG.
+#. Make Graphviz output images in the CSV format instead of the default PNG.
    To do this, add the following option to the ``conf.py`` file::
 
       graphviz_output_format = 'svg'

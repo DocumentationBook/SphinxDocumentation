@@ -42,7 +42,7 @@ The main steps are presented on the following diagram:
    The method determines whether to process documents in parallel or sequentially.
    In this process the latter is used.
 
-#. Call the ``app.builder.prepare_writing`` to prepare the documentation
+#. Call the ``app.builder.prepare_writing`` to prepare the documentation.
 
 #. Call the ``app.builder._write_serial`` method passing it the list of documents generated in the previous step.
    The method processes all documents one by one in a cycle.
@@ -90,7 +90,7 @@ The main steps are presented on the following diagram:
    document component and save it in its file. The method performs the following operations:
 
    *  Define the destination as an object of the  ``docutils.io.StringOutput`` class, which is an output wrapper.
-      The default destination path in this class is string::
+      The default destination path in this class is a string::
 
          default_destination_path = '<string>'
 

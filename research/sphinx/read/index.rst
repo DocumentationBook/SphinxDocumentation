@@ -12,7 +12,8 @@ Process
 =======
 
 As mentioned earlier, the ``app.build`` method calls the ``app.builder.get_outdated_docs`` method that supplies
-a generator of discovered updated documents, but this list is used after the READING phase.
+a Python generator that yields a list of discovered updated document names,
+but this list is used after the READING phase.
 
 The main steps of the READING phase are performed by the ``app.builder.read`` method as presented
 on the following diagram:
@@ -129,22 +130,22 @@ on the following diagram:
       │ └── index.doctree
       └── index.doctree
 
-#. After the ``app.builder._read_serial`` method completes parsing the documents, the ``app.builder.read`` method
-   performs the following final operations within the READING phase:
+After the ``app.builder._read_serial`` method completes parsing the documents, the ``app.builder.read`` method
+performs the following final operations within the READING phase:
 
-   -  Verify if the root document is built and send an error message if it isn't.
-   -  Emit the 'env-updated' event to request the subscribed handlers if they need to add more documents in this phase::
+#. Verify if the root document is built and send an error message if it isn't.
+#. Emit the 'env-updated' event to request the subscribed handlers if they need to add more documents in this phase::
 
-        for retval in self.events.emit('env-updated', self.env):
-            if retval is not None:
-                docnames.extend(retval)
+     for retval in self.events.emit('env-updated', self.env):
+         if retval is not None:
+             docnames.extend(retval)
 
-      If there are additional documents, extend the ``docnames`` list.
+   If there are additional documents, extend the ``docnames`` list.
 
-      .. note:: This is where you can handle the 'env-updated' event emitted by the ``app.builder.read`` method
-         after it gets parsed documents. A handler can add more document names to the list of names that
-         the ``app.builder.read`` method will return to its caller, that is, to the ``app.builder.build`` method
-         (see the next step).
+   .. note:: This is where you can handle the 'env-updated' event emitted by the ``app.builder.read`` method
+      after it gets parsed documents. A handler can add more document names to the list of names that
+      the ``app.builder.read`` method will return to its caller, that is, to the ``app.builder.build`` method
+      (see the next step).
 
 #. Return the list of names of the updated documents.
 

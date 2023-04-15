@@ -76,13 +76,8 @@ The whole process consists of several phases declared in the ``sphinx.util.build
 The first phase, INITIALIZATION, is implemented during creation and initialization of the ``app`` object,
 the others are orchestrated by the ``app.build`` method.
 
+Those phases are represented later as two global sets of operations:
 
-More details
-============
-
-At the moment, the process consists of the following two global sets of operations presented in more detail
-in the following documents:
-
-*  :ref:`research_sphinx_process_app`
-*  :ref:`research_sphinx_process_phases`
+*  :ref:`research_sphinx_process_app` represents the INITIALIZATION phase.
+*  :ref:`research_sphinx_process_phases` combines all the other phases.
 

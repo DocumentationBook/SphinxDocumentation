@@ -28,11 +28,11 @@ Sphinx executes the build phases in the following order at the top level (see th
    When the called method completes, the ``app.build`` method cleans up the build environment
    and prints the summary results of all the phases.
 
-#. Call the ``app.build.build_update`` method that initiates the collection of source data and starts
-   the build orchestration method. It calls ``app.build.get_outdated_docs`` method to get a list of updated
-   source documents and then ``app.build.build`` to update the corresponding targeted documents.
+#. Call the ``app.builder.build_update`` method that initiates the collection of source data and starts
+   the build orchestration method. It calls ``app.builder.get_outdated_docs`` method to get a list of updated
+   source documents and then ``app.builder.build`` to update the corresponding targeted documents.
 
-#. Call the ``app.build.get_outdated_docs`` method to get a list of outdated documents, which are those that
+#. Call the ``app.builder.get_outdated_docs`` method to get a list of outdated documents, which are those that
    depend on the updated documents.
    It returns a generator of the discovered source files, so that the ``to_build`` variable will yield source file paths
    similar to this::
@@ -42,25 +42,26 @@ Sphinx executes the build phases in the following order at the top level (see th
    This data is taken from the ``env.found_docs`` property method, which in its turn read it from ``project.docnames``.
    The latter was prepared during :ref:`INITIALIZATION<research_sphinx_process_app>`.
 
-#. Call the ``app.build.build`` method that works as the phase orchestrator.
-   It receives a list of source file paths and a phrase for printing similar to this::
+#. Call the ``app.builder.build`` method that works as the phase orchestrator.
+   It receives a list of source file paths and a phrase for printing that you will see on the screen.
+   It is similar to this::
 
       targets for 3 source files that are out of date
 
-#. Call the ``app.build.read`` method that implements the main part of the READING phase::
+#. Call the ``app.builder.read`` method that implements the main part of the READING phase::
 
       with logging.pending_warnings():
          updated_docnames = set(self.read())
 
    In this phase, Sphinx works closely with Docutils to parse each source document and obtain the hierarchical
-   node structure of it. The ``app.build.read`` method returns a list of names of the documents that were updated
-   or added. The ``app.build.build`` method extends this list with the names of outdated documents, which are
+   node structure of it. The ``app.builder.read`` method returns a list of names of the documents that were updated
+   or added. The ``app.builder.build`` method extends this list with the names of outdated documents, which are
    those that depend on the updated documents. It creates the following name lists:
 
    *  ``updated_docnames`` includes the names of the *updated and outdated* documents
    *  ``outdated`` consists of the names of the *outdated* documents
 
-   The ``app.build.build`` method pickles the ``updated_docnames`` list.
+   The ``app.builder.build`` method pickles the ``updated_docnames`` list.
 
 #. Call the ``app.env.check_consistency`` method to check that all source documents are added to the
    ``env.files_to_rebuild`` list, except for the root document, orphans, and documents included by other
@@ -84,4 +85,4 @@ Sphinx executes the build phases in the following order at the top level (see th
    .. note:: This is where you can handle the 'env-check-consistency' event emitted after
       the source documents are checked on consistency.
 
-#. Call the ``app.build.write`` method to implement the RESOLVING and WRITING phases.
+#. Call the ``app.builder.write`` method to implement the RESOLVING and WRITING phases.
