@@ -56,7 +56,7 @@ This example declaration uses the following elements:
 .. note:: In the HTML documentation, the documents will be arranged in the navigation tree in the order you write them
    in the directive content.
 
-Then in the ``rest/index.rst`` file, you should specify all documents that are nested in the ``rest`` folder::
+Then in the ``rest/index.rst`` file, you should specify all documents that are nested in the ``rest/`` folder::
 
    .. toctree::
       :hidden:
