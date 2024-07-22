@@ -78,7 +78,7 @@ Classification
 
 Lists can be of two different types:
 
-*  A ordered list presents a sequence of actions enumerated by numbers (1, 2, ...), Roman numerals (i, ii, ...), lower
+*  An ordered list presents a sequence of actions enumerated by numbers (1, 2, ...), Roman numerals (i, ii, ...), lower
    case alphabet (a, b, ...), or upper case alphabet (A, B, ...). In addition, these numbers or letters can be
    arranged with the following formatting:
 
