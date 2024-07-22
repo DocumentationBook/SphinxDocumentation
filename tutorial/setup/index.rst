@@ -41,7 +41,7 @@ Let us consider some widely used development environments for Python:
 Quick configuration
 ===================
 
-The Sphinx package contains a special utility called ``sphinx-build`` that walks you through several Sphinx configuration
+The Sphinx package contains a special utility called ``sphinx-quickstart`` that walks you through several Sphinx configuration
 steps as follows:
 
 #. Run the utility::
