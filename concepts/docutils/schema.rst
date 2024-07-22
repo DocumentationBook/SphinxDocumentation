@@ -9,7 +9,7 @@ doctree is a hierarchical acyclic tree with the following specifics:
 
 *  Every node is an object of a ``Node`` subclass.
 *  The tree root is the ``document`` node.
-*  Every node has a parent, except for the root, and a list of children, which is empty for leafs.
+*  Every node has a parent, except for the root, and a list of children, which is empty for leaves.
 
 A node can be a text block (plain or special), a title, an inline element (emphasized element and other), and other.
 Every node can have the following set of attributes as defined by the DTD::
