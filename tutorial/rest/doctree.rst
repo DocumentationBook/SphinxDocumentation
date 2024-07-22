@@ -26,13 +26,13 @@ Suppose, on top of the tree, there are the following directories and files (in a
 
    ├── glossary.rst
    ├── index.rst
-   ├── rest
+   ├── rest/
    │   ├── blocks.rst
    │   ├── doctree.rst
    │   ├── general.rst
    │   ├── index.rst
    │   └── tables.rst
-   └── setup
+   └── setup/
        └── index.rst
 
 To display the documentation structure in the final HTML documents, you should declare the top-level documentation
