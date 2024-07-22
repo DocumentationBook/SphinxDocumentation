@@ -56,7 +56,7 @@ This command runs a web server with the default TCP port number 9001 to present 
 
 A separate section :ref:`research_tools_analysis` in this document describes the use of the interactive viewer.
 
-This tracer utility provides some options that you can use to customize you search, for example:
+This tracer utility provides some options that you can use to customize your search, for example:
 
 *  To see only some top level program calls, limit the depth of the stack. For example, to get Sphinx calls not deeper
    than 10 levels, use this command::
