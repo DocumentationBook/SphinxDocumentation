@@ -68,7 +68,7 @@ file before it emits any events. Creating a handler consists of the following st
    You will find it in the ``sphinx/config.py`` file. Well, but which of its properties contain the configuration
    parameters collected at this moment? To answer this question, look at the statement that starts collecting this data
    before the notification is issued.
-   This is ``self.config.init_values()`` in the ``sphinx.application.py`` file.
+   This is ``self.config.init_values()`` in the ``sphinx/application.py`` file.
    Look at the ``init_values()`` definition in the ``sphinx.config.Config`` class.
    You will notice that it collects initial values in the ``_raw_config`` dictionary.
    To print the contents of this dictionary, add the following line to the handler::
