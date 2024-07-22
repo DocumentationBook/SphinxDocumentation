@@ -8,8 +8,8 @@ Sphinx enables you to customize the appearance of documentation in various ways:
 *  Choosing a theme
 *  Customizing the chosen theme
 *  Developing your own theme
-*  Customization via CSS
-*  Customization via JavaScript
+*  Customizing via CSS
+*  Customizing via JavaScript
 
 
 Adding announcement
