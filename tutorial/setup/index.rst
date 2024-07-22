@@ -53,7 +53,7 @@ steps as follows:
 
    *  Make the current folder the root of the source reST documentation tree and build the final documents
       (usually HTML documentation tree) in the ``./_build/`` subfolder.
-   *  Make two subfolders, one ``./source/`` for the source reST documentation tree and the other ``build`` for the
+   *  Make two subfolders, one ``./source/`` for the source reST documentation tree and the other ``./build/`` for the
       final documentation tree.
 
    The message looks as follows::
