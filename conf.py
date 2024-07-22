@@ -20,7 +20,7 @@ import os
 # -- Project information -----------------------------------------------------
 
 project = 'Detailed Sphinx'
-copyright = '2023, Albert Bagdasarian'
+copyright = '2024, Albert Bagdasarian'
 author = 'Albert Bagdasarian'
 
 # The full version, including alpha/beta/rc tags
