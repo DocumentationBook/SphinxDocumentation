@@ -21,14 +21,14 @@ The process includes the following operations:
 
       sys.exit(main)
 
-#. The ``sphinx.cmd.builds.main`` function sets up the locale and calls the top-level orchestrator of the processes ``build_main``::
+#. The ``sphinx.cmd.build.main`` function sets up the locale and calls the top-level orchestrator of the processes ``build_main``::
 
       sphinx.locale.setlocale(locale.LC_ALL, '')
       sphinx.locale.init_console(os.path.join(package_dir, 'locale'), 'sphinx')
 
       return build_main(argv)
 
-#. The ``sphinx.cmd.builds.build_main`` function validates and collects arguments passed
+#. The ``sphinx.cmd.build.build_main`` function validates and collects arguments passed
    to the ``sphinx-build`` command (``argv``),
    requests creation of the main application, and starts the building processes as follows:
 
